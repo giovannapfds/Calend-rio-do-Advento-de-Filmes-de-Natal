@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Abra 42 portinhas com filmes de Natal, de 13 de novembro a 24 de dezembro.">
+<meta name="color-scheme" content="only dark">
+<meta name="theme-color" content="#10231b">
+<title>Cinema de Natal · Calendário do Advento</title>
+<link rel="stylesheet" href="estilo.css">
+<script defer src="temas.js"></script>
+<script defer src="calendario.js"></script>
+</head>
+<body>
+<div class="snow" aria-hidden="true"></div>
+<header class="top">
+  <a class="brand" href="#">✦ <span>Cinema de Natal</span></a>
+  <button id="sound" class="sound" type="button" aria-pressed="true">♫ Som ligado</button>
+</header>
+<main>
+  <section class="hero" aria-labelledby="title">
+    <div class="hero-decoration" aria-hidden="true">✦ <span>❋</span> ✦</div>
+    <p class="eyebrow">13 de novembro a 24 de dezembro · 2026</p>
+    <h1 id="title">Calendário do Advento<br><em>de Filmes de Natal</em></h1>
+    <p class="intro">Abra uma portinha para descobrir o filme, o resumo e onde assistir.</p>
+    <div class="services" aria-label="Plataformas do calendário"><span>Netflix</span><span>Prime Video</span><span>Disney+</span></div>
+  </section>
+  <div class="calendar">
+    <nav class="calendar-nav" aria-label="Meses do calendário">
+      <a href="#novembro">Novembro</a><a href="#dezembro">Dezembro</a>
+      <span id="progress" role="status"></span>
+    </nav>
+    <section id="novembro" aria-labelledby="nov-title">
+      <div class="month"><h2 id="nov-title">Novembro</h2><span>13–30</span></div>
+      <div class="doors"></div>
+    </section>
+    <section id="dezembro" aria-labelledby="dez-title">
+      <div class="month"><h2 id="dez-title">Dezembro</h2><span>01–24</span></div>
+      <div class="doors"></div>
+    </section>
+  </div>
+</main>
+<footer>Catálogo brasileiro consultado em 12/11/2026. A disponibilidade pode mudar.</footer>
+<dialog id="film" aria-labelledby="film-title">
+  <div class="film-inner">
+    <button class="close" type="button" aria-label="Fechar ficha">×</button>
+    <div class="film-art" aria-hidden="true"><span id="film-icon"></span></div>
+    <p id="film-date" class="eyebrow"></p>
+    <h2 id="film-title"></h2>
+    <p id="film-details"></p>
+    <p id="film-summary"></p>
+    <p id="film-release" hidden></p>
+    <a class="stream" id="film-link" target="_blank" rel="noopener noreferrer"></a>
+    <fieldset class="film-rating" aria-describedby="rating-status">
+      <legend>Sua avaliação</legend>
+      <div class="rating-stars">
+        <label><input type="radio" name="film-rating" value="1" aria-label="1 estrela"><span aria-hidden="true">☆</span></label>
+        <label><input type="radio" name="film-rating" value="2" aria-label="2 estrelas"><span aria-hidden="true">☆</span></label>
+        <label><input type="radio" name="film-rating" value="3" aria-label="3 estrelas"><span aria-hidden="true">☆</span></label>
+        <label><input type="radio" name="film-rating" value="4" aria-label="4 estrelas"><span aria-hidden="true">☆</span></label>
+        <label><input type="radio" name="film-rating" value="5" aria-label="5 estrelas"><span aria-hidden="true">☆</span></label>
+      </div>
+      <p id="rating-status" role="status"></p>
+    </fieldset>
+  </div>
+</dialog>
+</body>
+</html>
