@@ -1,7 +1,7 @@
 # Enviar o projeto para o GitHub
 
 1. Crie um repositório vazio no GitHub e copie a URL HTTPS.
-2. Abra no VS Code a pasta extraída que contém `app.py` e `README.md`.
+2. Abra no VS Code a pasta extraída que contém `README.md`.
 3. No terminal dessa pasta, execute os comandos abaixo. Troque a URL de exemplo pela URL do seu repositório.
 
 ```bash

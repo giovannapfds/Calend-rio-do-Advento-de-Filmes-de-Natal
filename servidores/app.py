@@ -10,9 +10,9 @@ from io import BytesIO
 from pathlib import Path
 from urllib.parse import urlsplit
 
-PROJECT_DIR = Path(__file__).resolve().parent
+PROJECT_DIR = Path(__file__).resolve().parents[1]
 STATIC_DIR = PROJECT_DIR / "static"
-CATALOG_PATH = PROJECT_DIR / "filmes.json"
+CATALOG_PATH = PROJECT_DIR / "dados" / "filmes.json"
 
 
 class CalendarHandler(SimpleHTTPRequestHandler):

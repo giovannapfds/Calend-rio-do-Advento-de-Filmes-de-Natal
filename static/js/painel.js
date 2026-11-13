@@ -239,7 +239,7 @@
       if (embedded) {
         movies = JSON.parse(embedded.textContent);
       } else {
-        const response = await fetch('filmoteca.json');
+        const response = await fetch('dados/filmoteca.json');
         if (!response.ok) throw new Error(`Filmoteca: HTTP ${response.status}`);
         movies = await response.json();
       }

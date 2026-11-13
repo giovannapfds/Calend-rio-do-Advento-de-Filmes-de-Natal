@@ -4,7 +4,7 @@ import json
 import re
 from pathlib import Path
 
-PROJECT_DIR = Path(__file__).resolve().parent
+PROJECT_DIR = Path(__file__).resolve().parents[1]
 STATIC_DIR = PROJECT_DIR / "static"
 
 
@@ -12,8 +12,8 @@ def build_html():
     """Incorpora o CSS, os scripts e o catálogo na ordem do HTML original."""
     page = (STATIC_DIR / "index.html").read_text(encoding="utf-8")
     data_tags = [
-        inline_json(PROJECT_DIR / "filmes.json", "film-catalog"),
-        inline_json(STATIC_DIR / "filmoteca.json", "library-catalog"),
+        inline_json(PROJECT_DIR / "dados" / "filmes.json", "film-catalog"),
+        inline_json(STATIC_DIR / "dados" / "filmoteca.json", "library-catalog"),
     ]
 
     page = re.sub(
@@ -47,7 +47,7 @@ def inline_asset(filename, tag):
 
 if __name__ == "__main__":
     output = PROJECT_DIR / "abrir_calendario.html"
-    notice = "<!-- Arquivo gerado por gerar_html.py. Edite os arquivos-fonte. -->"
+    notice = "<!-- Arquivo gerado por ferramentas/gerar_html.py. Edite os arquivos-fonte. -->"
     output.write_text(
         build_html().replace("<!doctype html>", f"<!doctype html>\n{notice}", 1),
         encoding="utf-8",

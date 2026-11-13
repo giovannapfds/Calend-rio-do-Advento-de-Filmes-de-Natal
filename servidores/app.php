@@ -18,7 +18,7 @@ if ($method !== 'GET' && $method !== 'HEAD') {
     return true;
 }
 
-$catalog = @file_get_contents(__DIR__ . '/filmes.json');
+$catalog = @file_get_contents(dirname(__DIR__) . '/dados/filmes.json');
 if ($catalog === false) {
     http_response_code(500);
     $catalog = '{"erro":"Não foi possível carregar o catálogo."}';

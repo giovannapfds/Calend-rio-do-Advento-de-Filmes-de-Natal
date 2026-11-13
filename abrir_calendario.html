@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Arquivo gerado por gerar_html.py. Edite os arquivos-fonte. -->
+<!-- Arquivo gerado por ferramentas/gerar_html.py. Edite os arquivos-fonte. -->
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
@@ -3511,7 +3511,7 @@ function createSessions({ node, link, list, ifoodUrl }) {
       if (embedded) {
         movies = JSON.parse(embedded.textContent);
       } else {
-        const response = await fetch('filmoteca.json');
+        const response = await fetch('dados/filmoteca.json');
         if (!response.ok) throw new Error(`Filmoteca: HTTP ${response.status}`);
         movies = await response.json();
       }

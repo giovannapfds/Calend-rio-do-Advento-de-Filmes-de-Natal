@@ -8,4 +8,4 @@ if ! command -v python3 >/dev/null; then
   exit 1
 fi
 
-exec python3 app.py --open
+exec python3 servidores/app.py --open
