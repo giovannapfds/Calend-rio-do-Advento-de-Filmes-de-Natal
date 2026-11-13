@@ -8,8 +8,6 @@
 <meta name="theme-color" content="#10231b">
 <title>Cinema de Natal · Calendário do Advento</title>
 <link rel="stylesheet" href="estilo.css">
-<script defer src="temas.js"></script>
-<script defer src="calendario.js"></script>
 </head>
 <body>
 <div class="snow" aria-hidden="true"></div>
@@ -40,6 +38,12 @@
     </section>
   </div>
 </main>
+<template id="door-template">
+  <button class="door" type="button" aria-haspopup="dialog">
+    <span class="inside" aria-hidden="true">✦</span>
+    <span class="face" aria-hidden="true"><strong></strong><small></small></span>
+  </button>
+</template>
 <footer>Catálogo brasileiro consultado em 12/11/2026. A disponibilidade pode mudar.</footer>
 <dialog id="film" aria-labelledby="film-title">
   <div class="film-inner">
@@ -64,5 +68,8 @@
     </fieldset>
   </div>
 </dialog>
+<script defer src="temas.js"></script>
+<script defer src="audio.js"></script>
+<script defer src="calendario.js"></script>
 </body>
 </html>

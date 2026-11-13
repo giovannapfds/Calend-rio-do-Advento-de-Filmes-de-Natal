@@ -16,9 +16,9 @@ Em `filmes.json`, cada entrada segue esta ordem:
 
 O par de cada data em `static/temas.js` contém o nome do tema e o ícone da ficha. O objeto `themes` define as notas, o timbre e o ritmo. Para mudar as cores, procure o tema correspondente no CSS, nos seletores `#film[data-theme="…"]`.
 
-## Layout e avaliações
+## Layout, som e avaliações
 
-A página e os controles ficam em `static/index.html`. A aparência e os tamanhos para celular ficam em `static/estilo.css`. A lógica da nota fica em `showRating` e no evento `change` de `ratingGroup` em `static/calendario.js`. O navegador guarda as notas por data em `localStorage`, sem banco de dados.
+A página e os controles ficam em `static/index.html`. Edite o template `door-template` para alterar a estrutura de todas as portinhas. A aparência e os tamanhos para celular ficam em `static/estilo.css`. A lógica da nota fica em `showRating` e no evento `change` de `ratingGroup` em `static/calendario.js`. O navegador guarda as notas e o progresso por data em `localStorage`, usando chaves como `novembro-13`. A reprodução fica em `static/audio.js` e usa Web Audio.
 
 ## Conferir depois de editar
 
@@ -26,5 +26,6 @@ A página e os controles ficam em `static/index.html`. A aparência e os tamanho
 2. Abra uma portinha de novembro e uma de dezembro. Confira título, resumo, tema, som e link.
 3. Dê notas diferentes aos dois filmes. Recarregue a página e reabra as portinhas para conferir as notas.
 4. Em uma janela estreita, confira a leitura das fichas e o botão de fechar.
+5. Rode `python3 gerar_html.py` (ou `py gerar_html.py` no Windows) e abra `abrir_calendario.html` para conferir a versão independente.
 
-`abrir_calendario.html` é uma cópia completa e independente incluída no pacote. Edições no catálogo e nos arquivos de `static/` aparecem na versão servida pelo Python. Para refletir as mesmas edições na cópia independente, atualize também seu catálogo e os estilos ou scripts incorporados.
+O gerador incorpora o catálogo, o CSS e os scripts a partir dos arquivos-fonte. Faça as alterações nesses arquivos e regenere o HTML antes de publicar ou compartilhar a versão independente.

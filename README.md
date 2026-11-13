@@ -23,10 +23,14 @@ O projeto usa a biblioteca padrão do Python. Se a porta estiver ocupada, acresc
 | `filmes.json` | Catálogo com os 42 filmes |
 | `static/index.html` | Estrutura da página servida pelo Python |
 | `static/estilo.css` | Layout, cores, contraste e animações |
-| `static/calendario.js` | Portinhas, fichas, áudio, avaliações e progresso |
+| `static/calendario.js` | Portinhas, fichas, avaliações e progresso |
+| `static/audio.js` | Reprodução e interrupção das melodias |
 | `static/temas.js` | Temas visuais e arranjos instrumentais |
-| `abrir_calendario.html` | Cópia independente para abrir com dois cliques |
+| `gerar_html.py` | Gera a versão independente a partir dos arquivos-fonte |
+| `abrir_calendario.html` | HTML gerado para abrir com dois cliques |
 | `.gitignore` | Ignora caches, ambientes virtuais e arquivos locais de configuração |
+
+Após editar o catálogo ou os arquivos em `static/`, rode `python3 gerar_html.py` (ou `py gerar_html.py` no Windows) para atualizar o HTML independente.
 
 - [Guia do código e da manutenção](docs/GUIA_DO_CODIGO.md)
 - [Como subir no GitHub](docs/PUBLICAR_NO_GIT.md)

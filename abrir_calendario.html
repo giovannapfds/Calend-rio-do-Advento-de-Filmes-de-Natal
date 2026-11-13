@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- Arquivo gerado por gerar_html.py. Edite os arquivos-fonte. -->
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
@@ -10,121 +11,624 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap');
 
-:root{color-scheme:only dark;--cinema-natal-bg:#10231b;--cinema-natal-cream:#fff6e5;--cinema-natal-gold:#ffe0a3;--cinema-natal-line:#e3be793c;--cinema-natal-text:#f7ead7;--cinema-natal-serif:"Playfair Display",Georgia,serif;--cinema-natal-sans:"DM Sans",system-ui,sans-serif}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% 6%,#314130 0,transparent 42rem),var(--cinema-natal-bg);color:var(--cinema-natal-cream);font-family:var(--cinema-natal-sans)}
-a{color:inherit}
-button{font:inherit;color:inherit;cursor:pointer}
-:focus-visible{outline:3px solid #ffe2a4;outline-offset:4px}
-.top{position:relative;z-index:1;max-width:1250px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:22px clamp(18px,5vw,60px);border-bottom:1px solid var(--cinema-natal-line)}
-.brand{text-decoration:none;font:600 clamp(17px,3.5vw,23px) var(--cinema-natal-serif);color:var(--cinema-natal-gold)}
-.brand span{color:var(--cinema-natal-cream);margin-left:.35em}
-.sound{border:1px solid var(--cinema-natal-line);border-radius:30px;background:#12251be0;padding:8px 13px;color:var(--cinema-natal-cream);font-size:13px;white-space:nowrap}
-.hero{position:relative;text-align:center;padding:clamp(45px,8vw,89px) 15px 43px}
-.hero-decoration{display:flex;align-items:center;justify-content:center;gap:17px;color:var(--cinema-natal-gold);font-size:14px;margin-bottom:18px}
-.hero-decoration span{font-size:30px;line-height:1}
-.eyebrow{text-transform:uppercase;letter-spacing:.16em;color:var(--cinema-natal-gold);font-size:13px;font-weight:700}
-h1{color:#fff6e5;margin:14px auto 17px;font:700 clamp(35px,7vw,86px)/1.06 var(--cinema-natal-serif);letter-spacing:-.045em}
-h1 em{color:#f2d295;font-weight:600}
-.intro{color:var(--cinema-natal-text);font-size:clamp(14px,2vw,17px);margin:23px 0 19px}
-.services{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
-.services span{padding:5px 11px;border:1px solid var(--cinema-natal-line);border-radius:24px;font-size:12px;background:#14251bc9}
-.services span:nth-child(1){color:#ffb0a7}.services span:nth-child(2){color:#9ddcf2}.services span:nth-child(3){color:#dfd1ff}
-.calendar{position:relative;max-width:1120px;margin:auto;padding:0 clamp(16px,4vw,40px) 28px}
-.calendar-nav{display:flex;align-items:center;gap:clamp(12px,3vw,25px);border-block:1px solid var(--cinema-natal-line);padding:13px 0;font-size:15px}
-.calendar-nav a{color:#fff6e5;text-underline-offset:4px}.calendar-nav span{margin-left:auto;color:var(--cinema-natal-gold);text-align:right}
-.month{display:flex;align-items:baseline;gap:13px;margin:30px 0 13px}
-.month h2{color:#fff6e5;font:600 clamp(27px,4vw,39px) var(--cinema-natal-serif);margin:0}
-.month span{color:var(--cinema-natal-gold);font-size:12px;letter-spacing:.12em}
-.calendar section{scroll-margin-top:15px}
-.doors{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(9px,1.6vw,16px)}
-.door{position:relative;isolation:isolate;aspect-ratio:1/.91;perspective:700px;padding:0;border:0;background:none;border-radius:9px}
-.face,.inside{position:absolute;inset:0;display:grid;place-items:center;border-radius:9px}
-.inside{background:#261c14;border:1px solid #947143;color:#ffdb95;font-size:29px}
-.face{transform-origin:left center;backface-visibility:hidden;transition:transform .55s cubic-bezier(.24,.71,.2,1);border:1px solid #d8b57888;background:linear-gradient(135deg,#6d2229,#48161e);box-shadow:0 7px 15px #0003}
-.door:nth-child(even) .face{background:linear-gradient(140deg,#2d5140,#183225)}
-.door:nth-child(5n) .face{background:linear-gradient(140deg,#5b482b,#332718)}
-.face::before{content:"";position:absolute;inset:6px;border:1px solid #e6be7770;border-radius:5px;background:linear-gradient(90deg,transparent calc(50% - 1px),#efc78158 calc(50% - 1px),#efc78158 calc(50% + 1px),transparent calc(50% + 1px)),linear-gradient(transparent calc(50% - 1px),#efc78158 calc(50% - 1px),#efc78158 calc(50% + 1px),transparent calc(50% + 1px))}
-.face strong{color:#fff6e5;position:relative;display:grid;place-items:center;width:52%;aspect-ratio:1;border:1px solid #e0bd7baa;border-radius:50%;background:#191c17;font:600 clamp(23px,4vw,44px)/1 var(--cinema-natal-serif);box-shadow:0 3px 9px #0004}
-.face small{position:absolute;bottom:9%;font-size:clamp(8px,1.1vw,11px);font-weight:700;letter-spacing:.13em;color:#ffedca}
-.door.opening .face{transform:rotateY(-105deg)}
-.door[data-opened="true"] .face strong{border-color:#ffe2a8;color:#ffe2a8}
-.door[data-opened="true"] .face::after{content:"✓";position:absolute;right:10%;top:8%;color:#ffe2a8;font-size:13px}
-@media(hover:hover){.door:hover .face{border-color:#ffe2a8;filter:brightness(1.19)}.sound:hover,.stream:hover{filter:brightness(1.15)}}
-footer{position:relative;color:var(--cinema-natal-text);text-align:center;padding:27px 16px 37px;font-size:12px}
-.snow{position:fixed;inset:0;overflow:hidden;pointer-events:none}
-.flake{position:absolute;top:-15px;border-radius:50%;background:#fff4dd;animation:fall linear infinite}
-@keyframes fall{to{transform:translate(32px,105vh)}}
-dialog{width:min(490px,calc(100% - 30px));max-height:calc(100% - 30px);padding:0;border:1px solid #ceaa6d;border-radius:16px;background:radial-gradient(at top,#6d2c33,#371a20 75%);color:var(--cinema-natal-cream);box-shadow:0 20px 80px #0009}
-dialog::backdrop{background:#0a100ddb;backdrop-filter:blur(4px)}
-.film-inner{padding:clamp(25px,7vw,48px);text-align:center}
-.close{position:absolute;top:11px;right:11px;border:1px solid var(--cinema-natal-line);background:#341d20;border-radius:50%;height:38px;width:38px;font-size:24px;line-height:1}
-.film-star{color:var(--cinema-natal-gold);font-size:33px}
-dialog h2{color:#fff6e5;margin:9px 0;font:700 clamp(29px,6vw,45px)/1.12 var(--cinema-natal-serif)}
-#film-details{color:#f4cc8e;font-size:14px}
-#film-summary{font-size:16px;line-height:1.6;color:#fff0dd;margin:17px 0}
-#film-release{font-size:13px;color:#f6d9a9}
-.stream{display:inline-block;margin-top:8px;padding:11px 18px;background:#f4d596;color:#372419;border-radius:30px;font-weight:700;font-size:14px;text-decoration:none}
-@media(max-width:650px){.doors{grid-template-columns:repeat(4,minmax(0,1fr))}.face::before{inset:4px}.face small{bottom:7%}}
-@media(max-width:355px){.doors{grid-template-columns:repeat(3,minmax(0,1fr))}.calendar-nav{font-size:13px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.flake{animation:none;top:var(--cinema-natal-position)}.face{transition:none}}
+/* Tokens visuais e estilos gerais */
+:root {
+  color-scheme: only dark;
+  --cinema-natal-bg: #10231b;
+  --cinema-natal-cream: #fff6e5;
+  --cinema-natal-gold: #ffe0a3;
+  --cinema-natal-line: #e3be793c;
+  --cinema-natal-text: #f7ead7;
+  --cinema-natal-serif: "Playfair Display",Georgia,serif;
+  --cinema-natal-sans: "DM Sans",system-ui,sans-serif;
+}
 
-#film{
-  --cinema-natal-scene:#743740;
-  --cinema-natal-shadow:#351a22;
-  --cinema-natal-accent:#f4d596;
-  --cinema-natal-horizon:#eebf842f;
-  background:radial-gradient(ellipse at 50% 0,var(--cinema-natal-scene),var(--cinema-natal-shadow) 72%);
-  border-color:var(--cinema-natal-accent);
+* {
+  box-sizing: border-box;
 }
-#film[data-theme="neve"]{--cinema-natal-scene:#316883;--cinema-natal-shadow:#101e39;--cinema-natal-accent:#d0edff;--cinema-natal-horizon:#97d5ff55}
-#film[data-theme="polo"]{--cinema-natal-scene:#427057;--cinema-natal-shadow:#142d24;--cinema-natal-accent:#f5da9b;--cinema-natal-horizon:#b4e6bd50}
-#film[data-theme="romance"]{--cinema-natal-scene:#90495e;--cinema-natal-shadow:#431e33;--cinema-natal-accent:#ffd6d8;--cinema-natal-horizon:#ffbdcf52}
-#film[data-theme="musical"]{--cinema-natal-scene:#754579;--cinema-natal-shadow:#30203e;--cinema-natal-accent:#ffe0af;--cinema-natal-horizon:#ebb8f15c}
-#film[data-theme="fantasia"]{--cinema-natal-scene:#65529b;--cinema-natal-shadow:#251c46;--cinema-natal-accent:#ead9ff;--cinema-natal-horizon:#dcc5ff5c}
-#film[data-theme="classico"]{--cinema-natal-scene:#795637;--cinema-natal-shadow:#342418;--cinema-natal-accent:#ffe1a6;--cinema-natal-horizon:#ffda9057}
-#film[data-theme="acao"]{--cinema-natal-scene:#3b5573;--cinema-natal-shadow:#101a2b;--cinema-natal-accent:#ffcfab;--cinema-natal-horizon:#81aac35c}
-#film[data-theme="sombrio"]{--cinema-natal-scene:#533c66;--cinema-natal-shadow:#21172b;--cinema-natal-accent:#e8d2ff;--cinema-natal-horizon:#ba95d457}
-#film .eyebrow,#film-details,#film-release{color:var(--cinema-natal-accent)}
-#film .stream{background:var(--cinema-natal-accent)}
-#film .close{background:var(--cinema-natal-shadow)}
-.film-art{
-  position:relative;
-  display:grid;
-  place-items:center;
-  width:100%;
-  min-height:105px;
-  margin:5px auto 22px;
-  border-block:1px solid var(--cinema-natal-horizon);
-  border-radius:50%;
-  background:radial-gradient(ellipse,var(--cinema-natal-horizon),transparent 64%);
-}
-.film-art::before,.film-art::after{
-  position:absolute;
-  top:40%;
-  color:var(--cinema-natal-accent);
-  opacity:.8;
-  font-size:15px;
-}
-.film-art::before{content:"✦";left:25%}
-.film-art::after{content:"✧";right:25%;top:54%}
-#film-icon{font-size:57px;line-height:1;filter:drop-shadow(0 8px 8px #0006)}
 
-.film-rating{
-  margin:25px 0 0;
-  padding:10px 0 0;
-  border:0;
-  border-top:1px solid var(--cinema-natal-horizon);
+html {
+  scroll-behavior: smooth;
 }
-.film-rating legend{margin:auto;padding:0 10px;color:#fff6e5;font-size:15px;font-weight:700}
-.rating-stars{display:flex;justify-content:center;gap:3px}
-.rating-stars label{position:relative;display:grid;place-items:center;width:44px;height:44px;cursor:pointer}
-.rating-stars input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}
-.rating-stars span{color:#ffe0a3;font:32px/1 system-ui,sans-serif;border-radius:6px}
-.rating-stars input:focus-visible + span{outline:2px solid #fff6e5;outline-offset:4px}
-#rating-status{margin:5px 0 0;color:#fff6e5;font-size:13px}
 
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 6%,#314130 0,transparent 42rem),var(--cinema-natal-bg);
+  color: var(--cinema-natal-cream);
+  font-family: var(--cinema-natal-sans);
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 3px solid #ffe2a4;
+  outline-offset: 4px;
+}
+
+/* Cabeçalho e introdução */
+.top {
+  position: relative;
+  z-index: 1;
+  max-width: 1250px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px clamp(18px,5vw,60px);
+  border-bottom: 1px solid var(--cinema-natal-line);
+}
+
+.brand {
+  text-decoration: none;
+  font: 600 clamp(17px,3.5vw,23px) var(--cinema-natal-serif);
+  color: var(--cinema-natal-gold);
+}
+
+.brand span {
+  color: var(--cinema-natal-cream);
+  margin-left: .35em;
+}
+
+.sound {
+  border: 1px solid var(--cinema-natal-line);
+  border-radius: 30px;
+  background: #12251be0;
+  padding: 8px 13px;
+  color: var(--cinema-natal-cream);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.hero {
+  position: relative;
+  text-align: center;
+  padding: clamp(45px,8vw,89px) 15px 43px;
+}
+
+.hero-decoration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 17px;
+  color: var(--cinema-natal-gold);
+  font-size: 14px;
+  margin-bottom: 18px;
+}
+
+.hero-decoration span {
+  font-size: 30px;
+  line-height: 1;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  color: var(--cinema-natal-gold);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+h1 {
+  color: #fff6e5;
+  margin: 14px auto 17px;
+  font: 700 clamp(35px,7vw,86px)/1.06 var(--cinema-natal-serif);
+  letter-spacing: -.045em;
+}
+
+h1 em {
+  color: #f2d295;
+  font-weight: 600;
+}
+
+.intro {
+  color: var(--cinema-natal-text);
+  font-size: clamp(14px,2vw,17px);
+  margin: 23px 0 19px;
+}
+
+.services {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.services span {
+  padding: 5px 11px;
+  border: 1px solid var(--cinema-natal-line);
+  border-radius: 24px;
+  font-size: 12px;
+  background: #14251bc9;
+}
+
+.services span:nth-child(1) {
+  color: #ffb0a7;
+}
+
+.services span:nth-child(2) {
+  color: #9ddcf2;
+}
+
+.services span:nth-child(3) {
+  color: #dfd1ff;
+}
+
+/* Calendário e estados das portinhas */
+.calendar {
+  position: relative;
+  max-width: 1120px;
+  margin: auto;
+  padding: 0 clamp(16px,4vw,40px) 28px;
+}
+
+.calendar-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px,3vw,25px);
+  border-block: 1px solid var(--cinema-natal-line);
+  padding: 13px 0;
+  font-size: 15px;
+}
+
+.calendar-nav a {
+  color: #fff6e5;
+  text-underline-offset: 4px;
+}
+
+.calendar-nav span {
+  margin-left: auto;
+  color: var(--cinema-natal-gold);
+  text-align: right;
+}
+
+.month {
+  display: flex;
+  align-items: baseline;
+  gap: 13px;
+  margin: 30px 0 13px;
+}
+
+.month h2 {
+  color: #fff6e5;
+  font: 600 clamp(27px,4vw,39px) var(--cinema-natal-serif);
+  margin: 0;
+}
+
+.month span {
+  color: var(--cinema-natal-gold);
+  font-size: 12px;
+  letter-spacing: .12em;
+}
+
+.calendar section {
+  scroll-margin-top: 15px;
+}
+
+.doors {
+  display: grid;
+  grid-template-columns: repeat(6,minmax(0,1fr));
+  gap: clamp(9px,1.6vw,16px);
+}
+
+.door {
+  position: relative;
+  isolation: isolate;
+  aspect-ratio: 1/.91;
+  perspective: 700px;
+  padding: 0;
+  border: 0;
+  background: none;
+  border-radius: 9px;
+}
+
+.face,.inside {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 9px;
+}
+
+.inside {
+  background: #261c14;
+  border: 1px solid #947143;
+  color: #ffdb95;
+  font-size: 29px;
+}
+
+.face {
+  transform-origin: left center;
+  backface-visibility: hidden;
+  transition: transform .55s cubic-bezier(.24,.71,.2,1);
+  border: 1px solid #d8b57888;
+  background: linear-gradient(135deg,#6d2229,#48161e);
+  box-shadow: 0 7px 15px #0003;
+}
+
+.door:nth-child(even) .face {
+  background: linear-gradient(140deg,#2d5140,#183225);
+}
+
+.door:nth-child(5n) .face {
+  background: linear-gradient(140deg,#5b482b,#332718);
+}
+
+.face::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px solid #e6be7770;
+  border-radius: 5px;
+  background: linear-gradient(90deg,transparent calc(50% - 1px),#efc78158 calc(50% - 1px),#efc78158 calc(50% + 1px),transparent calc(50% + 1px)),linear-gradient(transparent calc(50% - 1px),#efc78158 calc(50% - 1px),#efc78158 calc(50% + 1px),transparent calc(50% + 1px));
+}
+
+.face strong {
+  color: #fff6e5;
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 52%;
+  aspect-ratio: 1;
+  border: 1px solid #e0bd7baa;
+  border-radius: 50%;
+  background: #191c17;
+  font: 600 clamp(23px,4vw,44px)/1 var(--cinema-natal-serif);
+  box-shadow: 0 3px 9px #0004;
+}
+
+.face small {
+  position: absolute;
+  bottom: 9%;
+  font-size: clamp(8px,1.1vw,11px);
+  font-weight: 700;
+  letter-spacing: .13em;
+  color: #ffedca;
+}
+
+.door.opening .face {
+  transform: rotateY(-105deg);
+}
+
+.door[data-opened="true"] .face strong {
+  border-color: #ffe2a8;
+  color: #ffe2a8;
+}
+
+.door[data-opened="true"] .face::after {
+  content: "✓";
+  position: absolute;
+  right: 10%;
+  top: 8%;
+  color: #ffe2a8;
+  font-size: 13px;
+}
+
+@media(hover:hover) {
+  .door:hover .face {
+    border-color: #ffe2a8;
+    filter: brightness(1.19);
+  }
+  .sound:hover,.stream:hover {
+    filter: brightness(1.15);
+  }
+}
+
+/* Rodapé e decoração */
+footer {
+  position: relative;
+  color: var(--cinema-natal-text);
+  text-align: center;
+  padding: 27px 16px 37px;
+  font-size: 12px;
+}
+
+.snow {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.flake {
+  position: absolute;
+  top: -15px;
+  border-radius: 50%;
+  background: #fff4dd;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translate(32px,105vh);
+  }
+}
+
+/* Ficha do filme */
+dialog {
+  width: min(490px,calc(100% - 30px));
+  max-height: calc(100% - 30px);
+  padding: 0;
+  border: 1px solid #ceaa6d;
+  border-radius: 16px;
+  background: radial-gradient(at top,#6d2c33,#371a20 75%);
+  color: var(--cinema-natal-cream);
+  box-shadow: 0 20px 80px #0009;
+}
+
+dialog::backdrop {
+  background: #0a100ddb;
+  backdrop-filter: blur(4px);
+}
+
+.film-inner {
+  padding: clamp(25px,7vw,48px);
+  text-align: center;
+}
+
+.close {
+  position: absolute;
+  top: 11px;
+  right: 11px;
+  border: 1px solid var(--cinema-natal-line);
+  background: #341d20;
+  border-radius: 50%;
+  height: 38px;
+  width: 38px;
+  font-size: 24px;
+  line-height: 1;
+}
+
+dialog h2 {
+  color: #fff6e5;
+  margin: 9px 0;
+  font: 700 clamp(29px,6vw,45px)/1.12 var(--cinema-natal-serif);
+}
+
+#film-details {
+  color: #f4cc8e;
+  font-size: 14px;
+}
+
+#film-summary {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #fff0dd;
+  margin: 17px 0;
+}
+
+#film-release {
+  font-size: 13px;
+  color: #f6d9a9;
+}
+
+.stream {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 11px 18px;
+  background: #f4d596;
+  color: #372419;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+/* Layout compacto e preferência de movimento */
+@media(max-width:650px) {
+  .doors {
+    grid-template-columns: repeat(4,minmax(0,1fr));
+  }
+  .face::before {
+    inset: 4px;
+  }
+  .face small {
+    bottom: 7%;
+  }
+}
+
+@media(max-width:355px) {
+  .doors {
+    grid-template-columns: repeat(3,minmax(0,1fr));
+  }
+  .calendar-nav {
+    font-size: 13px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .flake {
+    animation: none;
+    top: var(--cinema-natal-position);
+  }
+  .face {
+    transition: none;
+  }
+}
+
+/* Paletas da ficha. Os nomes dos temas vêm de temas.js. */
+#film {
+  --cinema-natal-scene: #743740;
+  --cinema-natal-shadow: #351a22;
+  --cinema-natal-accent: #f4d596;
+  --cinema-natal-horizon: #eebf842f;
+  background: radial-gradient(ellipse at 50% 0,var(--cinema-natal-scene),var(--cinema-natal-shadow) 72%);
+  border-color: var(--cinema-natal-accent);
+}
+
+#film[data-theme="neve"] {
+  --cinema-natal-scene: #316883;
+  --cinema-natal-shadow: #101e39;
+  --cinema-natal-accent: #d0edff;
+  --cinema-natal-horizon: #97d5ff55;
+}
+
+#film[data-theme="polo"] {
+  --cinema-natal-scene: #427057;
+  --cinema-natal-shadow: #142d24;
+  --cinema-natal-accent: #f5da9b;
+  --cinema-natal-horizon: #b4e6bd50;
+}
+
+#film[data-theme="romance"] {
+  --cinema-natal-scene: #90495e;
+  --cinema-natal-shadow: #431e33;
+  --cinema-natal-accent: #ffd6d8;
+  --cinema-natal-horizon: #ffbdcf52;
+}
+
+#film[data-theme="musical"] {
+  --cinema-natal-scene: #754579;
+  --cinema-natal-shadow: #30203e;
+  --cinema-natal-accent: #ffe0af;
+  --cinema-natal-horizon: #ebb8f15c;
+}
+
+#film[data-theme="fantasia"] {
+  --cinema-natal-scene: #65529b;
+  --cinema-natal-shadow: #251c46;
+  --cinema-natal-accent: #ead9ff;
+  --cinema-natal-horizon: #dcc5ff5c;
+}
+
+#film[data-theme="classico"] {
+  --cinema-natal-scene: #795637;
+  --cinema-natal-shadow: #342418;
+  --cinema-natal-accent: #ffe1a6;
+  --cinema-natal-horizon: #ffda9057;
+}
+
+#film[data-theme="acao"] {
+  --cinema-natal-scene: #3b5573;
+  --cinema-natal-shadow: #101a2b;
+  --cinema-natal-accent: #ffcfab;
+  --cinema-natal-horizon: #81aac35c;
+}
+
+#film[data-theme="sombrio"] {
+  --cinema-natal-scene: #533c66;
+  --cinema-natal-shadow: #21172b;
+  --cinema-natal-accent: #e8d2ff;
+  --cinema-natal-horizon: #ba95d457;
+}
+
+#film .eyebrow,#film-details,#film-release {
+  color: var(--cinema-natal-accent);
+}
+
+#film .stream {
+  background: var(--cinema-natal-accent);
+}
+
+#film .close {
+  background: var(--cinema-natal-shadow);
+}
+
+.film-art {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  min-height: 105px;
+  margin: 5px auto 22px;
+  border-block: 1px solid var(--cinema-natal-horizon);
+  border-radius: 50%;
+  background: radial-gradient(ellipse,var(--cinema-natal-horizon),transparent 64%);
+}
+
+.film-art::before,.film-art::after {
+  position: absolute;
+  top: 40%;
+  color: var(--cinema-natal-accent);
+  opacity: .8;
+  font-size: 15px;
+}
+
+.film-art::before {
+  content: "✦";
+  left: 25%;
+}
+
+.film-art::after {
+  content: "✧";
+  right: 25%;
+  top: 54%;
+}
+
+#film-icon {
+  font-size: 57px;
+  line-height: 1;
+  filter: drop-shadow(0 8px 8px #0006);
+}
+
+/* Avaliação por estrelas */
+.film-rating {
+  margin: 25px 0 0;
+  padding: 10px 0 0;
+  border: 0;
+  border-top: 1px solid var(--cinema-natal-horizon);
+}
+
+.film-rating legend {
+  margin: auto;
+  padding: 0 10px;
+  color: #fff6e5;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.rating-stars {
+  display: flex;
+  justify-content: center;
+  gap: 3px;
+}
+
+.rating-stars label {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+}
+
+.rating-stars input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.rating-stars span {
+  color: #ffe0a3;
+  font: 32px/1 system-ui,sans-serif;
+  border-radius: 6px;
+}
+
+.rating-stars input:focus-visible + span {
+  outline: 2px solid #fff6e5;
+  outline-offset: 4px;
+}
+
+#rating-status {
+  margin: 5px 0 0;
+  color: #fff6e5;
+  font-size: 13px;
+}
 </style>
 </head>
 <body>
@@ -156,6 +660,12 @@ dialog h2{color:#fff6e5;margin:9px 0;font:700 clamp(29px,6vw,45px)/1.12 var(--ci
     </section>
   </div>
 </main>
+<template id="door-template">
+  <button class="door" type="button" aria-haspopup="dialog">
+    <span class="inside" aria-hidden="true">✦</span>
+    <span class="face" aria-hidden="true"><strong></strong><small></small></span>
+  </button>
+</template>
 <footer>Catálogo brasileiro consultado em 12/11/2026. A disponibilidade pode mudar.</footer>
 <dialog id="film" aria-labelledby="film-title">
   <div class="film-inner">
@@ -180,91 +690,374 @@ dialog h2{color:#fff6e5;margin:9px 0;font:700 clamp(29px,6vw,45px)/1.12 var(--ci
     </fieldset>
   </div>
 </dialog>
-<script>
-const catalog = {
-  novembro: [
-    ['O Expresso Polar',2004,'N','Na véspera de Natal, um menino embarca em um trem rumo ao Polo Norte. A viagem o faz redescobrir o encanto de acreditar.','https://www.netflix.com/br/title/70011200'],
-    ['Noelle',2019,'D','Quando seu irmão desaparece antes de assumir o posto de Papai Noel, Noelle deixa o Polo Norte para encontrá-lo e salvar a festa.'],
-    ['No Seu Natal ou no Meu?',2022,'P','Dois namorados decidem se surpreender viajando para a casa um do outro. Uma nevasca os deixa presos, cada um com a família do outro.'],
-    ['Gospel de Natal',2026,'N','Um pastor e sua família se mudam para Nova York e tentam salvar uma igreja do fechamento antes do Natal.','https://www.netflix.com/br/title/82138246'],
-    ['Crônicas de Natal',2018,'N','Dois irmãos tentam filmar o Papai Noel e acabam causando um acidente com seu trenó. Agora, precisam ajudá-lo a entregar os presentes.','https://www.netflix.com/br/title/80199682'],
-    ['O Quebra-Nozes e os Quatro Reinos',2018,'D','Na véspera de Natal, Clara procura uma chave deixada por sua mãe e encontra um mundo mágico dividido em quatro reinos.','https://www.disneyplus.com/pt-br/browse/entity-4168ddbb-ee0f-4184-8b6c-ec499aa11452'],
-    ['31 Minutos: Natal Escaldante',2025,'P','Uma onda de calor faz o Papai Noel cancelar a visita a Titirilquén. A turma do 31 Minutos precisa encontrar uma forma de salvar o Natal.'],
-    ['Um Duende em Nova York',2003,'P','Criado pelos duendes do Polo Norte, Buddy viaja para Nova York em busca do pai biológico e espalha o espírito natalino pela cidade.'],
-    ['Uma Quedinha de Natal',2022,'N','Uma herdeira perde a memória após um acidente de esqui e passa as festas aos cuidados de um viúvo e de sua filha.','https://www.netflix.com/br/title/81416312'],
-    ['Milagre na Rua 34',1994,'D','Uma menina cética começa a mudar de ideia quando um Papai Noel de loja afirma ser o verdadeiro Kris Kringle.','https://www.disneyplus.com/pt-br/browse/entity-a1bab185-9b77-44d8-9572-d601917de732'],
-    ['Sobrevivendo ao Natal',2004,'N','Para evitar passar as festas sozinho, Drew paga aos moradores de sua antiga casa para fingirem ser sua família.','https://www.netflix.com/br/title/70011201'],
-    ['Nosso Segredinho',2024,'N','Dois ex descobrem que seus novos parceiros são irmãos. Para sobreviver ao Natal sob o mesmo teto, tentam esconder o antigo namoro.','https://www.netflix.com/br/title/81498404'],
-    ['Um Menino Chamado Natal',2021,'N','À procura do pai, o jovem Nikolas viaja para o norte e descobre uma terra habitada por duendes.','https://www.netflix.com/br/title/81029733'],
-    ['Crônicas de Natal: Parte Dois',2020,'N','Kate retorna ao Polo Norte e ajuda a impedir que um elfo travesso acabe com o Natal.','https://www.netflix.com/br/title/80988988'],
-    ['Sintonia de Natal',2024,'N','Layla cruza Nova York atrás de um ingresso para o show natalino do Pentatonix, onde espera reencontrar o homem dos seus sonhos.','https://www.netflix.com/br/title/81392060'],
-    ['Uma Invenção de Natal',2020,'N','A chegada de uma neta criativa devolve a esperança a um inventor de brinquedos e reacende a magia de suas criações.','https://www.netflix.com/br/title/80232043'],
-    ['Duro de Matar',1988,'D','John McClane vai a uma festa de Natal em Los Angeles e acaba enfrentando criminosos quando eles tomam o prédio e fazem reféns.','https://www.disneyplus.com/pt-br/browse/entity-efc8250c-aeed-4ab7-a492-07064c826bc1'],
-    ['Tudo Bem no Natal que Vem',2020,'N','Jorge detesta o Natal, mas passa a acordar sempre na véspera da festa, um ano de cada vez. Para entender o que aconteceu, ele precisa olhar para a própria vida.','https://www.netflix.com/br/title/81160045']
+<script id="film-catalog" type="application/json">
+{
+  "novembro": [
+    [
+      "O Expresso Polar",
+      2004,
+      "N",
+      "Na véspera de Natal, um menino embarca em um trem rumo ao Polo Norte. A viagem o faz redescobrir o encanto de acreditar.",
+      "https://www.netflix.com/br/title/70011200"
+    ],
+    [
+      "Noelle",
+      2019,
+      "D",
+      "Quando seu irmão desaparece antes de assumir o posto de Papai Noel, Noelle deixa o Polo Norte para encontrá-lo e salvar a festa."
+    ],
+    [
+      "No Seu Natal ou no Meu?",
+      2022,
+      "P",
+      "Dois namorados decidem se surpreender viajando para a casa um do outro. Uma nevasca os deixa presos, cada um com a família do outro."
+    ],
+    [
+      "Gospel de Natal",
+      2026,
+      "N",
+      "Um pastor e sua família se mudam para Nova York e tentam salvar uma igreja do fechamento antes do Natal.",
+      "https://www.netflix.com/br/title/82138246"
+    ],
+    [
+      "Crônicas de Natal",
+      2018,
+      "N",
+      "Dois irmãos tentam filmar o Papai Noel e acabam causando um acidente com seu trenó. Agora, precisam ajudá-lo a entregar os presentes.",
+      "https://www.netflix.com/br/title/80199682"
+    ],
+    [
+      "O Quebra-Nozes e os Quatro Reinos",
+      2018,
+      "D",
+      "Na véspera de Natal, Clara procura uma chave deixada por sua mãe e encontra um mundo mágico dividido em quatro reinos.",
+      "https://www.disneyplus.com/pt-br/browse/entity-4168ddbb-ee0f-4184-8b6c-ec499aa11452"
+    ],
+    [
+      "31 Minutos: Natal Escaldante",
+      2025,
+      "P",
+      "Uma onda de calor faz o Papai Noel cancelar a visita a Titirilquén. A turma do 31 Minutos precisa encontrar uma forma de salvar o Natal."
+    ],
+    [
+      "Um Duende em Nova York",
+      2003,
+      "P",
+      "Criado pelos duendes do Polo Norte, Buddy viaja para Nova York em busca do pai biológico e espalha o espírito natalino pela cidade."
+    ],
+    [
+      "Uma Quedinha de Natal",
+      2022,
+      "N",
+      "Uma herdeira perde a memória após um acidente de esqui e passa as festas aos cuidados de um viúvo e de sua filha.",
+      "https://www.netflix.com/br/title/81416312"
+    ],
+    [
+      "Milagre na Rua 34",
+      1994,
+      "D",
+      "Uma menina cética começa a mudar de ideia quando um Papai Noel de loja afirma ser o verdadeiro Kris Kringle.",
+      "https://www.disneyplus.com/pt-br/browse/entity-a1bab185-9b77-44d8-9572-d601917de732"
+    ],
+    [
+      "Sobrevivendo ao Natal",
+      2004,
+      "N",
+      "Para evitar passar as festas sozinho, Drew paga aos moradores de sua antiga casa para fingirem ser sua família.",
+      "https://www.netflix.com/br/title/70011201"
+    ],
+    [
+      "Nosso Segredinho",
+      2024,
+      "N",
+      "Dois ex descobrem que seus novos parceiros são irmãos. Para sobreviver ao Natal sob o mesmo teto, tentam esconder o antigo namoro.",
+      "https://www.netflix.com/br/title/81498404"
+    ],
+    [
+      "Um Menino Chamado Natal",
+      2021,
+      "N",
+      "À procura do pai, o jovem Nikolas viaja para o norte e descobre uma terra habitada por duendes.",
+      "https://www.netflix.com/br/title/81029733"
+    ],
+    [
+      "Crônicas de Natal: Parte Dois",
+      2020,
+      "N",
+      "Kate retorna ao Polo Norte e ajuda a impedir que um elfo travesso acabe com o Natal.",
+      "https://www.netflix.com/br/title/80988988"
+    ],
+    [
+      "Sintonia de Natal",
+      2024,
+      "N",
+      "Layla cruza Nova York atrás de um ingresso para o show natalino do Pentatonix, onde espera reencontrar o homem dos seus sonhos.",
+      "https://www.netflix.com/br/title/81392060"
+    ],
+    [
+      "Uma Invenção de Natal",
+      2020,
+      "N",
+      "A chegada de uma neta criativa devolve a esperança a um inventor de brinquedos e reacende a magia de suas criações.",
+      "https://www.netflix.com/br/title/80232043"
+    ],
+    [
+      "Duro de Matar",
+      1988,
+      "D",
+      "John McClane vai a uma festa de Natal em Los Angeles e acaba enfrentando criminosos quando eles tomam o prédio e fazem reféns.",
+      "https://www.disneyplus.com/pt-br/browse/entity-efc8250c-aeed-4ab7-a492-07064c826bc1"
+    ],
+    [
+      "Tudo Bem no Natal que Vem",
+      2020,
+      "N",
+      "Jorge detesta o Natal, mas passa a acordar sempre na véspera da festa, um ano de cada vez. Para entender o que aconteceu, ele precisa olhar para a própria vida.",
+      "https://www.netflix.com/br/title/81160045"
+    ]
   ],
-  dezembro: [
-    ['Klaus',2019,'N','Um carteiro enviado a uma ilha gelada conhece um fabricante de brinquedos solitário. A amizade dos dois transforma a cidade.'],
-    ['Um Presente da Tiffany',2022,'P','Dois presentes trocados fazem um anel de noivado parar nas mãos de Rachel, dando início a um romance natalino em Nova York.'],
-    ['Meu Papai é Noel',1994,'D','Depois de um acidente na véspera de Natal, Scott Calvin veste o traje do Papai Noel e descobre que acabou de assumir o cargo.'],
-    ['O Natal Perfeito de um Cachorro',2026,'N','Uma emergência separa a família Goss. Winstead, um basset determinado, tenta reunir todos antes da ceia.','https://www.netflix.com/br/title/82090597'],
-    ['A Batalha de Natal',2023,'P','Para vencer um concurso de decoração, Chris faz um pacto com uma elfa que dá vida às figuras de uma canção natalina.'],
-    ['O Estranho Mundo de Jack',1993,'D','Jack Skellington descobre a Cidade do Natal e decide comemorar a festa à sua maneira, com consequências para os dois mundos.'],
-    ['Transformação de Natal',2026,'N','Duas irmãs com rotinas opostas trocam de lugar antes do Natal e encontram o amor onde menos esperavam.'],
-    ['Operação Natal',2024,'P','O Papai Noel é sequestrado. O chefe da segurança do Polo Norte recruta um caçador de recompensas para resgatá-lo.','https://www.primevideo.com/-/pt/detail/0RNA7FGRLKHSV1BNM01TY8Q33T'],
-    ['Um Natal Muito Jonas Brothers',2025,'D','Kevin, Joe e Nick enfrentam contratempos em uma viagem para tentar chegar em casa a tempo do Natal.'],
-    ['Feliz Natal e um Próspero Assalto',2025,'N','Uma vendedora e um ex-consultor de segurança tramam um roubo numa loja de departamentos durante as festas. O romance complica o plano.'],
-    ['Correndo para o Natal',2026,'P','Uma nevasca cancela os voos e força dois colegas de trabalho rivais a dividir um carro na viagem para casa.'],
-    ['O Natal dos Muppets',1992,'D','Os Muppets recontam o clássico de Charles Dickens, com Michael Caine como o avarento Scrooge e Caco como Bob Cratchit.','https://www.disneyplus.com/pt-br/browse/entity-d005716a-a1c6-4126-b5a0-df5fcd37f186'],
-    ['Protegendo Estrelas',2026,'N','Uma guarda-costas acompanha um ator à fazenda de sua família no Natal e aceita fingir que é sua namorada.','https://www.netflix.com/br/title/81749470'],
-    ['Natal Sem Papai Noel',2025,'P','Quando Papai Noel decide tirar férias, Mamãe Noel precisa entrar em ação para salvar o dia mais importante do ano.'],
-    ['Os Fantasmas de Scrooge',2009,'D','Na véspera de Natal, três espíritos mostram a Scrooge cenas de seu passado, presente e futuro e lhe dão a chance de mudar.','https://www.disneyplus.com/pt-br/browse/entity-8f498e51-90de-4f5d-8cb9-5b4dd4de81dc'],
-    ['Um Amor Efervescente',2025,'N','Uma executiva viaja à França para fechar um negócio com uma marca de champanhe e se apaixona às vésperas do Natal.'],
-    ['Um. Natal. Surreal.',2025,'P','Depois de ser esquecida pela família durante as festas, Claire embarca em uma viagem para participar de uma competição de TV.'],
-    ['Bagagem de Mão',2024,'N','Na véspera de Natal, um agente de segurança de aeroporto é chantageado para deixar uma mala perigosa embarcar.'],
-    ['Milagre na Rua 34',1947,'D','Também conhecido como De Ilusão Também Se Vive. Um Papai Noel de loja afirma ser Kris Kringle, e a questão acaba nos tribunais.','https://www.disneyplus.com/pt-br/browse/entity-d26d9cfd-7ba4-4a0b-88db-ceb4630baad0'],
-    ['Um Sonho de Férias',2026,'N','Presa num ciclo temporal, Mae revive o mesmo Natal na cabana da família e ganha várias chances de entender por quem está apaixonada.','https://www.netflix.com/br/title/81901411'],
-    ['Um Natal Ex-pecial',2025,'N','Um ex-casal tenta reunir a família para um último Natal juntos, mas novos amores e antigos sentimentos atrapalham os planos.','https://www.netflix.com/br/title/81735104'],
-    ['O Amor Não Tira Férias',2006,'P','Duas mulheres trocam de casa nas festas. Uma vai para o interior da Inglaterra, a outra para Los Angeles, e ambas encontram um novo romance.'],
-    ['Esqueceram de Mim 2: Perdido em Nova York',1992,'D','Kevin pega o voo errado e passa o Natal em Nova York, onde reencontra os ladrões que tentou despistar no primeiro filme.'],
-    ['Esqueceram de Mim',1990,'D','Esquecido em casa quando a família viaja para o Natal, Kevin improvisa armadilhas para defender a casa de dois ladrões.','https://www.disneyplus.com/pt-br/browse/entity-45e4a68f-d9df-45f7-8e81-01b4ca5524e9']
+  "dezembro": [
+    [
+      "Klaus",
+      2019,
+      "N",
+      "Um carteiro enviado a uma ilha gelada conhece um fabricante de brinquedos solitário. A amizade dos dois transforma a cidade."
+    ],
+    [
+      "Um Presente da Tiffany",
+      2022,
+      "P",
+      "Dois presentes trocados fazem um anel de noivado parar nas mãos de Rachel, dando início a um romance natalino em Nova York."
+    ],
+    [
+      "Meu Papai é Noel",
+      1994,
+      "D",
+      "Depois de um acidente na véspera de Natal, Scott Calvin veste o traje do Papai Noel e descobre que acabou de assumir o cargo."
+    ],
+    [
+      "O Natal Perfeito de um Cachorro",
+      2026,
+      "N",
+      "Uma emergência separa a família Goss. Winstead, um basset determinado, tenta reunir todos antes da ceia.",
+      "https://www.netflix.com/br/title/82090597"
+    ],
+    [
+      "A Batalha de Natal",
+      2023,
+      "P",
+      "Para vencer um concurso de decoração, Chris faz um pacto com uma elfa que dá vida às figuras de uma canção natalina."
+    ],
+    [
+      "O Estranho Mundo de Jack",
+      1993,
+      "D",
+      "Jack Skellington descobre a Cidade do Natal e decide comemorar a festa à sua maneira, com consequências para os dois mundos."
+    ],
+    [
+      "Transformação de Natal",
+      2026,
+      "N",
+      "Duas irmãs com rotinas opostas trocam de lugar antes do Natal e encontram o amor onde menos esperavam."
+    ],
+    [
+      "Operação Natal",
+      2024,
+      "P",
+      "O Papai Noel é sequestrado. O chefe da segurança do Polo Norte recruta um caçador de recompensas para resgatá-lo.",
+      "https://www.primevideo.com/-/pt/detail/0RNA7FGRLKHSV1BNM01TY8Q33T"
+    ],
+    [
+      "Um Natal Muito Jonas Brothers",
+      2025,
+      "D",
+      "Kevin, Joe e Nick enfrentam contratempos em uma viagem para tentar chegar em casa a tempo do Natal."
+    ],
+    [
+      "Feliz Natal e um Próspero Assalto",
+      2025,
+      "N",
+      "Uma vendedora e um ex-consultor de segurança tramam um roubo numa loja de departamentos durante as festas. O romance complica o plano."
+    ],
+    [
+      "Correndo para o Natal",
+      2026,
+      "P",
+      "Uma nevasca cancela os voos e força dois colegas de trabalho rivais a dividir um carro na viagem para casa."
+    ],
+    [
+      "O Natal dos Muppets",
+      1992,
+      "D",
+      "Os Muppets recontam o clássico de Charles Dickens, com Michael Caine como o avarento Scrooge e Caco como Bob Cratchit.",
+      "https://www.disneyplus.com/pt-br/browse/entity-d005716a-a1c6-4126-b5a0-df5fcd37f186"
+    ],
+    [
+      "Protegendo Estrelas",
+      2026,
+      "N",
+      "Uma guarda-costas acompanha um ator à fazenda de sua família no Natal e aceita fingir que é sua namorada.",
+      "https://www.netflix.com/br/title/81749470"
+    ],
+    [
+      "Natal Sem Papai Noel",
+      2025,
+      "P",
+      "Quando Papai Noel decide tirar férias, Mamãe Noel precisa entrar em ação para salvar o dia mais importante do ano."
+    ],
+    [
+      "Os Fantasmas de Scrooge",
+      2009,
+      "D",
+      "Na véspera de Natal, três espíritos mostram a Scrooge cenas de seu passado, presente e futuro e lhe dão a chance de mudar.",
+      "https://www.disneyplus.com/pt-br/browse/entity-8f498e51-90de-4f5d-8cb9-5b4dd4de81dc"
+    ],
+    [
+      "Um Amor Efervescente",
+      2025,
+      "N",
+      "Uma executiva viaja à França para fechar um negócio com uma marca de champanhe e se apaixona às vésperas do Natal."
+    ],
+    [
+      "Um. Natal. Surreal.",
+      2025,
+      "P",
+      "Depois de ser esquecida pela família durante as festas, Claire embarca em uma viagem para participar de uma competição de TV."
+    ],
+    [
+      "Bagagem de Mão",
+      2024,
+      "N",
+      "Na véspera de Natal, um agente de segurança de aeroporto é chantageado para deixar uma mala perigosa embarcar."
+    ],
+    [
+      "Milagre na Rua 34",
+      1947,
+      "D",
+      "Também conhecido como De Ilusão Também Se Vive. Um Papai Noel de loja afirma ser Kris Kringle, e a questão acaba nos tribunais.",
+      "https://www.disneyplus.com/pt-br/browse/entity-d26d9cfd-7ba4-4a0b-88db-ceb4630baad0"
+    ],
+    [
+      "Um Sonho de Férias",
+      2026,
+      "N",
+      "Presa num ciclo temporal, Mae revive o mesmo Natal na cabana da família e ganha várias chances de entender por quem está apaixonada.",
+      "https://www.netflix.com/br/title/81901411"
+    ],
+    [
+      "Um Natal Ex-pecial",
+      2025,
+      "N",
+      "Um ex-casal tenta reunir a família para um último Natal juntos, mas novos amores e antigos sentimentos atrapalham os planos.",
+      "https://www.netflix.com/br/title/81735104"
+    ],
+    [
+      "O Amor Não Tira Férias",
+      2006,
+      "P",
+      "Duas mulheres trocam de casa nas festas. Uma vai para o interior da Inglaterra, a outra para Los Angeles, e ambas encontram um novo romance."
+    ],
+    [
+      "Esqueceram de Mim 2: Perdido em Nova York",
+      1992,
+      "D",
+      "Kevin pega o voo errado e passa o Natal em Nova York, onde reencontra os ladrões que tentou despistar no primeiro filme."
+    ],
+    [
+      "Esqueceram de Mim",
+      1990,
+      "D",
+      "Esquecido em casa quando a família viaja para o Natal, Kevin improvisa armadilhas para defender a casa de dois ladrões.",
+      "https://www.disneyplus.com/pt-br/browse/entity-45e4a68f-d9df-45f7-8e81-01b4ca5524e9"
+    ]
   ]
-};
-
+}
+</script>
+<script>
+// A ordem das apresentações acompanha as entradas de cada mês em filmes.json.
 const filmThemes = {
   novembro: [
-    ['neve','🚂'], ['polo','🦌'], ['romance','🏡'], ['musical','🎙️'],
-    ['polo','🛷'], ['fantasia','🩰'], ['comedia','☀️'], ['comedia','🧝'],
-    ['romance','🎿'], ['classico','🎅'], ['comedia','🏠'], ['romance','🤫'],
-    ['neve','🧣'], ['polo','🌟'], ['musical','🎟️'], ['musical','⚙️'],
-    ['acao','🏙️'], ['comedia','⏰']
+    ['neve', '🚂'], ['polo', '🦌'], ['romance', '🏡'], ['musical', '🎙️'],
+    ['polo', '🛷'], ['fantasia', '🩰'], ['comedia', '☀️'], ['comedia', '🧝'],
+    ['romance', '🎿'], ['classico', '🎅'], ['comedia', '🏠'], ['romance', '🤫'],
+    ['neve', '🧣'], ['polo', '🌟'], ['musical', '🎟️'], ['musical', '⚙️'],
+    ['acao', '🏙️'], ['comedia', '⏰']
   ],
   dezembro: [
-    ['neve','💌'], ['romance','💍'], ['comedia','🎅'], ['polo','🐾'],
-    ['comedia','🍬'], ['sombrio','🎃'], ['romance','🧳'], ['acao','🛷'],
-    ['musical','🎸'], ['acao','🎁'], ['neve','🚗'], ['classico','🎩'],
-    ['romance','🎬'], ['polo','🤶'], ['sombrio','🕯️'], ['romance','🥂'],
-    ['comedia','🎀'], ['acao','✈️'], ['classico','🔔'], ['fantasia','⌛'],
-    ['romance','💝'], ['romance','🏡'], ['classico','🗽'], ['comedia','🏠']
+    ['neve', '💌'], ['romance', '💍'], ['comedia', '🎅'], ['polo', '🐾'],
+    ['comedia', '🍬'], ['sombrio', '🎃'], ['romance', '🧳'], ['acao', '🛷'],
+    ['musical', '🎸'], ['acao', '🎁'], ['neve', '🚗'], ['classico', '🎩'],
+    ['romance', '🎬'], ['polo', '🤶'], ['sombrio', '🕯️'], ['romance', '🥂'],
+    ['comedia', '🎀'], ['acao', '✈️'], ['classico', '🔔'], ['fantasia', '⌛'],
+    ['romance', '💝'], ['romance', '🏡'], ['classico', '🗽'], ['comedia', '🏠']
   ]
 };
 
 // Pequenos arranjos instrumentais para cada clima.
 const themes = {
-  neve:     { wave: 'sine',     step: .23, notes: [79,76,74,72,74,76,79,84], long: [3,7] },
-  polo:     { wave: 'triangle', step: .17, notes: [76,76,76,76,76,76,76,79,72,74,76], long: [2,5,10] },
-  romance:  { wave: 'sine',     step: .24, notes: [72,76,79,81,79,76,74,72], long: [3,7] },
-  musical:  { wave: 'triangle', step: .16, notes: [72,76,79,84,81,79,76,77,79,84], long: [3,9] },
-  fantasia: { wave: 'sine',     step: .20, notes: [69,72,76,84,83,79,76,81], long: [3,7] },
-  comedia:  { wave: 'triangle', step: .15, notes: [72,76,74,77,76,79,77,74,72], long: [3,8] },
-  classico: { wave: 'triangle', step: .19, notes: [79,77,76,74,72,74,76,72,74,76,77,74,76,74,72], long: [0,7,14] },
-  acao:     { wave: 'triangle', step: .13, notes: [57,57,64,60,57,57,67,64,60,64,69], long: [3,6,10] },
-  sombrio:  { wave: 'sine',     step: .22, notes: [64,67,70,69,64,63,67,64], long: [2,7] }
+  neve:     { wave: 'sine',     step: .23, notes: [79, 76, 74, 72, 74, 76, 79, 84], long: [3, 7] },
+  polo:     { wave: 'triangle', step: .17, notes: [76, 76, 76, 76, 76, 76, 76, 79, 72, 74, 76], long: [2, 5, 10] },
+  romance:  { wave: 'sine',     step: .24, notes: [72, 76, 79, 81, 79, 76, 74, 72], long: [3, 7] },
+  musical:  { wave: 'triangle', step: .16, notes: [72, 76, 79, 84, 81, 79, 76, 77, 79, 84], long: [3, 9] },
+  fantasia: { wave: 'sine',     step: .20, notes: [69, 72, 76, 84, 83, 79, 76, 81], long: [3, 7] },
+  comedia:  { wave: 'triangle', step: .15, notes: [72, 76, 74, 77, 76, 79, 77, 74, 72], long: [3, 8] },
+  classico: { wave: 'triangle', step: .19, notes: [79, 77, 76, 74, 72, 74, 76, 72, 74, 76, 77, 74, 76, 74, 72], long: [0, 7, 14] },
+  acao:     { wave: 'triangle', step: .13, notes: [57, 57, 64, 60, 57, 57, 67, 64, 60, 64, 69], long: [3, 6, 10] },
+  sombrio:  { wave: 'sine',     step: .22, notes: [64, 67, 70, 69, 64, 63, 67, 64], long: [2, 7] }
 };
+</script>
+<script>
+let audio;
+let melody;
 
+function stopChime() {
+  melody?.disconnect();
+  melody = undefined;
+}
+
+// Cria o contexto durante o clique, enquanto o navegador permite iniciar áudio.
+function playChime(theme, day) {
+  const Audio = window.AudioContext || window.webkitAudioContext;
+  if (!Audio) return;
+  try {
+    audio ??= new Audio();
+    audio.resume().catch(() => {});
+    stopChime();
+    const output = audio.createGain();
+    melody = output;
+    output.gain.value = .65;
+    output.connect(audio.destination);
+    const start = audio.currentTime + .025;
+    const { wave, step, notes, long } = themes[theme];
+    const transpose = [0, 2, -2, 5, -3, 3][day % 6];
+    let offset = 0;
+    notes.forEach((note, index) => {
+      const time = start + offset;
+      const duration = step * (long.includes(index) ? 2 : 1);
+      offset += duration;
+      const oscillator = audio.createOscillator();
+      const envelope = audio.createGain();
+      oscillator.type = wave;
+      oscillator.frequency.value = 440 * Math.pow(2, (note + transpose - 69) / 12);
+      envelope.gain.setValueAtTime(.001, time);
+      envelope.gain.exponentialRampToValueAtTime(.20, time + .012);
+      envelope.gain.exponentialRampToValueAtTime(.001, time + duration + .17);
+      oscillator.connect(envelope);
+      envelope.connect(output);
+      oscillator.start(time);
+      oscillator.stop(time + duration + .18);
+    });
+  } catch {
+    // A ficha também funciona quando o navegador bloqueia o áudio.
+    stopChime();
+  }
+}
+</script>
+<script>
 const platforms = {
-  N: { name: 'Netflix', search: 'https://www.netflix.com/search?q=' },
-  P: { name: 'Prime Video', search: 'https://www.primevideo.com/search/ref=atv_nb_sr?phrase=' },
-  D: { name: 'Disney+', search: 'https://www.disneyplus.com/search' }
+  N: { name: 'Netflix', search: title => 'https://www.netflix.com/search?q=' + encodeURIComponent(title) },
+  P: { name: 'Prime Video', search: title => 'https://www.primevideo.com/search/ref=atv_nb_sr?phrase=' + encodeURIComponent(title) },
+  D: { name: 'Disney+', search: () => 'https://www.disneyplus.com/search' }
 };
 const disneyGuides = {
   'Noelle': 'noelle',
@@ -280,30 +1073,58 @@ const releases = {
   'Protegendo Estrelas': 'Estreia anunciada para 18/11.',
   'Um Sonho de Férias': 'Estreia anunciada para 02/12.'
 };
+
+const firstDays = { novembro: 13, dezembro: 1 };
+const storageKeys = {
+  opened: 'cinema-natal-v1-doors',
+  ratings: 'cinema-natal-v1-ratings',
+  muted: 'cinema-natal-v1-muted'
+};
+
 const film = document.querySelector('#film');
+const filmFields = {
+  icon: document.querySelector('#film-icon'),
+  date: document.querySelector('#film-date'),
+  title: document.querySelector('#film-title'),
+  details: document.querySelector('#film-details'),
+  summary: document.querySelector('#film-summary'),
+  release: document.querySelector('#film-release'),
+  link: document.querySelector('#film-link')
+};
 const sound = document.querySelector('#sound');
 const progress = document.querySelector('#progress');
 const ratingGroup = document.querySelector('.film-rating');
 const ratingInputs = [...ratingGroup.querySelectorAll('input')];
 const ratingStatus = document.querySelector('#rating-status');
-const storage = {
-  read(key, fallback) {
-    try { return JSON.parse(localStorage.getItem(key)) ?? fallback; } catch { return fallback; }
-  },
-  write(key, value) {
-    try { localStorage.setItem(key, JSON.stringify(value)); } catch {}
-  }
-};
-const seen = new Set(storage.read('cinema-natal-v1-doors', []));
-const ratingKey = 'cinema-natal-v1-ratings';
-const ratings = storage.read(ratingKey, {});
-let activeFilm;
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-let muted = storage.read('cinema-natal-v1-muted', false);
-let audio;
-let melody;
+
+// O calendário continua funcionando se o navegador bloquear o armazenamento.
+function readPreference(key) {
+  try {
+    return JSON.parse(localStorage.getItem(key));
+  } catch {
+    return null;
+  }
+}
+
+function savePreference(key, value) {
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+  } catch {
+    // O estado continua disponível em memória até a página fechar.
+  }
+}
+
+const savedOpened = readPreference(storageKeys.opened);
+const savedRatings = readPreference(storageKeys.ratings);
+const opened = new Set(Array.isArray(savedOpened) ? savedOpened : []);
+const ratings = savedRatings && typeof savedRatings === 'object' && !Array.isArray(savedRatings)
+  ? savedRatings
+  : {};
+let muted = readPreference(storageKeys.muted) === true;
+let totalDoors = 0;
+let activeDate;
 let opener;
-let pending;
 
 function updateSound() {
   sound.textContent = muted ? '♫ Som desligado' : '♫ Som ligado';
@@ -311,137 +1132,189 @@ function updateSound() {
 }
 
 function updateProgress() {
-  progress.textContent = seen.size + ' de 42 abertas';
+  progress.textContent = `${opened.size} de ${totalDoors} abertas`;
 }
 
 function showRating(score) {
+  const validScore = Number.isInteger(score) && score >= 1 && score <= 5 ? score : 0;
   for (const input of ratingInputs) {
     const value = Number(input.value);
-    input.checked = value === score;
-    input.nextElementSibling.textContent = value <= score ? '★' : '☆';
+    input.checked = value === validScore;
+    input.nextElementSibling.textContent = value <= validScore ? '★' : '☆';
   }
-  ratingStatus.textContent = score ? 'Sua nota: ' + score + ' de 5' : 'Toque nas estrelas para dar sua nota.';
+  ratingStatus.textContent = validScore
+    ? `Sua nota: ${validScore} de 5`
+    : 'Toque nas estrelas para dar sua nota.';
 }
 
-ratingGroup.addEventListener('change', event => {
-  if (!activeFilm || !ratingInputs.includes(event.target)) return;
-  const score = Number(event.target.value);
-  ratings[activeFilm] = score;
-  storage.write(ratingKey, ratings);
-  showRating(score);
-});
+function setStreamingLink(title, platform, directLink) {
+  if (directLink) {
+    filmFields.link.href = directLink;
+    filmFields.link.textContent = `Abrir no ${platform.name} ↗`;
+    return;
+  }
 
-function playChime(theme, variation) {
-  const Audio = window.AudioContext || window.webkitAudioContext;
-  if (muted || !Audio) return;
-  try {
-    audio ??= new Audio();
-    audio.resume().catch(() => {});
-    melody?.disconnect();
-    melody = audio.createGain();
-    melody.gain.value = .65;
-    melody.connect(audio.destination);
-    const start = audio.currentTime + .025;
-    const { wave, step, notes, long } = themes[theme];
-    const transpose = [0, 2, -2, 5, -3, 3][variation % 6];
-    let offset = 0;
-    notes.forEach((note, index) => {
-      const time = start + offset;
-      const duration = step * (long.includes(index) ? 2 : 1);
-      offset += duration;
-      const oscillator = audio.createOscillator();
-      const envelope = audio.createGain();
-      oscillator.type = wave;
-      oscillator.frequency.value = 440 * Math.pow(2, (note + transpose - 69) / 12);
-      envelope.gain.setValueAtTime(.001, time);
-      envelope.gain.exponentialRampToValueAtTime(.20, time + .012);
-      envelope.gain.exponentialRampToValueAtTime(.001, time + duration + .17);
-      oscillator.connect(envelope);
-      envelope.connect(melody);
-      oscillator.start(time);
-      oscillator.stop(time + duration + .18);
-    });
-  } catch {}
+  const guide = disneyGuides[title];
+  if (typeof guide === 'string') {
+    filmFields.link.href = `https://www.justwatch.com/br/filme/${guide}`;
+    filmFields.link.textContent = 'Ver onde assistir ↗';
+    return;
+  }
+
+  filmFields.link.href = platform.search(title);
+  filmFields.link.textContent = `Buscar no ${platform.name} ↗`;
+}
+
+function fillFilm(entry, presentation, dateLabel) {
+  const [title, year, service, summary, directLink] = entry;
+  const [theme, icon] = presentation;
+  const platform = platforms[service];
+  const release = releases[title];
+  film.dataset.theme = theme;
+  filmFields.icon.textContent = icon;
+  filmFields.date.textContent = dateLabel;
+  filmFields.title.textContent = title;
+  filmFields.details.textContent = `${year} · ${platform.name}`;
+  filmFields.summary.textContent = summary;
+  filmFields.release.hidden = typeof release !== 'string';
+  filmFields.release.textContent = filmFields.release.hidden ? '' : release;
+  setStreamingLink(title, platform, directLink);
+}
+
+function updateDoor(door, dateLabel, wasOpened) {
+  door.dataset.opened = String(wasOpened);
+  const action = wasOpened ? 'portinha já aberta' : 'abrir portinha';
+  door.setAttribute('aria-label', `${dateLabel}, ${action}`);
 }
 
 function reveal(door, entry, presentation, day, month) {
-  if (pending || film.open) return;
+  // O botão de origem também bloqueia outros cliques durante a animação.
+  if (opener) return;
   opener = door;
-  const [theme, icon] = presentation;
-  playChime(theme, day);
-  film.dataset.theme = theme;
-  document.querySelector('#film-icon').textContent = icon;
+
+  const dateLabel = `${day} de ${month}`;
+  const dateKey = `${month}-${day}`;
+  fillFilm(entry, presentation, dateLabel);
+  if (!muted) playChime(presentation[0], day);
+
   door.classList.add('opening');
-  pending = window.setTimeout(() => {
-    pending = undefined;
-    const [title, year, service, summary, directLink] = entry;
-    const platform = platforms[service];
-    document.querySelector('#film-date').textContent = day + ' de ' + month;
-    document.querySelector('#film-title').textContent = title;
-    document.querySelector('#film-details').textContent = year + ' · ' + platform.name;
-    document.querySelector('#film-summary').textContent = summary;
-    const release = document.querySelector('#film-release');
-    release.textContent = releases[title] ?? '';
-    release.hidden = !releases[title];
-    const link = document.querySelector('#film-link');
-    const guide = !directLink && disneyGuides[title];
-    link.href = directLink || (guide ? 'https://www.justwatch.com/br/filme/' + guide : platform.search + encodeURIComponent(title));
-    link.textContent = guide ? 'Ver onde assistir ↗' : (directLink ? 'Abrir no ' : 'Buscar no ') + platform.name + ' ↗';
-    activeFilm = month + '-' + day;
-    showRating(ratings[activeFilm] ?? 0);
-    seen.add(activeFilm);
-    storage.write('cinema-natal-v1-doors', [...seen]);
-    door.dataset.opened = 'true';
-    door.setAttribute('aria-label', day + ' de ' + month + ', portinha já aberta');
-    updateProgress();
+  window.setTimeout(() => {
+    activeDate = dateKey;
+    showRating(ratings[dateKey]);
     film.showModal();
+
+    opened.add(dateKey);
+    savePreference(storageKeys.opened, [...opened]);
+    updateDoor(door, dateLabel, true);
+    updateProgress();
   }, reducedMotion.matches ? 0 : 360);
 }
 
-for (const [month, entries] of Object.entries(catalog)) {
-  const grid = document.querySelector('#' + month + ' .doors');
-  const firstDay = month === 'novembro' ? 13 : 1;
-  entries.forEach((entry, index) => {
-    const day = firstDay + index;
-    const door = document.createElement('button');
-    const opened = seen.has(month + '-' + day);
-    door.type = 'button';
-    door.className = 'door';
-    door.dataset.opened = String(opened);
-    door.setAttribute('aria-haspopup', 'dialog');
-    door.setAttribute('aria-label', day + ' de ' + month + (opened ? ', portinha já aberta' : ', abrir portinha'));
-    door.innerHTML = '<span class="inside" aria-hidden="true">✦</span><span class="face" aria-hidden="true"><strong>' +
-      String(day).padStart(2, '0') + '</strong><small>' + month.slice(0, 3).toUpperCase() + '</small></span>';
-    door.addEventListener('click', () => reveal(door, entry, filmThemes[month][index], day, month));
-    grid.append(door);
-  });
+function createDoor(entry, presentation, day, month) {
+  const template = document.querySelector('#door-template');
+  const door = template.content.firstElementChild.cloneNode(true);
+  door.querySelector('strong').textContent = String(day).padStart(2, '0');
+  door.querySelector('small').textContent = month.slice(0, 3).toUpperCase();
+  updateDoor(door, `${day} de ${month}`, opened.has(`${month}-${day}`));
+  door.addEventListener('click', () => reveal(door, entry, presentation, day, month));
+  return door;
 }
 
+function renderCalendar(catalog) {
+  const validDates = new Set();
+  const months = Object.entries(firstDays).map(([month, firstDay]) => {
+    const entries = catalog[month];
+    // Cada filme precisa da apresentação que ocupa a mesma posição no mês.
+    if (!Array.isArray(entries) || entries.length !== filmThemes[month].length) {
+      throw new Error(`Confira os filmes e temas de ${month}.`);
+    }
+
+    const doors = entries.map((entry, index) => {
+      const day = firstDay + index;
+      if (!Array.isArray(entry) || typeof platforms[entry[2]]?.search !== 'function') {
+        throw new Error(`Filme inválido em ${day} de ${month}.`);
+      }
+      validDates.add(`${month}-${day}`);
+      return createDoor(entry, filmThemes[month][index], day, month);
+    });
+    return { month, doors };
+  });
+
+  // Só conta datas que ainda existem no catálogo.
+  for (const date of opened) {
+    if (!validDates.has(date)) opened.delete(date);
+  }
+  for (const { month, doors } of months) {
+    document.querySelector(`#${month} .doors`).replaceChildren(...doors);
+  }
+  totalDoors = validDates.size;
+  updateProgress();
+}
+
+async function loadCalendar() {
+  try {
+    const embeddedCatalog = document.querySelector('#film-catalog');
+    if (embeddedCatalog) {
+      renderCalendar(JSON.parse(embeddedCatalog.textContent));
+      return;
+    }
+
+    const response = await fetch('/api/filmes');
+    if (!response.ok) throw new Error(`Falha ao carregar o catálogo (HTTP ${response.status}).`);
+    renderCalendar(await response.json());
+  } catch (error) {
+    console.error(error);
+    progress.textContent = 'Não foi possível carregar os filmes. Recarregue a página.';
+  }
+}
+
+function renderSnow() {
+  const snow = document.querySelector('.snow');
+  for (let index = 0; index < 46; index++) {
+    const flake = document.createElement('span');
+    const size = 1 + (index % 5) * 0.55;
+    flake.className = 'flake';
+    flake.style.left = `${index * 23.13 % 100}%`;
+    // O CSS usa esta posição fixa quando o visitante prefere movimento reduzido.
+    flake.style.setProperty('--cinema-natal-position', `${index * 11.7 % 100}%`);
+    flake.style.width = `${size}px`;
+    flake.style.height = `${size}px`;
+    flake.style.opacity = 0.19 + (index % 6) * 0.085;
+    flake.style.animationDuration = `${12 + index % 13}s`;
+    flake.style.animationDelay = `-${index * 3.4 % 26}s`;
+    snow.append(flake);
+  }
+}
+
+ratingGroup.addEventListener('change', event => {
+  if (!activeDate || !ratingInputs.includes(event.target)) return;
+  const score = Number(event.target.value);
+  ratings[activeDate] = score;
+  savePreference(storageKeys.ratings, ratings);
+  showRating(score);
+});
+
 film.querySelector('.close').addEventListener('click', () => film.close());
-film.addEventListener('click', event => { if (event.target === film) film.close(); });
+film.addEventListener('click', event => {
+  if (event.target === film) film.close();
+});
 film.addEventListener('close', () => {
   opener?.classList.remove('opening');
   opener?.focus({ preventScroll: true });
+  opener = undefined;
+  activeDate = undefined;
 });
+
 sound.addEventListener('click', () => {
   muted = !muted;
-  if (muted) melody?.disconnect();
-  storage.write('cinema-natal-v1-muted', muted);
+  if (muted) stopChime();
+  savePreference(storageKeys.muted, muted);
   updateSound();
 });
-const snow = document.querySelector('.snow');
-for (let index = 0; index < 46; index++) {
-  const flake = document.createElement('span');
-  const size = 1 + (index % 5) * .55;
-  flake.className = 'flake';
-  flake.style.cssText = 'left:' + (index * 23.13 % 100) + '%;--cinema-natal-position:' + (index * 11.7 % 100) +
-    '%;width:' + size + 'px;height:' + size + 'px;opacity:' + (.19 + (index % 6) * .085) +
-    ';animation-duration:' + (12 + index % 13) + 's;animation-delay:-' + (index * 3.4 % 26) + 's';
-  snow.append(flake);
-}
-updateSound();
-updateProgress();
 
+renderSnow();
+updateSound();
+loadCalendar();
 </script>
 </body>
 </html>
