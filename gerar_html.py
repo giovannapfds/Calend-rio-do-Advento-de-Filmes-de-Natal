@@ -11,10 +11,10 @@ STATIC_DIR = PROJECT_DIR / "static"
 def build_html():
     """Incorpora o CSS, os scripts e o catálogo na ordem do HTML original."""
     page = (STATIC_DIR / "index.html").read_text(encoding="utf-8")
-    catalog = json.loads((PROJECT_DIR / "filmes.json").read_text(encoding="utf-8"))
-    # Impede que um texto do catálogo seja interpretado como uma tag HTML.
-    catalog_json = json.dumps(catalog, ensure_ascii=False, indent=2).replace("<", "\\u003c")
-    catalog_tag = f'<script id="film-catalog" type="application/json">\n{catalog_json}\n</script>'
+    data_tags = [
+        inline_json(PROJECT_DIR / "filmes.json", "film-catalog"),
+        inline_json(STATIC_DIR / "filmoteca.json", "library-catalog"),
+    ]
 
     page = re.sub(
         r'<link rel="stylesheet" href="([^"]+)">',
@@ -23,12 +23,19 @@ def build_html():
     )
     # O catálogo precisa existir antes da execução do primeiro script.
     first_script = page.index("<script defer")
-    page = page[:first_script] + catalog_tag + "\n" + page[first_script:]
+    page = page[:first_script] + "\n".join(data_tags) + "\n" + page[first_script:]
     return re.sub(
         r'<script defer src="([^"]+)"></script>',
         lambda match: inline_asset(match[1], "script"),
         page,
     )
+
+
+def inline_json(path, element_id):
+    data = json.loads(path.read_text(encoding="utf-8"))
+    # Impede que um texto do catálogo seja interpretado como uma tag HTML.
+    body = json.dumps(data, ensure_ascii=False, indent=2).replace("<", "\\u003c")
+    return f'<script id="{element_id}" type="application/json">\n{body}\n</script>'
 
 
 def inline_asset(filename, tag):

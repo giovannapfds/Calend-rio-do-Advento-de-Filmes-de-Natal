@@ -14,6 +14,12 @@
 /* Tokens visuais e estilos gerais */
 :root {
   color-scheme: only dark;
+  --cinema-natal-red: #a52842;
+  --cinema-natal-red-hover: #bc3651;
+  --cinema-natal-red-dark: #52202c;
+  --cinema-natal-red-surface: #301b23;
+  --cinema-natal-red-line: #b75b70;
+  --cinema-natal-red-light: #ffb7c4;
   --cinema-natal-bg: #10231b;
   --cinema-natal-cream: #fff6e5;
   --cinema-natal-gold: #ffe0a3;
@@ -64,7 +70,7 @@ button {
   align-items: center;
   justify-content: space-between;
   padding: 22px clamp(18px,5vw,60px);
-  border-bottom: 1px solid var(--cinema-natal-line);
+  border-bottom: 1px solid var(--cinema-natal-red-line);
 }
 
 .brand {
@@ -79,9 +85,9 @@ button {
 }
 
 .sound {
-  border: 1px solid var(--cinema-natal-line);
+  border: 1px solid var(--cinema-natal-red-line);
   border-radius: 30px;
-  background: #12251be0;
+  background: var(--cinema-natal-red-dark);
   padding: 8px 13px;
   color: var(--cinema-natal-cream);
   font-size: 13px;
@@ -99,7 +105,7 @@ button {
   align-items: center;
   justify-content: center;
   gap: 17px;
-  color: var(--cinema-natal-gold);
+  color: var(--cinema-natal-red-light);
   font-size: 14px;
   margin-bottom: 18px;
 }
@@ -630,14 +636,446 @@ dialog h2 {
   font-size: 13px;
 }
 </style>
+<style>
+/* Navegação e conteúdo das áreas que complementam o calendário. */
+[hidden] {
+  display: none !important;
+}
+
+.panel-nav,
+.panel-section {
+  max-width: 1120px;
+  margin-inline: auto;
+  padding-inline: clamp(16px, 4vw, 40px);
+}
+
+.panel-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  padding-block: 14px;
+}
+
+.panel-nav a,
+.panel-button {
+  display: inline-block;
+  padding: 9px 14px;
+  border: 1px solid var(--cinema-natal-line);
+  border-radius: 18px;
+  text-decoration: none;
+}
+
+.panel-nav [aria-current="page"],
+.panel-button {
+  border-color: var(--cinema-natal-red-line);
+  background: var(--cinema-natal-red);
+  color: var(--cinema-natal-cream);
+  font-weight: 700;
+}
+
+@media (hover: hover) {
+  .panel-nav a:hover,
+  .panel-button:not(:disabled):hover {
+    border-color: var(--cinema-natal-red-light);
+    background: var(--cinema-natal-red-hover);
+    color: var(--cinema-natal-cream);
+  }
+}
+
+.panel-button:disabled {
+  cursor: default;
+  opacity: 0.6;
+}
+
+.panel-section {
+  padding-block: 22px 45px;
+  line-height: 1.6;
+}
+
+.panel-section h1 {
+  font-size: clamp(32px, 6vw, 62px);
+}
+
+.panel-section input[type="search"],
+.panel-section select {
+  display: block;
+  width: min(100%, 34rem);
+  margin-block: 6px 14px;
+  padding: 10px;
+  border: 1px solid var(--cinema-natal-line);
+  border-radius: 8px;
+  background: #16291f;
+  color: inherit;
+  font: inherit;
+}
+
+.panel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 245px), 1fr));
+  align-items: start;
+  gap: 14px;
+}
+
+.panel-card {
+  min-width: 0;
+  padding: 16px 20px;
+  border: 1px solid var(--cinema-natal-red-line);
+  border-radius: 14px;
+  background: linear-gradient(145deg, var(--cinema-natal-red-dark), var(--cinema-natal-red-surface) 70%);
+}
+
+.panel-card h2 {
+  margin: 0;
+  font: 600 24px/1.2 var(--cinema-natal-serif);
+}
+
+.panel-meta {
+  margin-block: 6px 12px;
+  color: var(--cinema-natal-gold);
+}
+
+.panel-card summary {
+  cursor: pointer;
+  color: var(--cinema-natal-gold);
+}
+
+.panel-secondary {
+  margin-block-start: 10px;
+  background: transparent;
+  color: var(--cinema-natal-gold);
+}
+
+#quiz-form {
+  max-width: 44rem;
+}
+
+#quiz-form fieldset {
+  margin: 0 0 12px;
+}
+
+#quiz-form label {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding-block: 4px;
+  cursor: pointer;
+}
+
+#quiz-result {
+  margin-top: 20px;
+}
+
+#quiz-result .panel-secondary {
+  display: block;
+}
+
+/* Quiz em etapas com controles acessíveis por teclado e toque. */
+#quiz-form,
+#quiz-result {
+  width: min(100%, 44rem);
+}
+
+.quiz-progress {
+  margin-block: 20px;
+  color: var(--cinema-natal-gold);
+}
+
+.quiz-progress p {
+  margin: 0 0 5px;
+}
+
+.quiz-progress progress {
+  display: block;
+  width: 100%;
+  height: 10px;
+  accent-color: var(--cinema-natal-red-light);
+}
+
+#quiz-questions legend {
+  padding-inline: 6px;
+  font: 600 clamp(19px, 4vw, 25px)/1.3 var(--cinema-natal-serif);
+}
+
+#quiz-form label {
+  align-items: center;
+  min-height: 44px;
+  margin-block: 7px;
+  padding: 8px 10px;
+  border: 1px solid var(--cinema-natal-line);
+  border-radius: 8px;
+}
+
+#quiz-form label:has(input:checked) {
+  border-color: var(--cinema-natal-red-light);
+  background: var(--cinema-natal-red-dark);
+}
+
+#quiz-form input {
+  flex: none;
+  accent-color: var(--cinema-natal-red-light);
+}
+
+.quiz-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.quiz-actions .panel-button {
+  min-height: 44px;
+  margin: 0;
+}
+
+#quiz-message:empty {
+  display: none;
+}
+
+#quiz-message {
+  color: var(--cinema-natal-gold);
+}
+
+@media (max-width: 480px) {
+  .panel-nav a {
+    display: grid;
+    place-items: center;
+    flex: 1 1 42%;
+    min-height: 44px;
+  }
+
+  .quiz-actions .panel-button {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+}
+
+/* Lista pessoal, programação da sessão e convite. */
+.library-actions,
+#watchlist-content,
+#session-content,
+#session-invite {
+  margin-block-start: 16px;
+}
+
+#session-content {
+  display: grid;
+  gap: 14px;
+}
+
+.session-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+}
+
+.session-check input {
+  accent-color: var(--cinema-natal-red-light);
+}
+
+.session-personal {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 16px;
+  margin-block-start: 12px;
+}
+
+#invite-time,
+#invite-text {
+  display: block;
+  width: min(100%, 38rem);
+  margin-block: 6px 14px;
+  padding: 10px;
+  border: 1px solid var(--cinema-natal-red-line);
+  border-radius: 8px;
+  background: var(--cinema-natal-red-surface);
+  color: inherit;
+  font: inherit;
+}
+
+#invite-text {
+  resize: vertical;
+}
+
+[data-watch-field="saved"][aria-pressed="true"] {
+  border-color: var(--cinema-natal-red-light);
+  background: var(--cinema-natal-red-dark);
+}
+
+#film-session {
+  margin-inline-start: 6px;
+}
+
+/* Hierarquia de leitura e adaptação da navegação. */
+.skip-link {
+  position: fixed;
+  z-index: 5;
+  top: 8px;
+  left: 8px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  background: var(--cinema-natal-cream);
+  color: var(--cinema-natal-red-dark);
+  transform: translateY(-150%);
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+.panel-nav {
+  padding-block: 12px;
+  border-bottom: 1px solid var(--cinema-natal-line);
+}
+
+.panel-nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+}
+
+.panel-section h1 {
+  margin-block: 0 24px;
+  max-width: 21ch;
+  text-wrap: balance;
+}
+
+.panel-section label {
+  font-weight: 600;
+}
+
+.panel-section .panel-card h2 {
+  margin-block-end: 10px;
+}
+
+.panel-section .panel-card p {
+  overflow-wrap: anywhere;
+}
+
+.filter-bar,
+.session-options,
+.guide-steps {
+  display: grid;
+  gap: 16px;
+}
+
+.filter-bar {
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  max-width: 46rem;
+}
+
+.filter-bar input[type="search"],
+.filter-bar select,
+.session-options select {
+  width: 100%;
+}
+
+.session-options {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+}
+
+#session-content:not(:empty) {
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  align-items: start;
+}
+
+.session-films {
+  display: grid;
+  gap: 14px;
+  min-width: 0;
+}
+
+.session-food {
+  border-top: 3px solid var(--cinema-natal-red-light);
+}
+
+.guide-intro {
+  color: var(--cinema-natal-text);
+}
+
+.guide-steps {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  counter-reset: guide;
+  list-style: none;
+  padding: 0;
+  margin: 24px 0;
+}
+
+.guide-steps li::before {
+  counter-increment: guide;
+  content: counter(guide);
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  margin-bottom: 14px;
+  border-radius: 50%;
+  background: var(--cinema-natal-red);
+  color: var(--cinema-natal-cream);
+  font-weight: 700;
+}
+
+.guide-tip {
+  padding: 12px 18px;
+  border-inline-start: 3px solid var(--cinema-natal-red-light);
+}
+
+.guide-tip h2 {
+  margin-top: 0;
+  font: 600 24px/1.2 var(--cinema-natal-serif);
+}
+
+@media (max-width: 760px) {
+  .guide-steps,
+  #session-content:not(:empty) {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 540px) {
+  .filter-bar,
+  .session-options {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .panel-nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .panel-nav a {
+    padding-inline: 8px;
+  }
+
+  .panel-nav a:last-child {
+    grid-column: 1 / -1;
+  }
+}
+</style>
 </head>
 <body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 <div class="snow" aria-hidden="true"></div>
 <header class="top">
-  <a class="brand" href="#">✦ <span>Cinema de Natal</span></a>
+  <a class="brand" href="#calendario">✦ <span>Cinema de Natal</span></a>
   <button id="sound" class="sound" type="button" aria-pressed="true">♫ Som ligado</button>
 </header>
-<main>
+<nav class="panel-nav" aria-label="Áreas do painel">
+  <a href="#calendario" aria-current="page">Calendário</a>
+  <a href="#filmoteca">Filmoteca</a>
+  <a href="#receitas">Receitas</a>
+  <a href="#quiz">Quiz de Natal</a>
+  <a href="#sessao">Minha sessão</a>
+  <a href="#minha-lista">Minha lista</a>
+  <a href="#como-usar">Como usar</a>
+</nav>
+<main id="conteudo" tabindex="-1">
+<div id="calendario" data-panel>
   <section class="hero" aria-labelledby="title">
     <div class="hero-decoration" aria-hidden="true">✦ <span>❋</span> ✦</div>
     <p class="eyebrow">13 de novembro a 24 de dezembro · 2026</p>
@@ -659,6 +1097,113 @@ dialog h2 {
       <div class="doors"></div>
     </section>
   </div>
+</div>
+<section id="filmoteca" class="panel-section" data-panel hidden aria-labelledby="library-title">
+  <h1 id="library-title">Filmoteca de Natal</h1>
+  <div class="filter-bar">
+    <div><label for="library-search">Buscar filme</label>
+    <input id="library-search" type="search" placeholder="Título, gênero ou ano"></div>
+    <div><label for="library-genre">Gênero</label>
+    <select id="library-genre"><option value="">Todos os gêneros</option></select></div>
+  </div>
+  <p id="library-status" role="status">Carregando filmes…</p>
+  <div id="library-list" class="panel-grid"></div>
+</section>
+<section id="receitas" class="panel-section" data-panel hidden aria-labelledby="recipes-title">
+  <h1 id="recipes-title">Receitas para a sessão</h1>
+  <label for="recipe-film">Escolha um filme</label>
+  <select id="recipe-film"></select>
+  <p id="recipe-status" role="status"></p>
+  <article id="recipe-content" class="panel-card"></article>
+</section>
+<section id="quiz" class="panel-section" data-panel hidden aria-labelledby="quiz-title">
+  <h1 id="quiz-title">Qual é a sua sessão de Natal?</h1>
+  <p>Responda dez perguntas para escolher um filme e algo para pedir.</p>
+  <form id="quiz-form">
+    <div class="quiz-progress">
+      <p id="quiz-step-label"></p>
+      <progress id="quiz-progress" aria-label="Progresso do quiz"></progress>
+    </div>
+    <div id="quiz-questions"></div>
+    <p id="quiz-message" role="status"></p>
+    <div class="quiz-actions">
+      <button id="quiz-back" class="panel-button panel-secondary" type="button">Voltar</button>
+      <button id="quiz-next" class="panel-button" type="submit" disabled>Continuar</button>
+    </div>
+  </form>
+  <article id="quiz-result" class="panel-card" tabindex="-1" hidden></article>
+</section>
+<section id="sessao" class="panel-section" data-panel hidden aria-labelledby="session-title">
+  <h1 id="session-title">Minha sessão de Natal</h1>
+  <div id="session-controls" class="session-options">
+    <section class="panel-card" aria-labelledby="choose-title">
+      <h2 id="choose-title">Já sabe o que assistir?</h2>
+      <label for="session-film">Escolha um filme</label>
+      <select id="session-film" disabled><option value="">Selecione um título</option></select>
+    </section>
+    <section class="panel-card" aria-labelledby="draw-title">
+      <h2 id="draw-title">Quer uma sugestão?</h2>
+      <label for="session-genre">Clima da sessão</label>
+      <select id="session-genre" disabled><option value="">Qualquer gênero</option></select>
+      <label class="session-check"><input id="session-unwatched" type="checkbox" checked> Só filmes que ainda não assisti</label>
+      <div class="quiz-actions">
+        <button id="session-draw" class="panel-button" type="button" disabled>Sortear um filme</button>
+        <button id="session-marathon" class="panel-button panel-secondary" type="button" disabled>Montar maratona</button>
+      </div>
+    </section>
+  </div>
+  <p id="session-status" role="status">Carregando filmes…</p>
+  <div id="session-content" tabindex="-1"></div>
+  <section id="session-invite" class="panel-card" hidden aria-labelledby="invite-title">
+    <h2 id="invite-title">Convite de cinema</h2>
+    <label for="invite-time">Dia e horário da sessão</label>
+    <input id="invite-time" type="datetime-local">
+    <label for="invite-text">Texto para enviar</label>
+    <textarea id="invite-text" rows="5" readonly></textarea>
+    <div class="quiz-actions">
+      <button id="invite-copy" class="panel-button" type="button">Copiar convite</button>
+      <button id="invite-share" class="panel-button panel-secondary" type="button" hidden>Compartilhar</button>
+    </div>
+    <p id="invite-status" role="status"></p>
+  </section>
+</section>
+<section id="minha-lista" class="panel-section" data-panel hidden aria-labelledby="watchlist-title">
+  <h1 id="watchlist-title">Minha lista de Natal</h1>
+  <label for="watchlist-filter">Mostrar</label>
+  <select id="watchlist-filter">
+    <option value="">Todos da minha lista</option>
+    <option value="saved">Para ver depois</option>
+    <option value="watched">Já assisti</option>
+  </select>
+  <p id="watchlist-status" role="status">Carregando filmes…</p>
+  <a href="#filmoteca">Explorar a filmoteca</a>
+  <div id="watchlist-content" class="panel-grid"></div>
+</section>
+<section id="como-usar" class="panel-section" data-panel hidden aria-labelledby="guide-title">
+  <h1 id="guide-title">Como usar o Cinema de Natal</h1>
+  <p class="guide-intro">Escolha um filme, combine com algo gostoso e prepare sua sessão.</p>
+  <ol class="guide-steps">
+    <li class="panel-card">
+      <h2>Encontre um filme</h2>
+      <p>Abra uma portinha do Calendário ou use a busca e os filtros da Filmoteca. Se estiver em dúvida, responda às dez perguntas do quiz para receber uma sugestão de filme e pedido.</p>
+      <div class="quiz-actions"><a class="panel-button" href="#filmoteca">Explorar a filmoteca</a><a class="panel-button panel-secondary" href="#quiz">Fazer o quiz</a></div>
+    </li>
+    <li class="panel-card">
+      <h2>Prepare a sessão</h2>
+      <p>Use <strong>Montar sessão</strong> na ficha de um filme para ver onde assistir, o cardápio e o que buscar no iFood. Em Minha sessão, você também pode sortear um título ou montar uma maratona com dois filmes.</p>
+      <a class="panel-button panel-secondary" href="#sessao">Abrir Minha sessão</a>
+    </li>
+    <li class="panel-card">
+      <h2>Convide alguém</h2>
+      <p>Depois de escolher o filme, encontre o convite abaixo do cardápio. Preencha o dia e o horário e copie o texto para enviar.</p>
+    </li>
+  </ol>
+  <aside class="guide-tip">
+    <h2>Guarde os filmes que quer rever</h2>
+    <p>Use <strong>Salvar para depois</strong> na Filmoteca. Em Minha lista, marque o que já assistiu e dê suas notas. A lista fica salva neste navegador.</p>
+    <a href="#minha-lista">Abrir Minha lista</a>
+  </aside>
+</section>
 </main>
 <template id="door-template">
   <button class="door" type="button" aria-haspopup="dialog">
@@ -677,6 +1222,7 @@ dialog h2 {
     <p id="film-summary"></p>
     <p id="film-release" hidden></p>
     <a class="stream" id="film-link" target="_blank" rel="noopener noreferrer"></a>
+    <button id="film-session" class="panel-button panel-secondary" type="button" disabled>Montar sessão</button>
     <fieldset class="film-rating" aria-describedby="rating-status">
       <legend>Sua avaliação</legend>
       <div class="rating-stars">
@@ -973,6 +1519,893 @@ dialog h2 {
   ]
 }
 </script>
+<script id="library-catalog" type="application/json">
+[
+  {
+    "title": "A Felicidade Não Se Compra",
+    "year": 1946,
+    "genre": "clássico",
+    "menu": "ceia",
+    "summary": "George Bailey passa a vida adiando seus planos para ajudar a comunidade de Bedford Falls. Na véspera de Natal, uma crise financeira o faz questionar o valor de tudo o que construiu. Um anjo lhe mostra como seria a cidade sem a sua presença. O filme de Frank Capra dá espaço ao desânimo de George antes de chegar ao calor humano pelo qual ficou conhecido.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/its_a_wonderful_life",
+      "note": "94% da crítica e 95% do público no levantamento consultado."
+    }
+  },
+  {
+    "title": "Simplesmente Amor",
+    "year": 2003,
+    "genre": "romance",
+    "menu": "doce",
+    "summary": "Em Londres, as semanas que antecedem o Natal aproximam personagens em momentos muito diferentes da vida amorosa. Um primeiro-ministro se encanta por uma funcionária, um escritor se isola na França e um garoto tenta chamar a atenção da colega. A montagem cruza gestos grandiosos, constrangimentos e perdas, com uma trilha que costura histórias de tons bem distintos.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/love_actually",
+      "note": "65% da crítica e 72% do público. O consenso editorial vê excesso de histórias, mas valoriza o elenco."
+    }
+  },
+  {
+    "title": "Os Rejeitados",
+    "year": 2023,
+    "genre": "drama",
+    "menu": "ceia",
+    "summary": "Num internato da Nova Inglaterra, um professor mal-humorado fica encarregado dos alunos que não podem voltar para casa nas férias. Aos poucos, o campus quase vazio aproxima o professor, um estudante rebelde e a cozinheira da escola, que carrega seu próprio luto. A convivência atravessa atritos e pequenos atos de cuidado sem apressar a transformação dos personagens.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/the_holdovers",
+      "note": "97% da crítica e 92% do público. O consenso editorial destaca o tom agridoce."
+    }
+  },
+  {
+    "title": "O Grinch",
+    "year": 2018,
+    "genre": "família",
+    "menu": "doce",
+    "summary": "Incomodado com o entusiasmo natalino da cidade de Quemlândia, o Grinch decide se disfarçar de Papai Noel para levar embora presentes e enfeites. Enquanto ele prepara o plano, Cindy Lou tem um desejo de Natal que envolve sua mãe. A animação se diverte com engenhocas e exageros visuais antes de perguntar por que aquela comunidade faz tanta questão de celebrar junta.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/the_grinch",
+      "note": "60% da crítica e 54% do público no levantamento consultado."
+    }
+  },
+  {
+    "title": "Um Conto de Natal",
+    "year": 1951,
+    "genre": "clássico",
+    "menu": "ceia",
+    "summary": "Ebenezer Scrooge administra seus negócios com mão de ferro e recebe o Natal com desprezo. Na véspera, visitas sobrenaturais o levam por lembranças e por versões possíveis de sua própria vida. Alastair Sim dá ao personagem uma dureza que torna a jornada emocional da história de Dickens mais marcante.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/a_christmas_carol_1951"
+    }
+  },
+  {
+    "title": "O Natal de Charlie Brown",
+    "year": 1965,
+    "genre": "família",
+    "menu": "doce",
+    "summary": "Charlie Brown tenta entender por que está triste quando todo mundo parece ocupado celebrando. Lucy o convida a dirigir a peça da turma, e ele acaba escolhendo uma árvore bem diferente da que os colegas imaginavam. A animação deixa bastante espaço para o silêncio, o humor melancólico e o jazz de Vince Guaraldi."
+  },
+  {
+    "title": "Operação Presente",
+    "year": 2011,
+    "genre": "família",
+    "menu": "lanche",
+    "summary": "O Polo Norte virou uma operação de alta tecnologia, mas uma criança ficou sem receber seu presente. Arthur, filho do Papai Noel, improvisa uma entrega antes do amanhecer com a ajuda do avô e de uma elfa. A aventura contrapõe o fascínio pelas máquinas ao trabalho de lembrar de uma única pessoa.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/arthur_christmas"
+    }
+  },
+  {
+    "title": "Carol",
+    "year": 2015,
+    "genre": "romance",
+    "menu": "ceia",
+    "summary": "Uma jovem balconista e aspirante a fotógrafa conhece Carol numa loja de departamentos em Nova York. A relação cresce entre telefonemas, encontros discretos e uma viagem que afasta as duas da rotina. O frio, as vitrines e as roupas do período ajudam Todd Haynes a construir um romance em que olhares têm o peso de declarações.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/carol",
+      "note": "94% da crítica e 75% do público. O consenso editorial destaca a direção e as duas protagonistas."
+    }
+  },
+  {
+    "title": "Adoráveis Mulheres",
+    "year": 2019,
+    "genre": "drama",
+    "menu": "ceia",
+    "summary": "Jo March tenta viver da escrita enquanto suas irmãs seguem caminhos diferentes. A adaptação de Greta Gerwig alterna a juventude das quatro com a vida adulta, usando as festas em família como referência para medir o que mudou. Arte, trabalho e casamento ocupam o mesmo espaço que as lembranças de casa.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/little_women_2019",
+      "note": "95% da crítica e 89% do público no levantamento consultado."
+    }
+  },
+  {
+    "title": "Agora Seremos Felizes",
+    "year": 1944,
+    "genre": "clássico",
+    "menu": "doce",
+    "summary": "As irmãs Smith atravessam um ano de bailes, desencontros e mudanças em St. Louis, pouco antes da feira mundial. Quando a possibilidade de deixar a cidade ameaça suas tradições, o Natal ganha um peso especial para a família. Judy Garland canta uma das músicas natalinas mais associadas ao cinema.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/meet_me_in_st_louis",
+      "note": "99% da crítica e 86% do público no levantamento consultado."
+    }
+  },
+  {
+    "title": "A Loja da Esquina",
+    "year": 1940,
+    "genre": "romance",
+    "menu": "doce",
+    "summary": "Dois funcionários de uma loja em Budapeste vivem em desacordo, sem imaginar que são os correspondentes anônimos um do outro. O trabalho de fim de ano aumenta a pressão sobre todos os balconistas. Ernst Lubitsch usa a diferença entre aquilo que os personagens escrevem e aquilo que conseguem dizer em voz alta para construir o romance.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/the_shop_around_the_corner",
+      "note": "99% da crítica e 91% do público. O consenso editorial destaca o roteiro de Samson Raphaelson e a direção de Ernst Lubitsch."
+    }
+  },
+  {
+    "title": "Gremlins",
+    "year": 1984,
+    "genre": "aventura",
+    "menu": "lanche",
+    "summary": "Billy recebe uma criatura de estimação com três regras bastante específicas. A quebra das regras muda o tom do Natal da cidade, que passa das luzinhas e canções para o caos. Joe Dante combina humor e sustos num filme que funciona melhor para quem gosta de ver uma tradição familiar sair dos trilhos.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/gremlins"
+    }
+  },
+  {
+    "title": "Batman: O Retorno",
+    "year": 1992,
+    "genre": "aventura",
+    "menu": "lanche",
+    "summary": "Gotham está coberta de enfeites quando o Pinguim surge como peça de uma campanha política. Selina Kyle assume uma nova identidade e atravessa o caminho de Batman. Tim Burton contrapõe a decoração pública ao isolamento das figuras centrais e transforma o Natal em moldura para uma fábula sombria.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/batman_returns"
+    }
+  },
+  {
+    "title": "Férias Frustradas de Natal",
+    "year": 1989,
+    "genre": "comédia",
+    "menu": "ceia",
+    "summary": "Clark Griswold sonha em receber toda a família para um Natal perfeito. O excesso de luzes, os parentes inconvenientes e uma gratificação que demora a chegar transformam a festa num teste de paciência. Cada tentativa de salvar a comemoração deixa a próxima confusão maior."
+  },
+  {
+    "title": "Um Herói de Brinquedo",
+    "year": 1996,
+    "genre": "comédia",
+    "menu": "lanche",
+    "summary": "Howard promete ao filho o boneco mais desejado da temporada e adia a compra até a véspera. A busca o coloca em disputa com outro pai pelas poucas unidades disponíveis e acaba chegando a um desfile natalino. A energia vem da correria e do absurdo que se cria quando todos querem comprar a mesma coisa.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/jingle_all_the_way"
+    }
+  },
+  {
+    "title": "Natal Entre Amigos",
+    "year": 2013,
+    "genre": "drama",
+    "menu": "ceia",
+    "summary": "Amigos de faculdade voltam a se reunir durante as festas depois de anos vivendo separados. A visita reacende disputas antigas e abre espaço para conversas difíceis sobre as mudanças pelas quais cada um passou.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/the_best_man_holiday"
+    }
+  },
+  {
+    "title": "Happiest Season",
+    "year": 2020,
+    "genre": "romance",
+    "menu": "ceia",
+    "summary": "Abby acompanha a namorada Harper numa visita natalina e descobre no caminho que a família dela ainda desconhece o relacionamento. A tentativa de passar as festas sob o mesmo teto expõe expectativas e mágoas entre as irmãs. O humor da casa cheia divide espaço com o desconforto de ter de esconder uma parte importante da própria vida.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/happiest_season"
+    }
+  },
+  {
+    "title": "Deixe a Neve Cair",
+    "year": 2019,
+    "genre": "romance",
+    "menu": "doce",
+    "summary": "Uma nevasca de véspera de Natal interfere nos planos de um grupo de jovens de uma cidade pequena. Encontros inesperados e uma festa aproximam histórias de amizade, afeto e decisões sobre o futuro. O ponto de encontro da turma dá à comédia romântica um clima de madrugada de férias.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/let_it_snow"
+    }
+  },
+  {
+    "title": "Amor com Data Marcada",
+    "year": 2020,
+    "genre": "romance",
+    "menu": "lanche",
+    "summary": "Sloane e Jackson se cansam das cobranças que recebem quando aparecem solteiros nas comemorações. Eles combinam ser a companhia um do outro nas datas festivas, mantendo o resto da vida em separado. O calendário vira uma série de encontros cômicos em que o acordo vai ficando difícil de explicar.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/holidate"
+    }
+  },
+  {
+    "title": "Um Match Surpresa",
+    "year": 2021,
+    "genre": "romance",
+    "menu": "doce",
+    "summary": "Natalie viaja para surpreender o homem com quem conversa num aplicativo e encontra alguém diferente das fotos. A farsa dá origem a um novo acordo, agora em meio às comemorações com a família dele. O filme brinca com a distância entre montar um perfil convincente e conseguir uma conversa honesta.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/love_hard",
+      "note": "50% da crítica e 89% do público no levantamento consultado."
+    }
+  },
+  {
+    "title": "A Princesa e a Plebeia",
+    "year": 2018,
+    "genre": "romance",
+    "menu": "doce",
+    "summary": "Uma confeiteira participa de uma competição natalina e descobre que é idêntica a uma duquesa. As duas trocam de lugar por alguns dias para viver rotinas que nunca experimentaram. O conto de fadas usa a confeitaria e o protocolo da corte para complicar uma combinação já improvável."
+  },
+  {
+    "title": "O Cavaleiro do Natal",
+    "year": 2019,
+    "genre": "romance",
+    "menu": "ceia",
+    "summary": "Um cavaleiro medieval chega à época atual e cruza com uma professora que o ajuda a lidar com um mundo de carros e aparelhos. Enquanto tenta cumprir a missão que o trouxe até ali, ele se envolve nos preparativos de Natal. A comédia faz da cortesia antiga e das pequenas confusões domésticas seu centro.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/the_knight_before_christmas"
+    }
+  },
+  {
+    "title": "Natal em Evergreen",
+    "year": 2017,
+    "genre": "romance",
+    "menu": "doce",
+    "summary": "Uma veterinária se prepara para deixar a cidade onde vive, mas um contratempo durante a viagem modifica seus planos. Um encontro com um pai e a filha e uma tradição local ligada a um globo de neve fazem a despedida assumir outro sentido."
+  },
+  {
+    "title": "Uma História de Natal",
+    "year": 1983,
+    "genre": "clássico",
+    "menu": "doce",
+    "summary": "Ralphie tem um presente muito específico na lista e passa o período natalino tentando convencer os adultos. Em volta do desejo, a narração adulta recupera pequenas catástrofes da escola e de uma casa onde as manias de todos ficam mais visíveis no fim do ano.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/a_christmas_story"
+    }
+  },
+  {
+    "title": "Os Fantasmas Contra-Atacam",
+    "year": 1988,
+    "genre": "comédia",
+    "menu": "lanche",
+    "summary": "Um executivo de televisão exige uma transmissão natalina cada vez mais grandiosa e trata a equipe como descartável. As visitas dos fantasmas de Dickens chegam no pior momento possível para sua programação. Bill Murray leva o sarcasmo do personagem ao limite enquanto o estúdio vira palco de uma crise pessoal.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/scrooged"
+    }
+  },
+  {
+    "title": "Spirited: Um Conto Natalino",
+    "year": 2022,
+    "genre": "comédia",
+    "menu": "doce",
+    "summary": "Uma equipe sobrenatural dedica cada Natal à transformação de uma pessoa difícil. Desta vez, o alvo é um consultor de imagem que começa a fazer perguntas sobre o trabalho dos próprios fantasmas. Os números musicais atravessam épocas e mudam o ponto de vista habitual da história de Dickens.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/spirited"
+    }
+  },
+  {
+    "title": "O Homem que Inventou o Natal",
+    "year": 2017,
+    "genre": "clássico",
+    "menu": "doce",
+    "summary": "Pressionado por dificuldades financeiras e por um prazo curto, Charles Dickens tenta escrever uma história de Natal. O escritor passa a conviver com Scrooge e os demais personagens em sua imaginação. A cinebiografia dramatiza a escrita como um diálogo entre lembranças, dívidas e decisões narrativas.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/the_man_who_invented_christmas"
+    }
+  },
+  {
+    "title": "A Última Férias",
+    "year": 2006,
+    "genre": "comédia",
+    "menu": "ceia",
+    "summary": "Uma vendedora que sempre adiou seus planos recebe um diagnóstico que a leva a gastar suas economias numa viagem. Num hotel europeu, ela experimenta comidas, roupas e conversas das quais costumava se privar. Queen Latifah conduz a passagem da timidez à coragem numa comédia interessada no prazer de viver.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/last_holiday"
+    }
+  },
+  {
+    "title": "Uma Segunda Chance para Amar",
+    "year": 2019,
+    "genre": "romance",
+    "menu": "ceia",
+    "summary": "Kate trabalha vestida de elfa numa loja natalina e atravessa uma fase de atritos com a família e de incerteza profissional. Um desconhecido chamado Tom a convida a olhar para partes da cidade que ela mal reparava. As músicas de George Michael acompanham uma história de romance e de recuperação pessoal.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/last_christmas_2019"
+    }
+  },
+  {
+    "title": "Um Natal Brilhante",
+    "year": 2006,
+    "genre": "comédia",
+    "menu": "lanche",
+    "summary": "Um pai organizado vê sua autoridade sobre as tradições locais ameaçada quando o novo vizinho decide iluminar a casa a ponto de ela ser vista do espaço. A disputa se espalha para as famílias e para a rua, transformando uma decoração em competição de fim de ano."
+  },
+  {
+    "title": "Surpresas do Amor",
+    "year": 2008,
+    "genre": "comédia",
+    "menu": "ceia",
+    "summary": "Um casal costuma fugir das festas em família viajando, até que o aeroporto fecha e a desculpa desmorona em rede nacional. Os dois precisam atravessar quatro comemorações no mesmo dia. Cada parada revela hábitos e histórias que eles conseguiram evitar enquanto mantinham os parentes a distância.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/four_christmases"
+    }
+  },
+  {
+    "title": "Tudo em Família",
+    "year": 2005,
+    "genre": "drama",
+    "menu": "ceia",
+    "summary": "Uma mulher visita pela primeira vez os parentes do namorado e descobre que seus modos formais pouco combinam com a dinâmica da casa. Os desentendimentos correm em paralelo a preocupações mais sérias que a família tenta administrar durante o Natal.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/the_family_stone"
+    }
+  },
+  {
+    "title": "Um Natal Muito, Muito Louco",
+    "year": 2004,
+    "genre": "comédia",
+    "menu": "ceia",
+    "summary": "Quando a filha anuncia que não virá para as festas, um casal decide trocar as tradições por um cruzeiro. A rua, acostumada à participação da família, reage à ausência de enfeites. Uma mudança de planos obriga os dois a tentar recuperar às pressas tudo aquilo que haviam deixado de lado.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/christmas_with_the_kranks"
+    }
+  },
+  {
+    "title": "Mamãe Noel",
+    "year": 1974,
+    "genre": "família",
+    "menu": "doce",
+    "summary": "Resfriado e desanimado, Papai Noel cogita tirar um ano de folga. Mamãe Noel manda dois elfos descobrir se as pessoas ainda se importam, e eles acabam entre figuras que controlam o calor e o frio. A animação em stop-motion combina canções de personagens com uma aventura sobre ser lembrado."
+  },
+  {
+    "title": "Rudolph, a Rena do Nariz Vermelho",
+    "year": 1964,
+    "genre": "família",
+    "menu": "doce",
+    "summary": "A luz no nariz de Rudolph o torna alvo de piadas justamente quando ele quer fazer parte do grupo. Fora da aldeia, ele encontra companheiros que também se sentem deslocados. O especial em stop-motion acrescenta uma ilha de brinquedos rejeitados à história da rena."
+  },
+  {
+    "title": "O Boneco de Neve",
+    "year": 1982,
+    "genre": "família",
+    "menu": "doce",
+    "summary": "Um menino constrói um boneco que ganha vida de madrugada. Os dois exploram a casa e saem para uma viagem aérea enquanto o resto da família dorme. O desenho usa a música e os gestos para contar uma aventura curta que guarda a sensação de que a neve pode desaparecer a qualquer momento."
+  },
+  {
+    "title": "O Natal do Mickey",
+    "year": 1983,
+    "genre": "família",
+    "menu": "doce",
+    "summary": "Tio Patinhas faz o papel de Scrooge, e Mickey interpreta Bob Cratchit nesta versão curta de Dickens. Os fantasmas conduzem o avarento por cenas que reapresentam os personagens da Disney em outros papéis. A história preserva as mudanças de tom da fábula mesmo com duração de especial."
+  },
+  {
+    "title": "O Natal de Angela",
+    "year": 2017,
+    "genre": "família",
+    "menu": "doce",
+    "summary": "Uma menina irlandesa vê o menino Jesus do presépio e decide que ele precisa se aquecer. A solução que inventa gera uma aventura pelas ruas e coloca sua família em alerta. O especial dá proporções de grande jornada a uma preocupação infantil muito concreta."
+  },
+  {
+    "title": "O Natal de Angela 2",
+    "year": 2020,
+    "genre": "família",
+    "menu": "ceia",
+    "summary": "Angela quer reunir a família para o Natal e traça planos para trazer o pai, que trabalha longe. Sua imaginação supera tanto a geografia quanto os recursos de que dispõe. O reencontro que ela deseja move uma história curta sobre saudade e cuidado."
+  },
+  {
+    "title": "Aquele Natal",
+    "year": 2024,
+    "genre": "família",
+    "menu": "ceia",
+    "summary": "Uma nevasca muda as comemorações numa cidade costeira inglesa e deixa crianças e adultos em situações que não esperavam enfrentar. As histórias se cruzam entre vizinhos, irmãos e um Papai Noel com trabalho extra. A animação organiza o caos a partir de gestos cotidianos de ajuda.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/that_christmas"
+    }
+  },
+  {
+    "title": "Robin Robin",
+    "year": 2021,
+    "genre": "família",
+    "menu": "lanche",
+    "summary": "Criada por ratos, uma pequena ave tenta provar que consegue entrar numa casa sem chamar atenção. Ela descobre que seus hábitos nem sempre são os dos irmãos e parte em busca de uma estrela para fazer um pedido. O feltro dá textura às penas, à comida e aos cantos por onde os personagens se escondem."
+  },
+  {
+    "title": "Shaun, o Carneiro: A Aventura de Natal",
+    "year": 2021,
+    "genre": "família",
+    "menu": "lanche",
+    "summary": "Shaun tenta arranjar uma meia maior para receber mais presentes e acaba perdendo Timmy de vista. A busca leva o rebanho para longe da fazenda e exige improvisos em território humano. A comédia física resolve boa parte da ação sem depender de diálogos."
+  },
+  {
+    "title": "Guardiões da Galáxia: Especial de Festas",
+    "year": 2022,
+    "genre": "aventura",
+    "menu": "lanche",
+    "summary": "Mantis e Drax decidem encontrar na Terra um presente que anime Peter Quill. O plano envolve uma celebridade que eles só conhecem pelas histórias do amigo. O especial usa o contraste entre os costumes terrestres e a interpretação literal dos visitantes para sustentar a comédia.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/the_guardians_of_the_galaxy_holiday_special"
+    }
+  },
+  {
+    "title": "Noite Infeliz",
+    "year": 2022,
+    "genre": "aventura",
+    "menu": "lanche",
+    "summary": "Uma família rica é cercada durante a ceia, quando Papai Noel chega para deixar presentes. A conversa por rádio com uma menina o faz intervir, embora ele esteja desencantado com a noite. O filme usa convenções de ação com humor agressivo e adereços típicos das festas.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/violent_night"
+    }
+  },
+  {
+    "title": "Krampus: O Terror do Natal",
+    "year": 2015,
+    "genre": "aventura",
+    "menu": "ceia",
+    "summary": "Uma reunião de parentes vira cerco quando a nevasca isola a casa e figuras do folclore passam a rondar o lado de fora. O ressentimento entre os familiares antecede o terror, que mistura criaturas práticas e imagens natalinas distorcidas.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/krampus"
+    }
+  },
+  {
+    "title": "Natal Sangrento",
+    "year": 1974,
+    "genre": "aventura",
+    "menu": "lanche",
+    "summary": "Moradoras de uma república universitária recebem ligações perturbadoras às vésperas das férias. Uma série de desaparecimentos muda os planos de quem ainda está na casa. A decoração festiva contrasta com o ponto de vista inquietante e com o espaço cada vez mais claustrofóbico.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/black_christmas"
+    }
+  },
+  {
+    "title": "Feliz Natal",
+    "year": 2005,
+    "genre": "drama",
+    "menu": "ceia",
+    "summary": "Soldados de lados opostos da Primeira Guerra Mundial se aproximam durante uma trégua de Natal. Música e encontros breves revelam as vidas que cada um deixou longe do front. O filme acompanha diferentes grupos para mostrar como uma decisão local atravessa ordens militares e fronteiras linguísticas.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/joyeux_noel"
+    }
+  },
+  {
+    "title": "O Leão no Inverno",
+    "year": 1968,
+    "genre": "clássico",
+    "menu": "ceia",
+    "summary": "Henrique II reúne a família na corte durante o Natal e discute quem deve sucedê-lo. Eleanor de Aquitânia e os filhos disputam influência enquanto todos pesam os riscos de alianças e promessas. A festa serve de prazo para conversas que parecem mudar o rumo da família a cada nova entrada na sala."
+  },
+  {
+    "title": "Tangerine",
+    "year": 2015,
+    "genre": "drama",
+    "menu": "lanche",
+    "summary": "Na véspera de Natal, Sin-Dee atravessa Los Angeles com a amiga Alexandra para descobrir o que aconteceu durante sua ausência. A correria cruza a rotina de um taxista e os planos de Alexandra para cantar. A câmera acompanha personagens que a decoração festiva da cidade costuma deixar fora de quadro.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/tangerine",
+      "note": "96% da crítica e 76% do público no levantamento consultado."
+    }
+  },
+  {
+    "title": "Um Príncipe de Natal",
+    "year": 2017,
+    "genre": "romance",
+    "menu": "doce",
+    "summary": "Uma repórter viaja para Aldovia para cobrir o futuro rei e acaba confundida com a tutora da irmã dele. A nova posição lhe permite observar o palácio por dentro, mas também complica a decisão de publicar a história que a levou até lá.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/a_christmas_prince"
+    }
+  },
+  {
+    "title": "Branco Natal",
+    "year": 1954,
+    "genre": "clássico",
+    "menu": "ceia",
+    "summary": "Dois artistas se juntam a uma dupla de irmãs numa viagem a Vermont. Lá encontram um antigo comandante administrando uma pousada com poucos hóspedes. A ideia de montar um espetáculo para ajudá-lo aproxima as quatro figuras e rende números musicais que ganharam vida própria.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/white_christmas"
+    }
+  },
+  {
+    "title": "Duas Semanas de Prazer",
+    "year": 1942,
+    "genre": "clássico",
+    "menu": "ceia",
+    "summary": "Um artista se muda para uma fazenda e decide abrir uma pousada que funcione somente nos feriados. O calendário dá estrutura aos números musicais e à disputa amorosa que se desenrola entre as apresentações. É o filme em que Bing Crosby canta White Christmas pela primeira vez no cinema.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/holiday_in"
+    }
+  },
+  {
+    "title": "Natal em Connecticut",
+    "year": 1945,
+    "genre": "comédia",
+    "menu": "ceia",
+    "summary": "Uma colunista conhecida pelas histórias de sua perfeita vida doméstica precisa receber um convidado na fazenda sobre a qual escreve. O problema é que sua rotina real tem pouco a ver com o que sai na revista. Ela reúne cúmplices para montar a ceia e sustentar a encenação.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/christmas_in_connecticut"
+    }
+  },
+  {
+    "title": "A Mulher do Bispo",
+    "year": 1947,
+    "genre": "clássico",
+    "menu": "doce",
+    "summary": "Um bispo preocupado em construir uma catedral pede ajuda e recebe a visita de um anjo. O visitante se envolve com a família e com a comunidade, chamando atenção para o que o projeto ambicioso vem deixando de lado. Cary Grant interpreta o recém-chegado com a leveza de quem conhece as regras mas pode contorná-las.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/the_bishops_wife"
+    }
+  },
+  {
+    "title": "Um Anjo em Minha Vida",
+    "year": 1996,
+    "genre": "drama",
+    "menu": "ceia",
+    "summary": "Um pastor atravessa dificuldades para manter sua igreja e sua família unidas. Um anjo surge em resposta às orações, mas sua maneira de ajudar muda a dinâmica da casa. O gospel cantado por Whitney Houston dá à comunidade um papel decisivo no filme.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/the_preachers_wife"
+    }
+  },
+  {
+    "title": "Scrooge: Um Conto de Natal",
+    "year": 2022,
+    "genre": "família",
+    "menu": "doce",
+    "summary": "A versão animada acompanha o avarento Ebenezer Scrooge enquanto visitas sobrenaturais o obrigam a rever o que entende por sucesso. As canções levam o personagem de lembranças íntimas a cenas de grande fantasia, com um cão que acompanha parte da jornada."
+  },
+  {
+    "title": "Um Conto de Natal dos Flintstones",
+    "year": 1994,
+    "genre": "família",
+    "menu": "lanche",
+    "summary": "Fred interpreta Scrooge numa apresentação em Bedrock e começa a levar a mesquinhez do personagem para fora do palco. O especial alterna os ensaios com as preocupações dos amigos e da família conforme a estreia se aproxima."
+  },
+  {
+    "title": "Um Natal 5 Estrelas",
+    "year": 2018,
+    "genre": "comédia",
+    "menu": "ceia",
+    "summary": "Um político italiano viaja para Budapeste e tenta manter um encontro discreto durante a estadia oficial. Um imprevisto no hotel obriga seu assessor a improvisar explicações cada vez mais complicadas. A comédia depende da circulação pelos quartos e da pressa para esconder a situação dos demais hóspedes."
+  },
+  {
+    "title": "O Expresso Polar",
+    "year": 2004,
+    "genre": "família",
+    "menu": "doce",
+    "summary": "Um garoto passa a véspera de Natal acordado, atento a qualquer barulho que confirme o que ainda quer acreditar. Em vez de sinos, ele ouve um trem parar na frente de casa. O condutor oferece um lugar no Expresso Polar, que leva crianças ao Polo Norte. A viagem é cheia de incidentes: bilhetes escapam, passageiros se separam e o próprio caminho parece responder à insegurança de quem está a bordo. Robert Zemeckis amplia o livro ilustrado de Chris Van Allsburg numa aventura em que a escala do trem, a neve e a música ocupam tanto espaço quanto os diálogos. A captura de movimento dá às figuras humanas uma aparência que divide espectadores, mas permite sequências que passeiam entre vagões, trilhos e paisagens impossíveis. A história tem o compasso de uma viagem noturna: começa quieta, ganha velocidade e volta ao silêncio para perguntar o que o garoto leva consigo daquela noite. Funciona bem para uma sessão de fantasia em família.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/the_polar_express",
+      "note": "55% da crítica e 64% do público. O consenso editorial elogia o visual geral e aponta ressalvas sobre os rostos animados."
+    }
+  },
+  {
+    "title": "Noelle",
+    "year": 2019,
+    "genre": "família",
+    "menu": "doce",
+    "summary": "Quando seu irmão desaparece antes de assumir o posto de Papai Noel, Noelle deixa o Polo Norte para encontrá-lo e salvar a festa."
+  },
+  {
+    "title": "No Seu Natal ou no Meu?",
+    "year": 2022,
+    "genre": "romance",
+    "menu": "doce",
+    "summary": "Dois namorados decidem se surpreender viajando para a casa um do outro. Uma nevasca os deixa presos, cada um com a família do outro."
+  },
+  {
+    "title": "Gospel de Natal",
+    "year": 2026,
+    "genre": "família",
+    "menu": "doce",
+    "summary": "Um pastor e sua família se mudam para Nova York e tentam salvar uma igreja do fechamento antes do Natal."
+  },
+  {
+    "title": "Crônicas de Natal",
+    "year": 2018,
+    "genre": "família",
+    "menu": "doce",
+    "summary": "Dois irmãos tentam filmar o Papai Noel e acabam causando um acidente com seu trenó. Agora, precisam ajudá-lo a entregar os presentes.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/the_christmas_chronicles",
+      "note": "67% da crítica e 76% do público. O guia editorial destaca Kurt Russell como Papai Noel."
+    }
+  },
+  {
+    "title": "O Quebra-Nozes e os Quatro Reinos",
+    "year": 2018,
+    "genre": "família",
+    "menu": "doce",
+    "summary": "Na véspera de Natal, Clara procura uma chave deixada por sua mãe e encontra um mundo mágico dividido em quatro reinos."
+  },
+  {
+    "title": "31 Minutos: Natal Escaldante",
+    "year": 2025,
+    "genre": "comédia",
+    "menu": "lanche",
+    "summary": "Uma onda de calor faz o Papai Noel cancelar a visita a Titirilquén. A turma do 31 Minutos precisa encontrar uma forma de salvar o Natal."
+  },
+  {
+    "title": "Um Duende em Nova York",
+    "year": 2003,
+    "genre": "comédia",
+    "menu": "lanche",
+    "summary": "Criado pelos duendes do Polo Norte, Buddy viaja para Nova York em busca do pai biológico e espalha o espírito natalino pela cidade.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/elf"
+    }
+  },
+  {
+    "title": "Uma Quedinha de Natal",
+    "year": 2022,
+    "genre": "romance",
+    "menu": "doce",
+    "summary": "Uma herdeira perde a memória após um acidente de esqui e passa as festas aos cuidados de um viúvo e de sua filha.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/falling_for_christmas",
+      "note": "62% da crítica e 41% do público no levantamento consultado."
+    }
+  },
+  {
+    "title": "Milagre na Rua 34",
+    "year": 1994,
+    "genre": "clássico",
+    "menu": "ceia",
+    "summary": "Uma menina cética começa a mudar de ideia quando um Papai Noel de loja afirma ser o verdadeiro Kris Kringle.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/miracle_on_34th_street_1994",
+      "note": "59% da crítica e 62% do público no levantamento consultado."
+    }
+  },
+  {
+    "title": "Sobrevivendo ao Natal",
+    "year": 2004,
+    "genre": "comédia",
+    "menu": "lanche",
+    "summary": "Para evitar passar as festas sozinho, Drew paga aos moradores de sua antiga casa para fingirem ser sua família."
+  },
+  {
+    "title": "Nosso Segredinho",
+    "year": 2024,
+    "genre": "romance",
+    "menu": "doce",
+    "summary": "Dois ex descobrem que seus novos parceiros são irmãos. Para sobreviver ao Natal sob o mesmo teto, tentam esconder o antigo namoro."
+  },
+  {
+    "title": "Um Menino Chamado Natal",
+    "year": 2021,
+    "genre": "família",
+    "menu": "doce",
+    "summary": "À procura do pai, o jovem Nikolas viaja para o norte e descobre uma terra habitada por duendes."
+  },
+  {
+    "title": "Crônicas de Natal: Parte Dois",
+    "year": 2020,
+    "genre": "família",
+    "menu": "doce",
+    "summary": "Kate retorna ao Polo Norte e ajuda a impedir que um elfo travesso acabe com o Natal.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/the_christmas_chronicles_2",
+      "note": "66% da crítica e 46% do público no levantamento consultado."
+    }
+  },
+  {
+    "title": "Sintonia de Natal",
+    "year": 2024,
+    "genre": "família",
+    "menu": "doce",
+    "summary": "Layla cruza Nova York atrás de um ingresso para o show natalino do Pentatonix, onde espera reencontrar o homem dos seus sonhos."
+  },
+  {
+    "title": "Uma Invenção de Natal",
+    "year": 2020,
+    "genre": "família",
+    "menu": "doce",
+    "summary": "A chegada de uma neta criativa devolve a esperança a um inventor de brinquedos e reacende a magia de suas criações."
+  },
+  {
+    "title": "Duro de Matar",
+    "year": 1988,
+    "genre": "aventura",
+    "menu": "lanche",
+    "summary": "John McClane vai a uma festa de Natal em Los Angeles e acaba enfrentando criminosos quando eles tomam o prédio e fazem reféns.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/die_hard",
+      "note": "94% tanto da crítica quanto do público no levantamento consultado."
+    }
+  },
+  {
+    "title": "Tudo Bem no Natal que Vem",
+    "year": 2020,
+    "genre": "comédia",
+    "menu": "lanche",
+    "summary": "Jorge detesta o Natal, mas passa a acordar sempre na véspera da festa, um ano de cada vez. Para entender o que aconteceu, ele precisa olhar para a própria vida."
+  },
+  {
+    "title": "Klaus",
+    "year": 2019,
+    "genre": "família",
+    "menu": "biscoito",
+    "summary": "Jesper, um carteiro acostumado a privilégios, é enviado a Smeerensburg e recebe uma meta de correspondências que parece impossível. A cidade vive dividida entre duas famílias rivais, e seus moradores mal se dispõem a conversar, muito menos a escrever cartas. A chance de voltar para casa aparece quando Jesper encontra Klaus, um marceneiro isolado que guarda brinquedos em sua cabana. Uma entrega inesperada faz circular a ideia de que as crianças podem escrever ao fabricante de brinquedos. A partir daí, pequenas ações começam a alterar a rotina da cidade, mesmo quando ninguém concorda sobre quem merece o crédito. A professora Alva também enxerga novas possibilidades num lugar que tinha deixado de oferecer perspectivas. A animação desenhada à mão usa luz e sombra para dar volume às figuras e calor aos interiores. O humor impaciente de Jesper contrasta com o silêncio de Klaus, e é dessa diferença que o filme tira parte da graça e da emoção.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/klaus",
+      "note": "95% de críticas positivas e 96% de aprovação do público no levantamento consultado."
+    }
+  },
+  {
+    "title": "Um Presente da Tiffany",
+    "year": 2022,
+    "genre": "romance",
+    "menu": "doce",
+    "summary": "Dois presentes trocados fazem um anel de noivado parar nas mãos de Rachel, dando início a um romance natalino em Nova York."
+  },
+  {
+    "title": "Meu Papai é Noel",
+    "year": 1994,
+    "genre": "comédia",
+    "menu": "lanche",
+    "summary": "Depois de um acidente na véspera de Natal, Scott Calvin veste o traje do Papai Noel e descobre que acabou de assumir o cargo."
+  },
+  {
+    "title": "O Natal Perfeito de um Cachorro",
+    "year": 2026,
+    "genre": "família",
+    "menu": "doce",
+    "summary": "Uma emergência separa a família Goss. Winstead, um basset determinado, tenta reunir todos antes da ceia."
+  },
+  {
+    "title": "A Batalha de Natal",
+    "year": 2023,
+    "genre": "comédia",
+    "menu": "lanche",
+    "summary": "Para vencer um concurso de decoração, Chris faz um pacto com uma elfa que dá vida às figuras de uma canção natalina."
+  },
+  {
+    "title": "O Estranho Mundo de Jack",
+    "year": 1993,
+    "genre": "família",
+    "menu": "abobora",
+    "summary": "Jack Skellington é a grande figura da Cidade do Halloween e já sabe, de cor, como entusiasmar seus vizinhos a cada outubro. Cansado da repetição, ele atravessa uma porta na floresta e descobre uma cidade dedicada ao Natal. A curiosidade vira vontade de dirigir a festa por conta própria. Seu entusiasmo inspira os moradores a fabricar presentes segundo a lógica que conhecem, enquanto Sally percebe que imitar os sinais externos daquela celebração pode criar uma confusão muito maior do que Jack imagina. Dirigida por Henry Selick, a animação em stop-motion dá personalidade aos cenários inclinados, aos bonecos e às texturas de cada cidade. As canções de Danny Elfman mostram personagens tentando explicar uma emoção antes mesmo de entendê-la. É uma boa escolha para quem gosta de musical e fantasia gótica, com espaço para rir da distância entre a intenção de Jack e os resultados dos seus preparativos.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/the_nightmare_before_christmas",
+      "note": "95% da crítica e 91% do público. O consenso editorial destaca a originalidade do stop-motion."
+    }
+  },
+  {
+    "title": "Transformação de Natal",
+    "year": 2026,
+    "genre": "romance",
+    "menu": "doce",
+    "summary": "Duas irmãs com rotinas opostas trocam de lugar antes do Natal e encontram o amor onde menos esperavam."
+  },
+  {
+    "title": "Operação Natal",
+    "year": 2024,
+    "genre": "aventura",
+    "menu": "lanche",
+    "summary": "O Papai Noel é sequestrado. O chefe da segurança do Polo Norte recruta um caçador de recompensas para resgatá-lo."
+  },
+  {
+    "title": "Um Natal Muito Jonas Brothers",
+    "year": 2025,
+    "genre": "família",
+    "menu": "doce",
+    "summary": "Kevin, Joe e Nick enfrentam contratempos em uma viagem para tentar chegar em casa a tempo do Natal."
+  },
+  {
+    "title": "Feliz Natal e um Próspero Assalto",
+    "year": 2025,
+    "genre": "aventura",
+    "menu": "lanche",
+    "summary": "Uma vendedora e um ex-consultor de segurança tramam um roubo numa loja de departamentos durante as festas. O romance complica o plano."
+  },
+  {
+    "title": "Correndo para o Natal",
+    "year": 2026,
+    "genre": "família",
+    "menu": "doce",
+    "summary": "Uma nevasca cancela os voos e força dois colegas de trabalho rivais a dividir um carro na viagem para casa."
+  },
+  {
+    "title": "O Natal dos Muppets",
+    "year": 1992,
+    "genre": "clássico",
+    "menu": "ceia",
+    "summary": "Os Muppets recontam o clássico de Charles Dickens, com Michael Caine como o avarento Scrooge e Caco como Bob Cratchit.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/the_muppet_christmas_carol"
+    }
+  },
+  {
+    "title": "Protegendo Estrelas",
+    "year": 2026,
+    "genre": "romance",
+    "menu": "doce",
+    "summary": "Uma guarda-costas acompanha um ator à fazenda de sua família no Natal e aceita fingir que é sua namorada."
+  },
+  {
+    "title": "Natal Sem Papai Noel",
+    "year": 2025,
+    "genre": "família",
+    "menu": "doce",
+    "summary": "Quando Papai Noel decide tirar férias, Mamãe Noel precisa entrar em ação para salvar o dia mais importante do ano."
+  },
+  {
+    "title": "Os Fantasmas de Scrooge",
+    "year": 2009,
+    "genre": "família",
+    "menu": "doce",
+    "summary": "Na véspera de Natal, três espíritos mostram a Scrooge cenas de seu passado, presente e futuro e lhe dão a chance de mudar."
+  },
+  {
+    "title": "Um Amor Efervescente",
+    "year": 2025,
+    "genre": "romance",
+    "menu": "doce",
+    "summary": "Uma executiva viaja à França para fechar um negócio com uma marca de champanhe e se apaixona às vésperas do Natal."
+  },
+  {
+    "title": "Um. Natal. Surreal.",
+    "year": 2025,
+    "genre": "comédia",
+    "menu": "lanche",
+    "summary": "Depois de ser esquecida pela família durante as festas, Claire embarca em uma viagem para participar de uma competição de TV."
+  },
+  {
+    "title": "Bagagem de Mão",
+    "year": 2024,
+    "genre": "aventura",
+    "menu": "lanche",
+    "summary": "Na véspera de Natal, um agente de segurança de aeroporto é chantageado para deixar uma mala perigosa embarcar."
+  },
+  {
+    "title": "Milagre na Rua 34",
+    "year": 1947,
+    "genre": "clássico",
+    "menu": "ceia",
+    "summary": "Também conhecido como De Ilusão Também Se Vive. Um Papai Noel de loja afirma ser Kris Kringle, e a questão acaba nos tribunais.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/miracle_on_34th_street",
+      "note": "96% da crítica e 87% do público no levantamento consultado."
+    }
+  },
+  {
+    "title": "Um Sonho de Férias",
+    "year": 2026,
+    "genre": "família",
+    "menu": "doce",
+    "summary": "Presa num ciclo temporal, Mae revive o mesmo Natal na cabana da família e ganha várias chances de entender por quem está apaixonada."
+  },
+  {
+    "title": "Um Natal Ex-pecial",
+    "year": 2025,
+    "genre": "romance",
+    "menu": "doce",
+    "summary": "Um ex-casal tenta reunir a família para um último Natal juntos, mas novos amores e antigos sentimentos atrapalham os planos."
+  },
+  {
+    "title": "O Amor Não Tira Férias",
+    "year": 2006,
+    "genre": "romance",
+    "menu": "doce",
+    "summary": "Iris vive numa pequena vila inglesa e tenta se afastar de um colega por quem tem sentimentos há anos. Amanda trabalha com trailers em Los Angeles e chega ao fim de um relacionamento sem vontade de passar as festas em casa. As duas se conhecem por um site de troca de moradias e decidem mudar de continente por duas semanas. Amanda encontra uma casa de campo e conhece Graham. Iris ganha espaço para respirar na Califórnia, onde faz amizade com um roteirista aposentado e conhece o compositor Miles. Nancy Meyers dá atenção ao prazer de explorar uma casa desconhecida, escolher um filme e conversar sem a pressa da rotina. As duas histórias tratam de aprender a ocupar um lugar diferente, inclusive dentro de relações que pareciam ter papéis já definidos. O romance tem tempo para que as amizades e os encontros cotidianos ganhem importância entre as cenas mais sentimentais. Combina com quem procura uma comédia romântica confortável e aceita ficar um pouco mais na companhia dos personagens.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/the_holiday",
+      "note": "51% da crítica e 80% do público. O consenso editorial ressalta o caráter previsível do romance."
+    }
+  },
+  {
+    "title": "Esqueceram de Mim 2: Perdido em Nova York",
+    "year": 1992,
+    "genre": "clássico",
+    "menu": "lanche",
+    "summary": "Kevin pega o voo errado e passa o Natal em Nova York, onde reencontra os ladrões que tentou despistar no primeiro filme."
+  },
+  {
+    "title": "Esqueceram de Mim",
+    "year": 1990,
+    "genre": "comédia",
+    "menu": "pizza",
+    "summary": "Oito anos de idade, uma casa grande demais e um erro na contagem de passageiros: é disso que parte o Natal de Kevin McCallister. A família embarca para Paris sem perceber que ele ficou para trás. Kevin aproveita a liberdade para comer o que quiser e quebrar as regras da casa, até perceber que dois ladrões escolheram justamente a sua rua para agir. Enquanto sua mãe tenta encontrar um jeito de voltar, ele transforma os cômodos em obstáculos usando os objetos que conhece de cor. Chris Columbus intercala a comédia física com momentos em que Kevin precisa encarar medos bem menos espetaculares, como atravessar a rua para falar com um vizinho que ele só conhece por boatos. A trilha de John Williams ajuda a mudar o clima entre o susto, a brincadeira e a saudade. É uma sessão para quem procura o ritmo de uma comédia de confusões e gosta de reconhecer, em cada revisita, os pequenos preparativos que anunciam a próxima gag.",
+    "review": {
+      "url": "https://www.rottentomatoes.com/m/home_alone",
+      "note": "66% da crítica e 81% do público. O consenso editorial destaca Macaulay Culkin e o elenco de apoio."
+    }
+  }
+]
+</script>
 <script>
 // A ordem das apresentações acompanha as entradas de cada mês em filmes.json.
 const filmThemes = {
@@ -1147,22 +2580,18 @@ function showRating(score) {
     : 'Toque nas estrelas para dar sua nota.';
 }
 
-function setStreamingLink(title, platform, directLink) {
-  if (directLink) {
-    filmFields.link.href = directLink;
-    filmFields.link.textContent = `Abrir no ${platform.name} ↗`;
-    return;
-  }
+// O calendário e a sessão usam o mesmo destino para os filmes das portinhas.
+const calendarStreams = new Map();
+
+function getStreamingLink(title, platform, directLink) {
+  if (directLink) return { url: directLink, label: `Abrir no ${platform.name} ↗` };
 
   const guide = disneyGuides[title];
   if (typeof guide === 'string') {
-    filmFields.link.href = `https://www.justwatch.com/br/filme/${guide}`;
-    filmFields.link.textContent = 'Ver onde assistir ↗';
-    return;
+    return { url: `https://www.justwatch.com/br/filme/${guide}`, label: 'Ver onde assistir ↗' };
   }
 
-  filmFields.link.href = platform.search(title);
-  filmFields.link.textContent = `Buscar no ${platform.name} ↗`;
+  return { url: platform.search(title), label: `Buscar no ${platform.name} ↗` };
 }
 
 function fillFilm(entry, presentation, dateLabel) {
@@ -1178,7 +2607,12 @@ function fillFilm(entry, presentation, dateLabel) {
   filmFields.summary.textContent = summary;
   filmFields.release.hidden = typeof release !== 'string';
   filmFields.release.textContent = filmFields.release.hidden ? '' : release;
-  setStreamingLink(title, platform, directLink);
+  const { url, label } = getStreamingLink(title, platform, directLink);
+  filmFields.link.href = url;
+  filmFields.link.textContent = label;
+  const sessionButton = document.querySelector('#film-session');
+  sessionButton.dataset.title = title;
+  sessionButton.dataset.year = year;
 }
 
 function updateDoor(door, dateLabel, wasOpened) {
@@ -1234,6 +2668,8 @@ function renderCalendar(catalog) {
       if (!Array.isArray(entry) || typeof platforms[entry[2]]?.search !== 'function') {
         throw new Error(`Filme inválido em ${day} de ${month}.`);
       }
+      const [title, year, service, , directLink] = entry;
+      calendarStreams.set(JSON.stringify([title, year]), getStreamingLink(title, platforms[service], directLink));
       validDates.add(`${month}-${day}`);
       return createDoor(entry, filmThemes[month][index], day, month);
     });
@@ -1315,6 +2751,628 @@ sound.addEventListener('click', () => {
 renderSnow();
 updateSound();
 loadCalendar();
+</script>
+<script>
+// As receitas são reutilizadas em filmes com climas parecidos.
+// O campo pedido contém termos que o visitante pode buscar no iFood.
+const menus = {
+  doce: {
+    title: 'Chocolate quente com canela',
+    order: 'chocolate quente e cookie',
+    why: 'Uma bebida quente e cremosa acompanha cenas de inverno e histórias de aconchego.',
+    yield: '2 canecas · 10 min',
+    ingredients: ['400 ml de leite', '80 g de chocolate meio amargo picado', '½ colher de chá de canela'],
+    steps: ['Aqueça o leite e a canela em fogo baixo.', 'Junte o chocolate e mexa até derreter.', 'Divida entre duas canecas e sirva.']
+  },
+  lanche: {
+    title: 'Pipoca com páprica e manteiga',
+    order: 'pipoca salgada e refrigerante',
+    why: 'É um lanche crocante que dá para dividir sem tirar os olhos da ação ou da comédia.',
+    yield: '2 porções · 10 min',
+    ingredients: ['½ xícara de milho para pipoca', '1 colher de sopa de óleo', '1 colher de sopa de manteiga', '½ colher de chá de páprica doce', 'Sal a gosto'],
+    steps: ['Estoure o milho no óleo em panela tampada.', 'Derreta a manteiga e misture com a páprica.', 'Regue a pipoca, misture e acerte o sal.']
+  },
+  ceia: {
+    title: 'Batatas assadas com alecrim',
+    order: 'frango assado com batatas',
+    why: 'O aroma de alecrim e a travessa para compartilhar lembram uma mesa de festa.',
+    yield: '3 porções · 45 min',
+    ingredients: ['600 g de batatas', '2 colheres de sopa de azeite', '1 ramo de alecrim', 'Sal e pimenta a gosto'],
+    steps: ['Corte as batatas em gomos e misture com os temperos.', 'Espalhe numa assadeira sem sobrepor.', 'Asse a 220 °C por 35 a 40 minutos, virando na metade do tempo.']
+  },
+  pizza: {
+    title: 'Minipizza de queijo no pão sírio',
+    order: 'pizza de muçarela',
+    why: 'A pizza de queijo lembra o pedido que Kevin faz quando fica sozinho em casa.',
+    yield: '2 porções · 15 min',
+    ingredients: ['2 pães sírios', '4 colheres de sopa de molho de tomate', '120 g de muçarela', 'Orégano a gosto'],
+    steps: ['Cubra os pães com molho, queijo e orégano.', 'Asse a 220 °C por 8 a 10 minutos, até o queijo derreter.', 'Fatie e sirva.']
+  },
+  biscoito: {
+    title: 'Biscoitos de gengibre e canela',
+    order: 'biscoito de gengibre e chocolate quente',
+    why: 'As especiarias combinam com o inverno de Smeerensburg, e os biscoitos podem virar presentes como os brinquedos de Klaus.',
+    yield: '16 biscoitos · 45 min',
+    ingredients: ['100 g de manteiga', '70 g de açúcar mascavo', '1 gema', '180 g de farinha de trigo', '1 colher de chá de gengibre em pó', '½ colher de chá de canela'],
+    steps: ['Misture a manteiga com o açúcar e incorpore a gema.', 'Junte a farinha e as especiarias. Refrigere a massa por 20 minutos.', 'Abra a massa, corte os biscoitos e asse a 180 °C por 10 a 12 minutos.']
+  },
+  abobora: {
+    title: 'Abóbora assada com mel e canela',
+    order: 'torta de abóbora ou doce de abóbora',
+    why: 'A abóbora faz referência à Cidade do Halloween, e a canela leva o prato para a mesa de Natal de Jack.',
+    yield: '3 porções · 40 min',
+    ingredients: ['500 g de abóbora em cubos', '1 colher de sopa de azeite', '1 colher de sopa de mel', '½ colher de chá de canela'],
+    steps: ['Misture a abóbora com azeite e canela.', 'Asse a 210 °C por cerca de 30 minutos, até ficar macia.', 'Regue com mel e sirva morna.']
+  }
+};
+</script>
+<script>
+// Cada opção soma um ponto à preferência de filme, à de comida ou às duas.
+const quizQuestions = [
+  ['Com quem você vai passar a sessão?', [['Com crianças ou toda a família', 'família'], ['A dois', 'romance'], ['Com amigos', 'comédia'], ['Quero um momento só meu', 'drama']]],
+  ['Qual imagem lembra o seu Natal ideal?', [['Uma aldeia iluminada', 'clássico'], ['Neve e magia', 'família'], ['Uma cidade cheia de surpresas', 'aventura'], ['Um encontro à luz de velas', 'romance']]],
+  ['O que você quer sentir no final?', [['Vontade de rir', 'comédia'], ['Saudade boa', 'clássico'], ['Aquela emoção que fica', 'drama'], ['Alívio depois da adrenalina', 'aventura']]],
+  ['Qual tradição você escolheria?', [['Rever um favorito antigo', 'clássico'], ['Montar a árvore juntos', 'família'], ['Trocar presentes engraçados', 'comédia'], ['Caminhar para ver as luzes', 'romance']]],
+  ['Qual cenário você topa visitar?', [['Um internato no inverno', 'drama'], ['Um prédio em apuros', 'aventura'], ['Uma loja de brinquedos', 'família'], ['Uma casa emprestada no campo', 'romance']]],
+  ['Que ritmo combina com a noite?', [['Calmo e contemplativo', 'drama'], ['Rápido, cheio de reviravoltas', 'aventura'], ['Leve e brincalhão', 'comédia'], ['Tranquilo, como filme antigo', 'clássico']]],
+  ['Que cheiro abre o apetite?', [['Chocolate e canela', null, 'doce'], ['Pipoca recém-estourada', null, 'lanche'], ['Alecrim saindo do forno', null, 'ceia']]],
+  ['O que você quer comer durante o filme?', [['Só um doce', null, 'doce'], ['Um lanche para beliscar', null, 'lanche'], ['Um jantar completo', null, 'ceia']]],
+  ['Como você imagina a mesa?', [['Canecas e sobremesa', null, 'doce'], ['Petiscos no sofá', null, 'lanche'], ['Travessas para compartilhar', null, 'ceia']]],
+  ['O que fecha a noite perfeita?', [['Chocolate e um final carinhoso', 'família', 'doce'], ['Um lanche e mais uma risada', 'comédia', 'lanche'], ['Uma ceia e conversa depois dos créditos', 'drama', 'ceia']]]
+];
+
+function rankQuizMovies(movies, answers) {
+  const genres = new Map();
+  const foods = new Map();
+  for (const [_, genre, food] of answers) {
+    if (genre) genres.set(genre, (genres.get(genre) ?? 0) + 1);
+    if (food) foods.set(food, (foods.get(food) ?? 0) + 1);
+  }
+  const foodPreference = { pizza: 'lanche', biscoito: 'doce', abobora: 'doce' };
+  const foodScore = menu => foods.get(foodPreference[menu] ?? menu) ?? 0;
+  const score = movie => 3 * (genres.get(movie.genre) ?? 0) + foodScore(movie.menu);
+  // Em caso de empate, mantém a ordem da filmoteca.
+  const movie = [...movies].sort((a, b) => score(b) - score(a))[0];
+  const [preferredFood] = [...foods].sort((a, b) => b[1] - a[1])[0];
+  const menu = foodScore(movie.menu) === foodScore(preferredFood) ? movie.menu : preferredFood;
+  return { movie, menu };
+}
+</script>
+<script>
+function movieKey(movie) {
+  // O ano distingue remakes, e a chave independe da ordem da filmoteca.
+  return JSON.stringify([movie.title, movie.year]);
+}
+
+function createSessions({ node, link, list, ifoodUrl }) {
+  const select = document.querySelector('#session-film');
+  const genre = document.querySelector('#session-genre');
+  const onlyUnwatched = document.querySelector('#session-unwatched');
+  const draw = document.querySelector('#session-draw');
+  const marathon = document.querySelector('#session-marathon');
+  const content = document.querySelector('#session-content');
+  const status = document.querySelector('#session-status');
+  const invite = document.querySelector('#session-invite');
+  const time = document.querySelector('#invite-time');
+  const inviteText = document.querySelector('#invite-text');
+  const inviteStatus = document.querySelector('#invite-status');
+  const share = document.querySelector('#invite-share');
+  const filter = document.querySelector('#watchlist-filter');
+  const watchlist = document.querySelector('#watchlist-content');
+  const watchStatus = document.querySelector('#watchlist-status');
+  const storageKey = 'cinema-natal-v1-watchlist';
+  const saved = readPreference(storageKey);
+  const records = new Map(Array.isArray(saved) ? saved.filter(entry =>
+    Array.isArray(entry) && typeof entry[0] === 'string' && entry[1] && typeof entry[1] === 'object'
+  ) : []);
+  let movies = [];
+  let lineup = [];
+  let sessionMenu;
+
+  function button(label, action) {
+    const control = node('button', label, 'panel-button panel-secondary');
+    control.type = 'button';
+    control.addEventListener('click', action);
+    return control;
+  }
+
+  function update(movie, changes) {
+    const key = movieKey(movie);
+    const record = { ...records.get(key), ...changes };
+    if (record.saved || record.watched || record.rating) records.set(key, record);
+    else records.delete(key);
+    savePreference(storageKey, [...records]);
+    for (const control of document.querySelectorAll('[data-watch-key]')) {
+      if (control.dataset.watchKey !== key) continue;
+      switch (control.dataset.watchField) {
+        case 'saved':
+          updateSaveButton(control, record.saved);
+          break;
+        case 'watched':
+          control.checked = Boolean(record.watched);
+          break;
+        case 'rating':
+          control.value = String(record.rating ?? 0);
+          break;
+      }
+    }
+    const focused = document.activeElement;
+    if (watchlist.contains(focused)) {
+      const card = focused.closest('[data-watch-card]');
+      const remainsVisible = records.has(key) && (
+        !filter.value || (filter.value === 'watched' ? record.watched : record.saved && !record.watched)
+      );
+      if (card?.dataset.watchCard === key && remainsVisible) return;
+      filter.focus();
+    }
+    renderWatchlist();
+  }
+
+  function saveButton(movie) {
+    const key = movieKey(movie);
+    const control = button('Salvar para depois', () => update(movie, { saved: !records.get(key)?.saved }));
+    control.dataset.watchKey = key;
+    control.dataset.watchField = 'saved';
+    updateSaveButton(control, records.get(key)?.saved);
+    return control;
+  }
+
+  function updateSaveButton(control, saved) {
+    control.textContent = saved ? 'Salvo para depois' : 'Salvar para depois';
+    control.setAttribute('aria-pressed', String(Boolean(saved)));
+  }
+
+  function movieControls(movie) {
+    const key = movieKey(movie);
+    const record = records.get(key) ?? {};
+    const watched = node('label', '', 'session-check');
+    const check = node('input');
+    check.type = 'checkbox';
+    check.dataset.watchKey = key;
+    check.dataset.watchField = 'watched';
+    check.checked = Boolean(record.watched);
+    check.addEventListener('change', () => update(movie, { watched: check.checked }));
+    watched.append(check, document.createTextNode(' Já assisti'));
+    const rating = node('label', 'Minha nota');
+    const choices = node('select');
+    choices.dataset.watchKey = key;
+    choices.dataset.watchField = 'rating';
+    choices.setAttribute('aria-label', `Minha nota para ${movie.title}`);
+    for (let score = 0; score <= 5; score++) {
+      const option = node('option', score ? `${score} de 5` : 'Sem nota');
+      option.value = String(score);
+      choices.append(option);
+    }
+    choices.value = String(record.rating ?? 0);
+    choices.addEventListener('change', () => update(movie, { rating: Number(choices.value) }));
+    rating.append(choices);
+    const controls = node('div', '', 'session-personal');
+    controls.append(watched, rating);
+    return controls;
+  }
+
+  function renderWatchlist() {
+    const titles = movies.filter(movie => {
+      const record = records.get(movieKey(movie));
+      if (!record) return false;
+      if (filter.value === 'saved') return record.saved && !record.watched;
+      if (filter.value === 'watched') return record.watched;
+      return true;
+    });
+    watchStatus.textContent = titles.length ? `${titles.length} filmes nesta lista` : 'Nenhum filme nesta lista.';
+    watchlist.replaceChildren(...titles.map(movie => {
+      const card = node('article', '', 'panel-card');
+      card.dataset.watchCard = movieKey(movie);
+      card.append(
+        node('h2', movie.title),
+        node('p', `${movie.year} · ${movie.genre}`, 'panel-meta'),
+        movieControls(movie),
+        button('Montar sessão', () => open(movie)),
+        button('Remover da minha lista', () => update(movie, { saved: false, watched: false, rating: 0 }))
+      );
+      return card;
+    }));
+  }
+
+  function renderInvite() {
+    const [date, hour] = time.value.split('T');
+    const when = date && hour ? `${date.split('-').reverse().join('/')} às ${hour}` : 'Horário a combinar';
+    const titles = lineup.map(movie => `${movie.title} (${movie.year})`).join(' + ');
+    inviteText.value = `Convite para o Cinema de Natal 🎄\n${titles}\n${when}\nPara preparar: ${sessionMenu.title}\nSugestão de pedido: ${sessionMenu.order}\nVamos assistir juntos?`;
+    inviteStatus.textContent = '';
+  }
+
+  function showLineup(titles, preferredMenu) {
+    lineup = titles;
+    select.value = titles.length === 1 ? movieKey(titles[0]) : '';
+    const menu = menus[preferredMenu ?? titles[0].menu];
+    sessionMenu = menu;
+    const program = titles.map((movie, index) => {
+      const card = node('article', '', 'panel-card');
+      const stream = calendarStreams.get(movieKey(movie)) ?? {
+        url: 'https://www.justwatch.com/br/busca?q=' + encodeURIComponent(movie.title),
+        label: 'Buscar onde assistir ↗'
+      };
+      const label = titles.length > 1 ? `${index + 1}. ${movie.title}` : movie.title;
+      card.append(node('h2', label), node('p', `${movie.year} · ${movie.genre}`, 'panel-meta'),
+        node('p', movie.summary), link(stream.label, stream.url, true), movieControls(movie), saveButton(movie));
+      return card;
+    });
+    const food = node('article', '', 'panel-card session-food');
+    food.append(node('h2', 'Cardápio da sessão'), node('h3', menu.title), node('p', menu.yield, 'panel-meta'),
+      node('p', menu.why), node('h3', 'Ingredientes'), list('ul', menu.ingredients),
+      node('h3', 'Como preparar'), list('ol', menu.steps), node('h3', 'Sugestão no iFood'),
+      node('p', menu.order), link('Abrir busca do iFood ↗', ifoodUrl, true));
+    const films = node('div', '', 'session-films');
+    films.append(...program);
+    content.replaceChildren(films, food);
+    status.textContent = titles.length > 1 ? 'Maratona de dois filmes pronta.' : 'Sessão pronta.';
+    invite.hidden = false;
+    renderInvite();
+  }
+
+  function open(movie, menu) {
+    showLineup([movie], menu);
+    location.hash = 'sessao';
+  }
+
+  function random(items) {
+    return items[Math.floor(Math.random() * items.length)];
+  }
+
+  function drawSession(twoFilms) {
+    const pool = movies.filter(movie => !onlyUnwatched.checked || !records.get(movieKey(movie))?.watched);
+    const starters = pool.filter(movie => !genre.value || movie.genre === genre.value);
+    if (!starters.length || (twoFilms && pool.length < 2)) {
+      status.textContent = 'Não há filmes suficientes para esta seleção. Ajuste os filtros e tente novamente.';
+      return;
+    }
+    const fresh = starters.filter(movie => !lineup.includes(movie));
+    const first = random(fresh.length ? fresh : starters);
+    if (!twoFilms) {
+      showLineup([first]);
+      content.focus();
+      return;
+    }
+    // Na maratona, o filtro orienta o primeiro filme. O segundo varia o gênero.
+    const others = pool.filter(movie => movie !== first);
+    const complementary = others.filter(movie => movie.genre !== first.genre);
+    showLineup([first, random(complementary.length ? complementary : others)]);
+    content.focus();
+  }
+
+  select.addEventListener('change', () => {
+    const movie = movies.find(item => movieKey(item) === select.value);
+    if (movie) showLineup([movie]);
+    else if (lineup.length === 1) {
+      lineup = [];
+      content.replaceChildren();
+      invite.hidden = true;
+      status.textContent = 'Escolha um filme, sorteie um título ou monte uma maratona.';
+    }
+  });
+  draw.addEventListener('click', () => drawSession(false));
+  marathon.addEventListener('click', () => drawSession(true));
+  filter.addEventListener('change', renderWatchlist);
+  time.addEventListener('input', renderInvite);
+  document.querySelector('#invite-copy').addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(inviteText.value);
+      inviteStatus.textContent = 'Convite copiado.';
+    } catch {
+      inviteText.focus();
+      inviteText.select();
+      inviteStatus.textContent = 'Texto selecionado. Use o comando Copiar do navegador.';
+    }
+  });
+  share.hidden = typeof navigator.share !== 'function';
+  share.addEventListener('click', async () => {
+    try {
+      await navigator.share({ title: 'Cinema de Natal', text: inviteText.value });
+    } catch (error) {
+      if (error.name !== 'AbortError') inviteStatus.textContent = 'Use Copiar convite para compartilhar o texto.';
+    }
+  });
+
+  function load(catalog, genres) {
+    movies = catalog;
+    for (const movie of movies) {
+      const option = node('option', `${movie.title} (${movie.year})`);
+      option.value = movieKey(movie);
+      select.append(option);
+    }
+    for (const value of genres) {
+      const option = node('option', value);
+      option.value = value;
+      genre.append(option);
+    }
+    for (const control of [select, genre, draw, marathon]) control.disabled = false;
+    status.textContent = 'Escolha um filme, sorteie um título ou monte uma maratona.';
+    renderWatchlist();
+  }
+
+  function showError(message) {
+    status.textContent = message;
+    watchStatus.textContent = message;
+  }
+
+  return { load, open, saveButton, showError };
+}
+</script>
+<script>
+(() => {
+  const sections = [...document.querySelectorAll('[data-panel]')];
+  const navigation = [...document.querySelectorAll('.panel-nav a')];
+  const search = document.querySelector('#library-search');
+  const genre = document.querySelector('#library-genre');
+  const libraryStatus = document.querySelector('#library-status');
+  const libraryList = document.querySelector('#library-list');
+  const recipeSelect = document.querySelector('#recipe-film');
+  const recipeContent = document.querySelector('#recipe-content');
+  const quizForm = document.querySelector('#quiz-form');
+  const quizResult = document.querySelector('#quiz-result');
+  const ifoodUrl = 'https://www.ifood.com.br/busca';
+  const quizStepLabel = document.querySelector('#quiz-step-label');
+  const quizProgress = document.querySelector('#quiz-progress');
+  const quizBack = document.querySelector('#quiz-back');
+  const quizNext = document.querySelector('#quiz-next');
+  const quizMessage = document.querySelector('#quiz-message');
+  const answers = new Array(quizQuestions.length).fill(null);
+  let step = 0;
+  let movies = [];
+
+  function node(tag, text, className) {
+    const element = document.createElement(tag);
+    if (text) element.textContent = text;
+    if (className) element.className = className;
+    return element;
+  }
+
+  function link(text, href, external = false) {
+    const anchor = node('a', text);
+    anchor.href = href;
+    if (external) {
+      anchor.target = '_blank';
+      anchor.rel = 'noopener noreferrer';
+    }
+    return anchor;
+  }
+
+  const sessions = createSessions({ node, link, list, ifoodUrl });
+  const calendarSession = document.querySelector('#film-session');
+  calendarSession.addEventListener('click', () => {
+    const { title, year } = calendarSession.dataset;
+    const movie = movies.find(item => item.title === title && item.year === Number(year));
+    if (!movie) return;
+    document.querySelector('#film').close();
+    sessions.open(movie);
+  });
+
+  function sessionButton(movie, menu) {
+    const control = node('button', 'Montar sessão', 'panel-button');
+    control.type = 'button';
+    control.addEventListener('click', () => sessions.open(movie, menu));
+    return control;
+  }
+
+  function showPanel(event) {
+    const hash = location.hash.slice(1);
+    // Novembro e dezembro são âncoras internas da aba Calendário.
+    const panel = sections.some(section => section.id === hash) ? hash : 'calendario';
+    for (const section of sections) section.hidden = section.id !== panel;
+    for (const anchor of navigation) {
+      if (anchor.hash === '#' + panel) anchor.setAttribute('aria-current', 'page');
+      else anchor.removeAttribute('aria-current');
+    }
+    if (panel === 'calendario' && ['novembro', 'dezembro'].includes(hash)) {
+      document.getElementById(hash).scrollIntoView();
+    } else if (event) {
+      const heading = document.querySelector(`#${panel} h1`);
+      heading.tabIndex = -1;
+      heading.focus({ preventScroll: true });
+      window.scrollTo(0, 0);
+    }
+  }
+
+  function normalize(text) {
+    return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  }
+
+  function openRecipe(index) {
+    recipeSelect.value = String(index);
+    renderRecipe();
+    location.hash = 'receitas';
+  }
+
+  function renderLibrary() {
+    const terms = normalize(search.value.trim()).split(/\s+/);
+    const cards = movies.flatMap((movie, index) => {
+      const haystack = normalize(`${movie.title} ${movie.year} ${movie.genre}`);
+      if (genre.value && movie.genre !== genre.value) return [];
+      if (!terms.every(term => haystack.includes(term))) return [];
+      const card = node('article', '', 'panel-card');
+      const details = node('details');
+      details.append(
+        node('summary', 'Sinopse e avaliações'),
+        node('p', movie.summary)
+      );
+      if (movie.review?.note) details.append(node('p', movie.review.note));
+      const reviewUrl = movie.review?.url ||
+        'https://www.rottentomatoes.com/search?search=' + encodeURIComponent(`${movie.title} ${movie.year}`);
+      const recipe = node('button', 'Ver receita', 'panel-button panel-secondary');
+      recipe.type = 'button';
+      recipe.addEventListener('click', () => openRecipe(index));
+      details.append(link(movie.review ? 'Avaliações no Rotten Tomatoes ↗' : 'Buscar avaliações ↗', reviewUrl, true));
+      const actions = node('div', '', 'quiz-actions library-actions');
+      actions.append(sessionButton(movie), recipe, sessions.saveButton(movie));
+      card.append(node('h2', movie.title), node('p', `${movie.year} · ${movie.genre}`, 'panel-meta'), details, actions);
+      return [card];
+    });
+    libraryStatus.textContent = cards.length ? `${cards.length} de ${movies.length} filmes` : 'Nenhum filme encontrado.';
+    if (!cards.length) {
+      const clear = node('button', 'Limpar filtros', 'panel-button panel-secondary');
+      clear.addEventListener('click', () => {
+        search.value = '';
+        genre.value = '';
+        renderLibrary();
+        search.focus();
+      });
+      libraryList.replaceChildren(clear);
+      return;
+    }
+    libraryList.replaceChildren(...cards);
+  }
+
+  function list(tag, items) {
+    const result = node(tag);
+    for (const item of items) result.append(node('li', item));
+    return result;
+  }
+
+  function renderRecipe() {
+    const movie = movies[Number(recipeSelect.value)];
+    const menu = menus[movie.menu];
+    document.querySelector('#recipe-status').textContent = `Para assistir a ${movie.title} (${movie.year})`;
+    recipeContent.replaceChildren(
+      node('h2', menu.title),
+      node('p', menu.yield, 'panel-meta'),
+      node('p', menu.why),
+      node('h3', 'Ingredientes'),
+      list('ul', menu.ingredients),
+      node('h3', 'Como preparar'),
+      list('ol', menu.steps),
+      sessionButton(movie)
+    );
+  }
+
+  function renderQuestion(moveFocus = false) {
+    const [question, options] = quizQuestions[step];
+    const fieldset = node('fieldset', '', 'panel-card');
+    const legend = node('legend', question);
+    legend.tabIndex = -1;
+    fieldset.append(legend);
+    options.forEach(([text], index) => {
+      const label = node('label');
+      const input = node('input');
+      input.type = 'radio';
+      input.name = 'answer';
+      input.checked = answers[step] === index;
+      input.addEventListener('change', () => {
+        answers[step] = index;
+        quizMessage.textContent = '';
+      });
+      label.append(input, document.createTextNode(text));
+      fieldset.append(label);
+    });
+    document.querySelector('#quiz-questions').replaceChildren(fieldset);
+    quizStepLabel.textContent = `Pergunta ${step + 1} de ${quizQuestions.length}`;
+    quizProgress.max = quizQuestions.length;
+    quizProgress.value = step + 1;
+    quizBack.hidden = step === 0;
+    quizNext.textContent = step === quizQuestions.length - 1 ? 'Ver minha sessão' : 'Continuar';
+    quizMessage.textContent = '';
+    if (moveFocus) legend.focus();
+  }
+
+  quizBack.addEventListener('click', () => {
+    step--;
+    renderQuestion(true);
+  });
+
+  quizForm.addEventListener('submit', event => {
+    event.preventDefault();
+    if (!movies.length) return;
+    if (answers[step] === null) {
+      quizMessage.textContent = 'Escolha uma resposta para continuar.';
+      quizForm.querySelector('input[type="radio"]').focus();
+      return;
+    }
+    if (step < quizQuestions.length - 1) {
+      step++;
+      renderQuestion(true);
+      return;
+    }
+    const selections = answers.map((index, question) => quizQuestions[question][1][index]);
+    const { movie, menu } = rankQuizMovies(movies, selections);
+    const recipe = node('button', 'Ver a receita do filme', 'panel-button panel-secondary');
+    recipe.type = 'button';
+    recipe.addEventListener('click', () => openRecipe(movies.indexOf(movie)));
+    const restart = node('button', 'Refazer quiz', 'panel-button panel-secondary');
+    restart.type = 'button';
+    restart.addEventListener('click', () => {
+      answers.fill(null);
+      step = 0;
+      quizResult.hidden = true;
+      quizForm.hidden = false;
+      renderQuestion(true);
+    });
+    const orderLink = link('Abrir busca do iFood ↗', ifoodUrl, true);
+    orderLink.className = 'panel-button';
+    const actions = node('div', '', 'quiz-actions');
+    actions.append(sessionButton(movie, menu), orderLink, recipe, restart);
+    quizResult.replaceChildren(
+      node('h2', `${movie.title} (${movie.year})`),
+      node('p', movie.summary),
+      node('h3', 'Sugestão para pedir'),
+      node('p', menus[menu].order),
+      node('p', 'Informe seu endereço no iFood e busque pelos itens. A oferta depende da região.'),
+      actions
+    );
+    quizForm.hidden = true;
+    quizResult.hidden = false;
+    quizResult.focus();
+  });
+
+  async function loadLibrary() {
+    try {
+      const embedded = document.querySelector('#library-catalog');
+      if (embedded) {
+        movies = JSON.parse(embedded.textContent);
+      } else {
+        const response = await fetch('filmoteca.json');
+        if (!response.ok) throw new Error(`Filmoteca: HTTP ${response.status}`);
+        movies = await response.json();
+      }
+      const collator = new Intl.Collator('pt-BR', { sensitivity: 'base' });
+      movies.sort((a, b) => collator.compare(a.title, b.title) || a.year - b.year);
+      movies.forEach((movie, index) => {
+        const option = node('option', `${movie.title} (${movie.year})`);
+        option.value = String(index);
+        recipeSelect.append(option);
+      });
+      const genres = [...new Set(movies.map(movie => movie.genre))].sort(collator.compare);
+      for (const value of genres) {
+        const option = node('option', value);
+        option.value = value;
+        genre.append(option);
+      }
+      sessions.load(movies, genres);
+      calendarSession.disabled = false;
+      genre.addEventListener('change', renderLibrary);
+      renderLibrary();
+      renderRecipe();
+      search.addEventListener('input', renderLibrary);
+      recipeSelect.addEventListener('change', renderRecipe);
+      quizNext.disabled = false;
+    } catch (error) {
+      console.error(error);
+      libraryStatus.textContent = 'Não foi possível carregar a filmoteca. Recarregue a página.';
+      sessions.showError(libraryStatus.textContent);
+      quizMessage.textContent = libraryStatus.textContent;
+      recipeSelect.disabled = true;
+      recipeContent.textContent = libraryStatus.textContent;
+    }
+  }
+
+  document.querySelector('.skip-link').addEventListener('click', event => {
+    event.preventDefault();
+    document.querySelector('#conteudo').focus();
+  });
+  window.addEventListener('hashchange', showPanel);
+  showPanel();
+  renderQuestion();
+  loadLibrary();
+})();
 </script>
 </body>
 </html>

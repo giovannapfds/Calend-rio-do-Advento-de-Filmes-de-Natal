@@ -3,6 +3,12 @@
 /* Tokens visuais e estilos gerais */
 :root {
   color-scheme: only dark;
+  --cinema-natal-red: #a52842;
+  --cinema-natal-red-hover: #bc3651;
+  --cinema-natal-red-dark: #52202c;
+  --cinema-natal-red-surface: #301b23;
+  --cinema-natal-red-line: #b75b70;
+  --cinema-natal-red-light: #ffb7c4;
   --cinema-natal-bg: #10231b;
   --cinema-natal-cream: #fff6e5;
   --cinema-natal-gold: #ffe0a3;
@@ -53,7 +59,7 @@ button {
   align-items: center;
   justify-content: space-between;
   padding: 22px clamp(18px,5vw,60px);
-  border-bottom: 1px solid var(--cinema-natal-line);
+  border-bottom: 1px solid var(--cinema-natal-red-line);
 }
 
 .brand {
@@ -68,9 +74,9 @@ button {
 }
 
 .sound {
-  border: 1px solid var(--cinema-natal-line);
+  border: 1px solid var(--cinema-natal-red-line);
   border-radius: 30px;
-  background: #12251be0;
+  background: var(--cinema-natal-red-dark);
   padding: 8px 13px;
   color: var(--cinema-natal-cream);
   font-size: 13px;
@@ -88,7 +94,7 @@ button {
   align-items: center;
   justify-content: center;
   gap: 17px;
-  color: var(--cinema-natal-gold);
+  color: var(--cinema-natal-red-light);
   font-size: 14px;
   margin-bottom: 18px;
 }

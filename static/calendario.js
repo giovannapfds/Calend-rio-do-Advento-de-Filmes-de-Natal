@@ -91,22 +91,18 @@ function showRating(score) {
     : 'Toque nas estrelas para dar sua nota.';
 }
 
-function setStreamingLink(title, platform, directLink) {
-  if (directLink) {
-    filmFields.link.href = directLink;
-    filmFields.link.textContent = `Abrir no ${platform.name} ↗`;
-    return;
-  }
+// O calendário e a sessão usam o mesmo destino para os filmes das portinhas.
+const calendarStreams = new Map();
+
+function getStreamingLink(title, platform, directLink) {
+  if (directLink) return { url: directLink, label: `Abrir no ${platform.name} ↗` };
 
   const guide = disneyGuides[title];
   if (typeof guide === 'string') {
-    filmFields.link.href = `https://www.justwatch.com/br/filme/${guide}`;
-    filmFields.link.textContent = 'Ver onde assistir ↗';
-    return;
+    return { url: `https://www.justwatch.com/br/filme/${guide}`, label: 'Ver onde assistir ↗' };
   }
 
-  filmFields.link.href = platform.search(title);
-  filmFields.link.textContent = `Buscar no ${platform.name} ↗`;
+  return { url: platform.search(title), label: `Buscar no ${platform.name} ↗` };
 }
 
 function fillFilm(entry, presentation, dateLabel) {
@@ -122,7 +118,12 @@ function fillFilm(entry, presentation, dateLabel) {
   filmFields.summary.textContent = summary;
   filmFields.release.hidden = typeof release !== 'string';
   filmFields.release.textContent = filmFields.release.hidden ? '' : release;
-  setStreamingLink(title, platform, directLink);
+  const { url, label } = getStreamingLink(title, platform, directLink);
+  filmFields.link.href = url;
+  filmFields.link.textContent = label;
+  const sessionButton = document.querySelector('#film-session');
+  sessionButton.dataset.title = title;
+  sessionButton.dataset.year = year;
 }
 
 function updateDoor(door, dateLabel, wasOpened) {
@@ -178,6 +179,8 @@ function renderCalendar(catalog) {
       if (!Array.isArray(entry) || typeof platforms[entry[2]]?.search !== 'function') {
         throw new Error(`Filme inválido em ${day} de ${month}.`);
       }
+      const [title, year, service, , directLink] = entry;
+      calendarStreams.set(JSON.stringify([title, year]), getStreamingLink(title, platforms[service], directLink));
       validDates.add(`${month}-${day}`);
       return createDoor(entry, filmThemes[month][index], day, month);
     });

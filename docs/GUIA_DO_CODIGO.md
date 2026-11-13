@@ -29,3 +29,16 @@ A página e os controles ficam em `static/index.html`. Edite o template `door-te
 5. Rode `python3 gerar_html.py` (ou `py gerar_html.py` no Windows) e abra `abrir_calendario.html` para conferir a versão independente.
 
 O gerador incorpora o catálogo, o CSS e os scripts a partir dos arquivos-fonte. Faça as alterações nesses arquivos e regenere o HTML antes de publicar ou compartilhar a versão independente.
+
+## Filmoteca, receitas e quiz
+
+- `static/filmoteca.json` guarda as fichas da filmoteca. O painel ordena pelo título em português e usa o ano para distinguir remakes. Para registrar uma avaliação verificada, adicione `review.url` e `review.note` à ficha. As porcentagens consultadas vêm do [guia natalino do Rotten Tomatoes](https://editorial.rottentomatoes.com/guide/best-christmas-movies/).
+- `static/cardapio.js` guarda receitas compartilhadas. Cada filme aponta para uma delas pelo campo `menu`. O campo `order` descreve o que buscar no iFood, cuja oferta depende do endereço.
+- `static/quiz.js` guarda as dez perguntas e a pontuação. A preferência de gênero pesa três pontos por resposta e a de comida, um ponto. Em empate de filmes, vale a ordem da filmoteca.
+- `static/painel.js` cuida da navegação, da busca, da exibição das receitas e da montagem do quiz. Depois de editar esses arquivos, regenere o HTML independente.
+
+## Sessões, maratona e lista pessoal
+
+`static/sessoes.js` reúne as ações de montar sessão, sortear, criar maratona e compartilhar o convite. O sorteio pode excluir filmes marcados como assistidos. Na maratona, o gênero selecionado orienta o primeiro filme e o segundo vem de outro gênero quando possível.
+
+A lista usa o título e o ano como chave e guarda o estado no navegador. As notas da lista pessoal são por filme. As estrelas do calendário continuam vinculadas à portinha. Para títulos do calendário, a sessão reutiliza os mesmos links de streaming. Para os demais, abre uma busca no JustWatch.
