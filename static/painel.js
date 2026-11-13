@@ -5,6 +5,7 @@
   const genre = document.querySelector('#library-genre');
   const libraryStatus = document.querySelector('#library-status');
   const libraryList = document.querySelector('#library-list');
+  const renderReactLibrary = createReactLibrary(libraryList);
   const recipeSelect = document.querySelector('#recipe-film');
   const recipeContent = document.querySelector('#recipe-content');
   const quizForm = document.querySelector('#quiz-form');
@@ -82,42 +83,53 @@
     location.hash = 'receitas';
   }
 
+  function clearLibraryFilters() {
+    search.value = '';
+    genre.value = '';
+    renderLibrary();
+    search.focus();
+  }
+
   function renderLibrary() {
     const terms = normalize(search.value.trim()).split(/\s+/);
-    const cards = movies.flatMap((movie, index) => {
+    const items = movies.flatMap((movie, index) => {
       const haystack = normalize(`${movie.title} ${movie.year} ${movie.genre}`);
       if (genre.value && movie.genre !== genre.value) return [];
       if (!terms.every(term => haystack.includes(term))) return [];
-      const card = node('article', '', 'panel-card');
-      const details = node('details');
-      details.append(
-        node('summary', 'Sinopse e avaliações'),
-        node('p', movie.summary)
-      );
-      if (movie.review?.note) details.append(node('p', movie.review.note));
       const reviewUrl = movie.review?.url ||
         'https://www.rottentomatoes.com/search?search=' + encodeURIComponent(`${movie.title} ${movie.year}`);
-      const recipe = node('button', 'Ver receita', 'panel-button panel-secondary');
-      recipe.type = 'button';
-      recipe.addEventListener('click', () => openRecipe(index));
-      details.append(link(movie.review ? 'Avaliações no Rotten Tomatoes ↗' : 'Buscar avaliações ↗', reviewUrl, true));
-      const actions = node('div', '', 'quiz-actions library-actions');
-      actions.append(sessionButton(movie), recipe, sessions.saveButton(movie));
-      card.append(node('h2', movie.title), node('p', `${movie.year} · ${movie.genre}`, 'panel-meta'), details, actions);
-      return [card];
+      const reviewLabel = movie.review ? 'Avaliações no Rotten Tomatoes ↗' : 'Buscar avaliações ↗';
+      return [{ movie, index, reviewUrl, reviewLabel }];
     });
-    libraryStatus.textContent = cards.length ? `${cards.length} de ${movies.length} filmes` : 'Nenhum filme encontrado.';
-    if (!cards.length) {
+    libraryStatus.textContent = items.length ? `${items.length} de ${movies.length} filmes` : 'Nenhum filme encontrado.';
+
+    if (renderReactLibrary) {
+      renderReactLibrary(items, sessions, openRecipe, clearLibraryFilters);
+      return;
+    }
+
+    if (!items.length) {
       const clear = node('button', 'Limpar filtros', 'panel-button panel-secondary');
-      clear.addEventListener('click', () => {
-        search.value = '';
-        genre.value = '';
-        renderLibrary();
-        search.focus();
-      });
+      clear.type = 'button';
+      clear.addEventListener('click', clearLibraryFilters);
       libraryList.replaceChildren(clear);
       return;
     }
+
+    const cards = items.map(({ movie, index, reviewUrl, reviewLabel }) => {
+      const card = node('article', '', 'panel-card');
+      const details = node('details');
+      details.append(node('summary', 'Sinopse e avaliações'), node('p', movie.summary));
+      if (movie.review?.note) details.append(node('p', movie.review.note));
+      details.append(link(reviewLabel, reviewUrl, true));
+      const recipe = node('button', 'Ver receita', 'panel-button panel-secondary');
+      recipe.type = 'button';
+      recipe.addEventListener('click', () => openRecipe(index));
+      const actions = node('div', '', 'quiz-actions library-actions');
+      actions.append(sessionButton(movie), recipe, sessions.saveButton(movie));
+      card.append(node('h2', movie.title), node('p', `${movie.year} · ${movie.genre}`, 'panel-meta'), details, actions);
+      return card;
+    });
     libraryList.replaceChildren(...cards);
   }
 

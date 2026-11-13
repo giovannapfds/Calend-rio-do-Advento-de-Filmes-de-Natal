@@ -36,3 +36,17 @@ Após editar o catálogo ou os arquivos em `static/`, rode `python3 gerar_html.p
 - [Como subir no GitHub](docs/PUBLICAR_NO_GIT.md)
 
 O progresso, as notas e a preferência de som ficam no armazenamento local do navegador. A versão online, a versão servida pelo Python e o HTML independente podem ter estados separados.
+
+## Executar com PHP e React
+
+Na pasta do projeto, execute `php -S 127.0.0.1:8000 -t static app.php` e abra
+[http://127.0.0.1:8000](http://127.0.0.1:8000). Use uma porta diferente se o
+servidor Python estiver rodando ao mesmo tempo.
+
+O PHP serve a rota `/api/filmes` e o frontend é compartilhado com o servidor
+Python. Em ambos, React renderiza os cartões da Filmoteca quando o navegador
+consegue carregar a biblioteca. O HTML independente e os navegadores sem acesso
+ao CDN usam a renderização local. Não é preciso instalar Node ou executar um build.
+
+- [Servidor de desenvolvimento do PHP](https://www.php.net/manual/en/features.commandline.webserver.php)
+- [Uso do React em uma parte da página](https://react.dev/reference/react-dom/client/createRoot#rendering-a-page-partially-built-with-react)

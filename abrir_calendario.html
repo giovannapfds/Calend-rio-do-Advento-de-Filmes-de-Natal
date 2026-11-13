@@ -898,7 +898,8 @@ dialog h2 {
   resize: vertical;
 }
 
-[data-watch-field="saved"][aria-pressed="true"] {
+[data-watch-field="saved"][aria-pressed="true"],
+[data-react-save][aria-pressed="true"] {
   border-color: var(--cinema-natal-red-light);
   background: var(--cinema-natal-red-dark);
 }
@@ -2407,6 +2408,54 @@ dialog h2 {
 ]
 </script>
 <script>
+// O React assume somente a lista de cartões. Busca e sessões usam os mesmos dados.
+function createReactLibrary(container) {
+  if (!window.React || !window.ReactDOM?.createRoot) return null;
+  const h = window.React.createElement;
+  const root = window.ReactDOM.createRoot(container);
+
+  function FilmCard({ item, sessions, openRecipe }) {
+    const { movie, index, reviewUrl, reviewLabel } = item;
+    const saved = window.React.useSyncExternalStore(
+      subscribeToSavedChanges,
+      () => sessions.isSaved(movie)
+    );
+
+    function subscribeToSavedChanges(callback) {
+      sessions.savedChanges.addEventListener('change', callback);
+      return () => sessions.savedChanges.removeEventListener('change', callback);
+    }
+    return h('article', { className: 'panel-card' },
+      h('h2', null, movie.title),
+      h('p', { className: 'panel-meta' }, `${movie.year} · ${movie.genre}`),
+      h('details', null,
+        h('summary', null, 'Sinopse e avaliações'),
+        h('p', null, movie.summary),
+        movie.review?.note && h('p', null, movie.review.note),
+        h('a', { href: reviewUrl, target: '_blank', rel: 'noopener noreferrer' }, reviewLabel)
+      ),
+      h('div', { className: 'quiz-actions library-actions' },
+        h('button', { type: 'button', className: 'panel-button', onClick: () => sessions.open(movie) }, 'Montar sessão'),
+        h('button', { type: 'button', className: 'panel-button panel-secondary', onClick: () => openRecipe(index) }, 'Ver receita'),
+        h('button', {
+          type: 'button',
+          className: 'panel-button panel-secondary',
+          'aria-pressed': saved,
+          'data-react-save': '',
+          onClick: () => sessions.toggleSaved(movie)
+        }, saved ? 'Salvo para depois' : 'Salvar para depois')
+      )
+    );
+  }
+
+  return (items, sessions, openRecipe, clearFilters) => {
+    root.render(items.length
+      ? items.map(item => h(FilmCard, { key: movieKey(item.movie), item, sessions, openRecipe }))
+      : h('button', { type: 'button', className: 'panel-button panel-secondary', onClick: clearFilters }, 'Limpar filtros'));
+  };
+}
+</script>
+<script>
 // A ordem das apresentações acompanha as entradas de cada mês em filmes.json.
 const filmThemes = {
   novembro: [
@@ -2866,6 +2915,7 @@ function createSessions({ node, link, list, ifoodUrl }) {
     Array.isArray(entry) && typeof entry[0] === 'string' && entry[1] && typeof entry[1] === 'object'
   ) : []);
   let movies = [];
+  const savedChanges = new EventTarget();
   let lineup = [];
   let sessionMenu;
 
@@ -2896,6 +2946,7 @@ function createSessions({ node, link, list, ifoodUrl }) {
           break;
       }
     }
+    savedChanges.dispatchEvent(new Event('change'));
     const focused = document.activeElement;
     if (watchlist.contains(focused)) {
       const card = focused.closest('[data-watch-card]');
@@ -2908,9 +2959,17 @@ function createSessions({ node, link, list, ifoodUrl }) {
     renderWatchlist();
   }
 
+  function isSaved(movie) {
+    return Boolean(records.get(movieKey(movie))?.saved);
+  }
+
+  function toggleSaved(movie) {
+    update(movie, { saved: !isSaved(movie) });
+  }
+
   function saveButton(movie) {
     const key = movieKey(movie);
-    const control = button('Salvar para depois', () => update(movie, { saved: !records.get(key)?.saved }));
+    const control = button('Salvar para depois', () => toggleSaved(movie));
     control.dataset.watchKey = key;
     control.dataset.watchField = 'saved';
     updateSaveButton(control, records.get(key)?.saved);
@@ -3096,7 +3155,7 @@ function createSessions({ node, link, list, ifoodUrl }) {
     watchStatus.textContent = message;
   }
 
-  return { load, open, saveButton, showError };
+  return { load, open, saveButton, isSaved, toggleSaved, savedChanges, showError };
 }
 </script>
 <script>
@@ -3107,6 +3166,7 @@ function createSessions({ node, link, list, ifoodUrl }) {
   const genre = document.querySelector('#library-genre');
   const libraryStatus = document.querySelector('#library-status');
   const libraryList = document.querySelector('#library-list');
+  const renderReactLibrary = createReactLibrary(libraryList);
   const recipeSelect = document.querySelector('#recipe-film');
   const recipeContent = document.querySelector('#recipe-content');
   const quizForm = document.querySelector('#quiz-form');
@@ -3184,42 +3244,53 @@ function createSessions({ node, link, list, ifoodUrl }) {
     location.hash = 'receitas';
   }
 
+  function clearLibraryFilters() {
+    search.value = '';
+    genre.value = '';
+    renderLibrary();
+    search.focus();
+  }
+
   function renderLibrary() {
     const terms = normalize(search.value.trim()).split(/\s+/);
-    const cards = movies.flatMap((movie, index) => {
+    const items = movies.flatMap((movie, index) => {
       const haystack = normalize(`${movie.title} ${movie.year} ${movie.genre}`);
       if (genre.value && movie.genre !== genre.value) return [];
       if (!terms.every(term => haystack.includes(term))) return [];
-      const card = node('article', '', 'panel-card');
-      const details = node('details');
-      details.append(
-        node('summary', 'Sinopse e avaliações'),
-        node('p', movie.summary)
-      );
-      if (movie.review?.note) details.append(node('p', movie.review.note));
       const reviewUrl = movie.review?.url ||
         'https://www.rottentomatoes.com/search?search=' + encodeURIComponent(`${movie.title} ${movie.year}`);
-      const recipe = node('button', 'Ver receita', 'panel-button panel-secondary');
-      recipe.type = 'button';
-      recipe.addEventListener('click', () => openRecipe(index));
-      details.append(link(movie.review ? 'Avaliações no Rotten Tomatoes ↗' : 'Buscar avaliações ↗', reviewUrl, true));
-      const actions = node('div', '', 'quiz-actions library-actions');
-      actions.append(sessionButton(movie), recipe, sessions.saveButton(movie));
-      card.append(node('h2', movie.title), node('p', `${movie.year} · ${movie.genre}`, 'panel-meta'), details, actions);
-      return [card];
+      const reviewLabel = movie.review ? 'Avaliações no Rotten Tomatoes ↗' : 'Buscar avaliações ↗';
+      return [{ movie, index, reviewUrl, reviewLabel }];
     });
-    libraryStatus.textContent = cards.length ? `${cards.length} de ${movies.length} filmes` : 'Nenhum filme encontrado.';
-    if (!cards.length) {
+    libraryStatus.textContent = items.length ? `${items.length} de ${movies.length} filmes` : 'Nenhum filme encontrado.';
+
+    if (renderReactLibrary) {
+      renderReactLibrary(items, sessions, openRecipe, clearLibraryFilters);
+      return;
+    }
+
+    if (!items.length) {
       const clear = node('button', 'Limpar filtros', 'panel-button panel-secondary');
-      clear.addEventListener('click', () => {
-        search.value = '';
-        genre.value = '';
-        renderLibrary();
-        search.focus();
-      });
+      clear.type = 'button';
+      clear.addEventListener('click', clearLibraryFilters);
       libraryList.replaceChildren(clear);
       return;
     }
+
+    const cards = items.map(({ movie, index, reviewUrl, reviewLabel }) => {
+      const card = node('article', '', 'panel-card');
+      const details = node('details');
+      details.append(node('summary', 'Sinopse e avaliações'), node('p', movie.summary));
+      if (movie.review?.note) details.append(node('p', movie.review.note));
+      details.append(link(reviewLabel, reviewUrl, true));
+      const recipe = node('button', 'Ver receita', 'panel-button panel-secondary');
+      recipe.type = 'button';
+      recipe.addEventListener('click', () => openRecipe(index));
+      const actions = node('div', '', 'quiz-actions library-actions');
+      actions.append(sessionButton(movie), recipe, sessions.saveButton(movie));
+      card.append(node('h2', movie.title), node('p', `${movie.year} · ${movie.genre}`, 'panel-meta'), details, actions);
+      return card;
+    });
     libraryList.replaceChildren(...cards);
   }
 

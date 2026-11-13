@@ -21,6 +21,8 @@ def build_html():
         lambda match: inline_asset(match[1], "style"),
         page,
     )
+    # O HTML independente usa a renderização local da filmoteca.
+    page = re.sub(r'<script defer crossorigin="anonymous" src="https://[^"]+"></script>\n', "", page)
     # O catálogo precisa existir antes da execução do primeiro script.
     first_script = page.index("<script defer")
     page = page[:first_script] + "\n".join(data_tags) + "\n" + page[first_script:]

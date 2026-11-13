@@ -259,7 +259,8 @@
   resize: vertical;
 }
 
-[data-watch-field="saved"][aria-pressed="true"] {
+[data-watch-field="saved"][aria-pressed="true"],
+[data-react-save][aria-pressed="true"] {
   border-color: var(--cinema-natal-red-light);
   background: var(--cinema-natal-red-dark);
 }

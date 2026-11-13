@@ -25,6 +25,7 @@ function createSessions({ node, link, list, ifoodUrl }) {
     Array.isArray(entry) && typeof entry[0] === 'string' && entry[1] && typeof entry[1] === 'object'
   ) : []);
   let movies = [];
+  const savedChanges = new EventTarget();
   let lineup = [];
   let sessionMenu;
 
@@ -55,6 +56,7 @@ function createSessions({ node, link, list, ifoodUrl }) {
           break;
       }
     }
+    savedChanges.dispatchEvent(new Event('change'));
     const focused = document.activeElement;
     if (watchlist.contains(focused)) {
       const card = focused.closest('[data-watch-card]');
@@ -67,9 +69,17 @@ function createSessions({ node, link, list, ifoodUrl }) {
     renderWatchlist();
   }
 
+  function isSaved(movie) {
+    return Boolean(records.get(movieKey(movie))?.saved);
+  }
+
+  function toggleSaved(movie) {
+    update(movie, { saved: !isSaved(movie) });
+  }
+
   function saveButton(movie) {
     const key = movieKey(movie);
-    const control = button('Salvar para depois', () => update(movie, { saved: !records.get(key)?.saved }));
+    const control = button('Salvar para depois', () => toggleSaved(movie));
     control.dataset.watchKey = key;
     control.dataset.watchField = 'saved';
     updateSaveButton(control, records.get(key)?.saved);
@@ -255,5 +265,5 @@ function createSessions({ node, link, list, ifoodUrl }) {
     watchStatus.textContent = message;
   }
 
-  return { load, open, saveButton, showError };
+  return { load, open, saveButton, isSaved, toggleSaved, savedChanges, showError };
 }
