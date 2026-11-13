@@ -2,6 +2,7 @@
 
 import argparse
 import json
+import webbrowser
 from functools import partial
 from http import HTTPStatus
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
@@ -34,6 +35,7 @@ class CalendarHandler(SimpleHTTPRequestHandler):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--port", type=int, default=8000, help="Porta do servidor local")
+    parser.add_argument("--open", action="store_true", help="Abrir no navegador")
     args = parser.parse_args()
     # Carrega uma vez na inicialização e compartilha o catálogo entre requisições.
     catalog = json.loads(CATALOG_PATH.read_text(encoding="utf-8"))
@@ -41,7 +43,10 @@ def main():
     handler = partial(CalendarHandler, directory=str(STATIC_DIR), catalog_body=catalog_body)
 
     with ThreadingHTTPServer(("127.0.0.1", args.port), handler) as server:
-        print(f"Abra http://127.0.0.1:{server.server_port}/", flush=True)
+        url = f"http://127.0.0.1:{server.server_port}/"
+        print(f"Abra {url}", flush=True)
+        if args.open:
+            webbrowser.open(url)
         try:
             server.serve_forever()
         except KeyboardInterrupt:

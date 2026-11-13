@@ -15,7 +15,10 @@
 <div class="snow" aria-hidden="true"></div>
 <header class="top">
   <a class="brand" href="#calendario">✦ <span>Cinema de Natal</span></a>
+  <div class="sound-controls">
+  <button id="soundtrack-toggle" class="sound" type="button" aria-controls="soundtrack" aria-expanded="false" hidden>♫ Trilha sonora</button>
   <button id="sound" class="sound" type="button" aria-pressed="true">♫ Som ligado</button>
+  </div>
 </header>
 <nav class="panel-nav" aria-label="Áreas do painel">
   <a href="#calendario" aria-current="page">Calendário</a>
@@ -26,6 +29,15 @@
   <a href="#minha-lista">Minha lista</a>
   <a href="#como-usar">Como usar</a>
 </nav>
+<section id="soundtrack" class="panel-card soundtrack" aria-labelledby="soundtrack-title" hidden>
+  <div class="soundtrack-header">
+    <h2 id="soundtrack-title">Jazz de Natal</h2>
+    <button id="soundtrack-close" class="sound" type="button" aria-label="Fechar mini player">×</button>
+  </div>
+  <p id="soundtrack-hint">Dê play para ouvir enquanto navega.</p>
+  <div id="soundtrack-player"></div>
+  <a id="soundtrack-link" href="https://www.youtube.com/watch?v=yXQViqx6GMY&amp;list=PLO_1AmtK1TMTsHd6kiGSucSrjf6l8AjMn" target="_blank" rel="noopener noreferrer">Minha playlist no YouTube ↗</a>
+</section>
 <main id="conteudo" tabindex="-1">
 <div id="calendario" data-panel>
   <section class="hero" aria-labelledby="title">
@@ -150,6 +162,10 @@
       <p>Depois de escolher o filme, encontre o convite abaixo do cardápio. Preencha o dia e o horário e copie o texto para enviar.</p>
     </li>
   </ol>
+  <details class="panel-card">
+    <summary>Como ouvir a trilha sonora?</summary>
+    <p>Abra <strong>Trilha sonora</strong> no cabeçalho e pressione play no mini player. No Mac, use o atalho iniciar_cinema.command para abrir o painel com o mini player. Para parar, pause o vídeo ou feche o player. O botão Som controla os efeitos das portinhas.</p>
+  </details>
   <aside class="guide-tip">
     <h2>Guarde os filmes que quer rever</h2>
     <p>Use <strong>Salvar para depois</strong> na Filmoteca. Em Minha lista, marque o que já assistiu e dê suas notas. A lista fica salva neste navegador.</p>
@@ -193,6 +209,7 @@
 <script defer src="filmoteca-react.js"></script>
 <script defer src="temas.js"></script>
 <script defer src="audio.js"></script>
+<script defer src="trilha.js"></script>
 <script defer src="calendario.js"></script>
 <script defer src="cardapio.js"></script>
 <script defer src="quiz.js"></script>
