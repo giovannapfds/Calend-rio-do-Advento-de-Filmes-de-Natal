@@ -1,3 +1,10 @@
+function formatMovieDuration(minutes) {
+  if (!Number.isInteger(minutes) || minutes <= 0) return 'Duração não informada';
+  const hours = Math.floor(minutes / 60);
+  const remainder = minutes % 60;
+  return hours ? `${hours} h${remainder ? ` ${remainder} min` : ''}` : `${remainder} min`;
+}
+
 function movieKey(movie) {
   // O ano distingue remakes, e a chave independe da ordem da filmoteca.
   return JSON.stringify([movie.title, movie.year]);
@@ -27,6 +34,8 @@ function createSessions({ node, link, list, ifoodUrl }) {
   let movies = [];
   const savedChanges = new EventTarget();
   let lineup = [];
+  let sessionMenuKey;
+  const sessionKey = 'cinema-natal-v1-session';
   let sessionMenu;
 
   function button(label, action) {
@@ -134,7 +143,7 @@ function createSessions({ node, link, list, ifoodUrl }) {
       card.dataset.watchCard = movieKey(movie);
       card.append(
         node('h2', movie.title),
-        node('p', `${movie.year} · ${movie.genre}`, 'panel-meta'),
+        node('p', `${movie.year} · ${movie.genre} · ${formatMovieDuration(movie.duration)}`, 'panel-meta'),
         movieControls(movie),
         button('Montar sessão', () => open(movie)),
         button('Remover da minha lista', () => update(movie, { saved: false, watched: false, rating: 0 }))
@@ -151,10 +160,19 @@ function createSessions({ node, link, list, ifoodUrl }) {
     inviteStatus.textContent = '';
   }
 
+  function saveSession() {
+    savePreference(sessionKey, lineup.length ? {
+      titles: lineup.map(movieKey),
+      menu: sessionMenuKey,
+      time: time.value
+    } : null);
+  }
+
   function showLineup(titles, preferredMenu) {
     lineup = titles;
     select.value = titles.length === 1 ? movieKey(titles[0]) : '';
-    const menu = menus[preferredMenu ?? titles[0].menu];
+    sessionMenuKey = Object.hasOwn(menus, preferredMenu) ? preferredMenu : titles[0].menu;
+    const menu = menus[sessionMenuKey];
     sessionMenu = menu;
     const program = titles.map((movie, index) => {
       const card = node('article', '', 'panel-card');
@@ -163,7 +181,7 @@ function createSessions({ node, link, list, ifoodUrl }) {
         label: 'Buscar onde assistir ↗'
       };
       const label = titles.length > 1 ? `${index + 1}. ${movie.title}` : movie.title;
-      card.append(node('h2', label), node('p', `${movie.year} · ${movie.genre}`, 'panel-meta'),
+      card.append(node('h2', label), node('p', `${movie.year} · ${movie.genre} · ${formatMovieDuration(movie.duration)}`, 'panel-meta'),
         node('p', movie.summary), link(stream.label, stream.url, true), movieControls(movie), saveButton(movie));
       return card;
     });
@@ -174,8 +192,18 @@ function createSessions({ node, link, list, ifoodUrl }) {
       node('p', menu.order), link('Abrir busca do iFood ↗', ifoodUrl, true));
     const films = node('div', '', 'session-films');
     films.append(...program);
+    const addToChecklist = button('Adicionar ao checklist', () => {
+      checklist.addSession(titles, menu.title);
+      location.hash = 'checklist';
+    });
+    food.append(addToChecklist);
     content.replaceChildren(films, food);
-    status.textContent = titles.length > 1 ? 'Maratona de dois filmes pronta.' : 'Sessão pronta.';
+    const complete = titles.every(movie => Number.isInteger(movie.duration) && movie.duration > 0);
+    const minutes = titles.reduce((sum, movie) => sum + (movie.duration ?? 0), 0);
+    status.textContent = titles.length > 1
+      ? (complete ? `Duração total da maratona: ${formatMovieDuration(minutes)}.` : 'Duração total indisponível. Falta a duração de pelo menos um filme.')
+      : 'Sessão pronta.';
+    saveSession();
     invite.hidden = false;
     renderInvite();
   }
@@ -215,6 +243,8 @@ function createSessions({ node, link, list, ifoodUrl }) {
     if (movie) showLineup([movie]);
     else if (lineup.length === 1) {
       lineup = [];
+      time.value = '';
+      saveSession();
       content.replaceChildren();
       invite.hidden = true;
       status.textContent = 'Escolha um filme, sorteie um título ou monte uma maratona.';
@@ -223,7 +253,10 @@ function createSessions({ node, link, list, ifoodUrl }) {
   draw.addEventListener('click', () => drawSession(false));
   marathon.addEventListener('click', () => drawSession(true));
   filter.addEventListener('change', renderWatchlist);
-  time.addEventListener('input', renderInvite);
+  time.addEventListener('input', () => {
+    renderInvite();
+    saveSession();
+  });
   document.querySelector('#invite-copy').addEventListener('click', async () => {
     try {
       await navigator.clipboard.writeText(inviteText.value);
@@ -258,6 +291,15 @@ function createSessions({ node, link, list, ifoodUrl }) {
     for (const control of [select, genre, draw, marathon]) control.disabled = false;
     status.textContent = 'Escolha um filme, sorteie um título ou monte uma maratona.';
     renderWatchlist();
+    const previous = readPreference(sessionKey);
+    if (Array.isArray(previous?.titles)) {
+      const restored = [...new Set(previous.titles)].slice(0, 2)
+        .map(key => movies.find(movie => movieKey(movie) === key)).filter(Boolean);
+      if (restored.length) {
+        time.value = typeof previous.time === 'string' ? previous.time : '';
+        showLineup(restored, previous.menu);
+      }
+    }
   }
 
   function showError(message) {

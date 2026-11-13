@@ -17,7 +17,7 @@ function createReactLibrary(container) {
     }
     return h('article', { className: 'panel-card' },
       h('h2', null, movie.title),
-      h('p', { className: 'panel-meta' }, `${movie.year} · ${movie.genre}`),
+      h('p', { className: 'panel-meta' }, `${movie.year} · ${movie.genre} · ${formatMovieDuration(movie.duration)}`),
       h('details', null,
         h('summary', null, 'Sinopse e avaliações'),
         h('p', null, movie.summary),

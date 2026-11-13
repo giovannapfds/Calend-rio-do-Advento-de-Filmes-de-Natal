@@ -3,34 +3,37 @@
     "title": "A Felicidade Não Se Compra",
     "year": 1946,
     "genre": "clássico",
-    "menu": "ceia",
+    "menu": "rabanada",
     "summary": "George Bailey passa a vida adiando seus planos para ajudar a comunidade de Bedford Falls. Na véspera de Natal, uma crise financeira o faz questionar o valor de tudo o que construiu. Um anjo lhe mostra como seria a cidade sem a sua presença. O filme de Frank Capra dá espaço ao desânimo de George antes de chegar ao calor humano pelo qual ficou conhecido.",
     "review": {
       "url": "https://www.rottentomatoes.com/m/its_a_wonderful_life",
       "note": "94% da crítica e 95% do público no levantamento consultado."
-    }
+    },
+    "duration": 130
   },
   {
     "title": "Simplesmente Amor",
     "year": 2003,
     "genre": "romance",
-    "menu": "doce",
+    "menu": "brownie",
     "summary": "Em Londres, as semanas que antecedem o Natal aproximam personagens em momentos muito diferentes da vida amorosa. Um primeiro-ministro se encanta por uma funcionária, um escritor se isola na França e um garoto tenta chamar a atenção da colega. A montagem cruza gestos grandiosos, constrangimentos e perdas, com uma trilha que costura histórias de tons bem distintos.",
     "review": {
       "url": "https://www.rottentomatoes.com/m/love_actually",
       "note": "65% da crítica e 72% do público. O consenso editorial vê excesso de histórias, mas valoriza o elenco."
-    }
+    },
+    "duration": 135
   },
   {
     "title": "Os Rejeitados",
     "year": 2023,
     "genre": "drama",
-    "menu": "ceia",
+    "menu": "massa",
     "summary": "Num internato da Nova Inglaterra, um professor mal-humorado fica encarregado dos alunos que não podem voltar para casa nas férias. Aos poucos, o campus quase vazio aproxima o professor, um estudante rebelde e a cozinheira da escola, que carrega seu próprio luto. A convivência atravessa atritos e pequenos atos de cuidado sem apressar a transformação dos personagens.",
     "review": {
       "url": "https://www.rottentomatoes.com/m/the_holdovers",
       "note": "97% da crítica e 92% do público. O consenso editorial destaca o tom agridoce."
-    }
+    },
+    "duration": 133
   },
   {
     "title": "O Grinch",
@@ -41,7 +44,8 @@
     "review": {
       "url": "https://www.rottentomatoes.com/m/the_grinch",
       "note": "60% da crítica e 54% do público no levantamento consultado."
-    }
+    },
+    "duration": 85
   },
   {
     "title": "Um Conto de Natal",
@@ -51,35 +55,39 @@
     "summary": "Ebenezer Scrooge administra seus negócios com mão de ferro e recebe o Natal com desprezo. Na véspera, visitas sobrenaturais o levam por lembranças e por versões possíveis de sua própria vida. Alastair Sim dá ao personagem uma dureza que torna a jornada emocional da história de Dickens mais marcante.",
     "review": {
       "url": "https://www.rottentomatoes.com/m/a_christmas_carol_1951"
-    }
+    },
+    "duration": 86
   },
   {
     "title": "O Natal de Charlie Brown",
     "year": 1965,
     "genre": "família",
     "menu": "doce",
-    "summary": "Charlie Brown tenta entender por que está triste quando todo mundo parece ocupado celebrando. Lucy o convida a dirigir a peça da turma, e ele acaba escolhendo uma árvore bem diferente da que os colegas imaginavam. A animação deixa bastante espaço para o silêncio, o humor melancólico e o jazz de Vince Guaraldi."
+    "summary": "Charlie Brown tenta entender por que está triste quando todo mundo parece ocupado celebrando. Lucy o convida a dirigir a peça da turma, e ele acaba escolhendo uma árvore bem diferente da que os colegas imaginavam. A animação deixa bastante espaço para o silêncio, o humor melancólico e o jazz de Vince Guaraldi.",
+    "duration": 25
   },
   {
     "title": "Operação Presente",
     "year": 2011,
     "genre": "família",
-    "menu": "lanche",
+    "menu": "sanduiche",
     "summary": "O Polo Norte virou uma operação de alta tecnologia, mas uma criança ficou sem receber seu presente. Arthur, filho do Papai Noel, improvisa uma entrega antes do amanhecer com a ajuda do avô e de uma elfa. A aventura contrapõe o fascínio pelas máquinas ao trabalho de lembrar de uma única pessoa.",
     "review": {
       "url": "https://www.rottentomatoes.com/m/arthur_christmas"
-    }
+    },
+    "duration": 97
   },
   {
     "title": "Carol",
     "year": 2015,
     "genre": "romance",
-    "menu": "ceia",
+    "menu": "massa",
     "summary": "Uma jovem balconista e aspirante a fotógrafa conhece Carol numa loja de departamentos em Nova York. A relação cresce entre telefonemas, encontros discretos e uma viagem que afasta as duas da rotina. O frio, as vitrines e as roupas do período ajudam Todd Haynes a construir um romance em que olhares têm o peso de declarações.",
     "review": {
       "url": "https://www.rottentomatoes.com/m/carol",
       "note": "94% da crítica e 75% do público. O consenso editorial destaca a direção e as duas protagonistas."
-    }
+    },
+    "duration": 118
   },
   {
     "title": "Adoráveis Mulheres",
@@ -90,7 +98,8 @@
     "review": {
       "url": "https://www.rottentomatoes.com/m/little_women_2019",
       "note": "95% da crítica e 89% do público no levantamento consultado."
-    }
+    },
+    "duration": 135
   },
   {
     "title": "Agora Seremos Felizes",
@@ -101,7 +110,8 @@
     "review": {
       "url": "https://www.rottentomatoes.com/m/meet_me_in_st_louis",
       "note": "99% da crítica e 86% do público no levantamento consultado."
-    }
+    },
+    "duration": 113
   },
   {
     "title": "A Loja da Esquina",
@@ -112,7 +122,8 @@
     "review": {
       "url": "https://www.rottentomatoes.com/m/the_shop_around_the_corner",
       "note": "99% da crítica e 91% do público. O consenso editorial destaca o roteiro de Samson Raphaelson e a direção de Ernst Lubitsch."
-    }
+    },
+    "duration": 99
   },
   {
     "title": "Gremlins",
@@ -122,7 +133,8 @@
     "summary": "Billy recebe uma criatura de estimação com três regras bastante específicas. A quebra das regras muda o tom do Natal da cidade, que passa das luzinhas e canções para o caos. Joe Dante combina humor e sustos num filme que funciona melhor para quem gosta de ver uma tradição familiar sair dos trilhos.",
     "review": {
       "url": "https://www.rottentomatoes.com/m/gremlins"
-    }
+    },
+    "duration": 106
   },
   {
     "title": "Batman: O Retorno",
@@ -132,44 +144,49 @@
     "summary": "Gotham está coberta de enfeites quando o Pinguim surge como peça de uma campanha política. Selina Kyle assume uma nova identidade e atravessa o caminho de Batman. Tim Burton contrapõe a decoração pública ao isolamento das figuras centrais e transforma o Natal em moldura para uma fábula sombria.",
     "review": {
       "url": "https://www.rottentomatoes.com/m/batman_returns"
-    }
+    },
+    "duration": 126
   },
   {
     "title": "Férias Frustradas de Natal",
     "year": 1989,
     "genre": "comédia",
-    "menu": "ceia",
-    "summary": "Clark Griswold sonha em receber toda a família para um Natal perfeito. O excesso de luzes, os parentes inconvenientes e uma gratificação que demora a chegar transformam a festa num teste de paciência. Cada tentativa de salvar a comemoração deixa a próxima confusão maior."
+    "menu": "rabanada",
+    "summary": "Clark Griswold sonha em receber toda a família para um Natal perfeito. O excesso de luzes, os parentes inconvenientes e uma gratificação que demora a chegar transformam a festa num teste de paciência. Cada tentativa de salvar a comemoração deixa a próxima confusão maior.",
+    "duration": 97
   },
   {
     "title": "Um Herói de Brinquedo",
     "year": 1996,
     "genre": "comédia",
-    "menu": "lanche",
+    "menu": "sanduiche",
     "summary": "Howard promete ao filho o boneco mais desejado da temporada e adia a compra até a véspera. A busca o coloca em disputa com outro pai pelas poucas unidades disponíveis e acaba chegando a um desfile natalino. A energia vem da correria e do absurdo que se cria quando todos querem comprar a mesma coisa.",
     "review": {
       "url": "https://www.rottentomatoes.com/m/jingle_all_the_way"
-    }
+    },
+    "duration": 89
   },
   {
     "title": "Natal Entre Amigos",
     "year": 2013,
     "genre": "drama",
-    "menu": "ceia",
+    "menu": "rabanada",
     "summary": "Amigos de faculdade voltam a se reunir durante as festas depois de anos vivendo separados. A visita reacende disputas antigas e abre espaço para conversas difíceis sobre as mudanças pelas quais cada um passou.",
     "review": {
       "url": "https://www.rottentomatoes.com/m/the_best_man_holiday"
-    }
+    },
+    "duration": 123
   },
   {
     "title": "Happiest Season",
     "year": 2020,
     "genre": "romance",
-    "menu": "ceia",
+    "menu": "massa",
     "summary": "Abby acompanha a namorada Harper numa visita natalina e descobre no caminho que a família dela ainda desconhece o relacionamento. A tentativa de passar as festas sob o mesmo teto expõe expectativas e mágoas entre as irmãs. O humor da casa cheia divide espaço com o desconforto de ter de esconder uma parte importante da própria vida.",
     "review": {
       "url": "https://www.rottentomatoes.com/m/happiest_season"
-    }
+    },
+    "duration": 102
   },
   {
     "title": "Deixe a Neve Cair",
@@ -179,7 +196,8 @@
     "summary": "Uma nevasca de véspera de Natal interfere nos planos de um grupo de jovens de uma cidade pequena. Encontros inesperados e uma festa aproximam histórias de amizade, afeto e decisões sobre o futuro. O ponto de encontro da turma dá à comédia romântica um clima de madrugada de férias.",
     "review": {
       "url": "https://www.rottentomatoes.com/m/let_it_snow"
-    }
+    },
+    "duration": 93
   },
   {
     "title": "Amor com Data Marcada",
@@ -189,25 +207,28 @@
     "summary": "Sloane e Jackson se cansam das cobranças que recebem quando aparecem solteiros nas comemorações. Eles combinam ser a companhia um do outro nas datas festivas, mantendo o resto da vida em separado. O calendário vira uma série de encontros cômicos em que o acordo vai ficando difícil de explicar.",
     "review": {
       "url": "https://www.rottentomatoes.com/m/holidate"
-    }
+    },
+    "duration": 104
   },
   {
     "title": "Um Match Surpresa",
     "year": 2021,
     "genre": "romance",
-    "menu": "doce",
+    "menu": "brownie",
     "summary": "Natalie viaja para surpreender o homem com quem conversa num aplicativo e encontra alguém diferente das fotos. A farsa dá origem a um novo acordo, agora em meio às comemorações com a família dele. O filme brinca com a distância entre montar um perfil convincente e conseguir uma conversa honesta.",
     "review": {
       "url": "https://www.rottentomatoes.com/m/love_hard",
       "note": "50% da crítica e 89% do público no levantamento consultado."
-    }
+    },
+    "duration": 105
   },
   {
     "title": "A Princesa e a Plebeia",
     "year": 2018,
     "genre": "romance",
     "menu": "doce",
-    "summary": "Uma confeiteira participa de uma competição natalina e descobre que é idêntica a uma duquesa. As duas trocam de lugar por alguns dias para viver rotinas que nunca experimentaram. O conto de fadas usa a confeitaria e o protocolo da corte para complicar uma combinação já improvável."
+    "summary": "Uma confeiteira participa de uma competição natalina e descobre que é idêntica a uma duquesa. As duas trocam de lugar por alguns dias para viver rotinas que nunca experimentaram. O conto de fadas usa a confeitaria e o protocolo da corte para complicar uma combinação já improvável.",
+    "duration": 101
   },
   {
     "title": "O Cavaleiro do Natal",
@@ -217,14 +238,16 @@
     "summary": "Um cavaleiro medieval chega à época atual e cruza com uma professora que o ajuda a lidar com um mundo de carros e aparelhos. Enquanto tenta cumprir a missão que o trouxe até ali, ele se envolve nos preparativos de Natal. A comédia faz da cortesia antiga e das pequenas confusões domésticas seu centro.",
     "review": {
       "url": "https://www.rottentomatoes.com/m/the_knight_before_christmas"
-    }
+    },
+    "duration": 92
   },
   {
     "title": "Natal em Evergreen",
     "year": 2017,
     "genre": "romance",
     "menu": "doce",
-    "summary": "Uma veterinária se prepara para deixar a cidade onde vive, mas um contratempo durante a viagem modifica seus planos. Um encontro com um pai e a filha e uma tradição local ligada a um globo de neve fazem a despedida assumir outro sentido."
+    "summary": "Uma veterinária se prepara para deixar a cidade onde vive, mas um contratempo durante a viagem modifica seus planos. Um encontro com um pai e a filha e uma tradição local ligada a um globo de neve fazem a despedida assumir outro sentido.",
+    "duration": 84
   },
   {
     "title": "Uma História de Natal",
@@ -234,7 +257,8 @@
     "summary": "Ralphie tem um presente muito específico na lista e passa o período natalino tentando convencer os adultos. Em volta do desejo, a narração adulta recupera pequenas catástrofes da escola e de uma casa onde as manias de todos ficam mais visíveis no fim do ano.",
     "review": {
       "url": "https://www.rottentomatoes.com/m/a_christmas_story"
-    }
+    },
+    "duration": 94
   },
   {
     "title": "Os Fantasmas Contra-Atacam",
@@ -244,7 +268,8 @@
     "summary": "Um executivo de televisão exige uma transmissão natalina cada vez mais grandiosa e trata a equipe como descartável. As visitas dos fantasmas de Dickens chegam no pior momento possível para sua programação. Bill Murray leva o sarcasmo do personagem ao limite enquanto o estúdio vira palco de uma crise pessoal.",
     "review": {
       "url": "https://www.rottentomatoes.com/m/scrooged"
-    }
+    },
+    "duration": 101
   },
   {
     "title": "Spirited: Um Conto Natalino",
@@ -254,7 +279,8 @@
     "summary": "Uma equipe sobrenatural dedica cada Natal à transformação de uma pessoa difícil. Desta vez, o alvo é um consultor de imagem que começa a fazer perguntas sobre o trabalho dos próprios fantasmas. Os números musicais atravessam épocas e mudam o ponto de vista habitual da história de Dickens.",
     "review": {
       "url": "https://www.rottentomatoes.com/m/spirited"
-    }
+    },
+    "duration": 127
   },
   {
     "title": "O Homem que Inventou o Natal",
@@ -264,7 +290,8 @@
     "summary": "Pressionado por dificuldades financeiras e por um prazo curto, Charles Dickens tenta escrever uma história de Natal. O escritor passa a conviver com Scrooge e os demais personagens em sua imaginação. A cinebiografia dramatiza a escrita como um diálogo entre lembranças, dívidas e decisões narrativas.",
     "review": {
       "url": "https://www.rottentomatoes.com/m/the_man_who_invented_christmas"
-    }
+    },
+    "duration": 104
   },
   {
     "title": "A Última Férias",
@@ -274,130 +301,146 @@
     "summary": "Uma vendedora que sempre adiou seus planos recebe um diagnóstico que a leva a gastar suas economias numa viagem. Num hotel europeu, ela experimenta comidas, roupas e conversas das quais costumava se privar. Queen Latifah conduz a passagem da timidez à coragem numa comédia interessada no prazer de viver.",
     "review": {
       "url": "https://www.rottentomatoes.com/m/last_holiday"
-    }
+    },
+    "duration": 112
   },
   {
     "title": "Uma Segunda Chance para Amar",
     "year": 2019,
     "genre": "romance",
-    "menu": "ceia",
+    "menu": "massa",
     "summary": "Kate trabalha vestida de elfa numa loja natalina e atravessa uma fase de atritos com a família e de incerteza profissional. Um desconhecido chamado Tom a convida a olhar para partes da cidade que ela mal reparava. As músicas de George Michael acompanham uma história de romance e de recuperação pessoal.",
     "review": {
       "url": "https://www.rottentomatoes.com/m/last_christmas_2019"
-    }
+    },
+    "duration": 103
   },
   {
     "title": "Um Natal Brilhante",
     "year": 2006,
     "genre": "comédia",
     "menu": "lanche",
-    "summary": "Um pai organizado vê sua autoridade sobre as tradições locais ameaçada quando o novo vizinho decide iluminar a casa a ponto de ela ser vista do espaço. A disputa se espalha para as famílias e para a rua, transformando uma decoração em competição de fim de ano."
+    "summary": "Um pai organizado vê sua autoridade sobre as tradições locais ameaçada quando o novo vizinho decide iluminar a casa a ponto de ela ser vista do espaço. A disputa se espalha para as famílias e para a rua, transformando uma decoração em competição de fim de ano.",
+    "duration": 93
   },
   {
     "title": "Surpresas do Amor",
     "year": 2008,
     "genre": "comédia",
-    "menu": "ceia",
+    "menu": "salpicao",
     "summary": "Um casal costuma fugir das festas em família viajando, até que o aeroporto fecha e a desculpa desmorona em rede nacional. Os dois precisam atravessar quatro comemorações no mesmo dia. Cada parada revela hábitos e histórias que eles conseguiram evitar enquanto mantinham os parentes a distância.",
     "review": {
       "url": "https://www.rottentomatoes.com/m/four_christmases"
-    }
+    },
+    "duration": 88
   },
   {
     "title": "Tudo em Família",
     "year": 2005,
     "genre": "drama",
-    "menu": "ceia",
+    "menu": "rabanada",
     "summary": "Uma mulher visita pela primeira vez os parentes do namorado e descobre que seus modos formais pouco combinam com a dinâmica da casa. Os desentendimentos correm em paralelo a preocupações mais sérias que a família tenta administrar durante o Natal.",
     "review": {
       "url": "https://www.rottentomatoes.com/m/the_family_stone"
-    }
+    },
+    "duration": 103
   },
   {
     "title": "Um Natal Muito, Muito Louco",
     "year": 2004,
     "genre": "comédia",
-    "menu": "ceia",
+    "menu": "salpicao",
     "summary": "Quando a filha anuncia que não virá para as festas, um casal decide trocar as tradições por um cruzeiro. A rua, acostumada à participação da família, reage à ausência de enfeites. Uma mudança de planos obriga os dois a tentar recuperar às pressas tudo aquilo que haviam deixado de lado.",
     "review": {
       "url": "https://www.rottentomatoes.com/m/christmas_with_the_kranks"
-    }
+    },
+    "duration": 99
   },
   {
     "title": "Mamãe Noel",
     "year": 1974,
     "genre": "família",
     "menu": "doce",
-    "summary": "Resfriado e desanimado, Papai Noel cogita tirar um ano de folga. Mamãe Noel manda dois elfos descobrir se as pessoas ainda se importam, e eles acabam entre figuras que controlam o calor e o frio. A animação em stop-motion combina canções de personagens com uma aventura sobre ser lembrado."
+    "summary": "Resfriado e desanimado, Papai Noel cogita tirar um ano de folga. Mamãe Noel manda dois elfos descobrir se as pessoas ainda se importam, e eles acabam entre figuras que controlam o calor e o frio. A animação em stop-motion combina canções de personagens com uma aventura sobre ser lembrado.",
+    "duration": 51
   },
   {
     "title": "Rudolph, a Rena do Nariz Vermelho",
     "year": 1964,
     "genre": "família",
     "menu": "doce",
-    "summary": "A luz no nariz de Rudolph o torna alvo de piadas justamente quando ele quer fazer parte do grupo. Fora da aldeia, ele encontra companheiros que também se sentem deslocados. O especial em stop-motion acrescenta uma ilha de brinquedos rejeitados à história da rena."
+    "summary": "A luz no nariz de Rudolph o torna alvo de piadas justamente quando ele quer fazer parte do grupo. Fora da aldeia, ele encontra companheiros que também se sentem deslocados. O especial em stop-motion acrescenta uma ilha de brinquedos rejeitados à história da rena.",
+    "duration": 47
   },
   {
     "title": "O Boneco de Neve",
     "year": 1982,
     "genre": "família",
     "menu": "doce",
-    "summary": "Um menino constrói um boneco que ganha vida de madrugada. Os dois exploram a casa e saem para uma viagem aérea enquanto o resto da família dorme. O desenho usa a música e os gestos para contar uma aventura curta que guarda a sensação de que a neve pode desaparecer a qualquer momento."
+    "summary": "Um menino constrói um boneco que ganha vida de madrugada. Os dois exploram a casa e saem para uma viagem aérea enquanto o resto da família dorme. O desenho usa a música e os gestos para contar uma aventura curta que guarda a sensação de que a neve pode desaparecer a qualquer momento.",
+    "duration": 26
   },
   {
     "title": "O Natal do Mickey",
     "year": 1983,
     "genre": "família",
     "menu": "doce",
-    "summary": "Tio Patinhas faz o papel de Scrooge, e Mickey interpreta Bob Cratchit nesta versão curta de Dickens. Os fantasmas conduzem o avarento por cenas que reapresentam os personagens da Disney em outros papéis. A história preserva as mudanças de tom da fábula mesmo com duração de especial."
+    "summary": "Tio Patinhas faz o papel de Scrooge, e Mickey interpreta Bob Cratchit nesta versão curta de Dickens. Os fantasmas conduzem o avarento por cenas que reapresentam os personagens da Disney em outros papéis. A história preserva as mudanças de tom da fábula mesmo com duração de especial.",
+    "duration": 26
   },
   {
     "title": "O Natal de Angela",
     "year": 2017,
     "genre": "família",
     "menu": "doce",
-    "summary": "Uma menina irlandesa vê o menino Jesus do presépio e decide que ele precisa se aquecer. A solução que inventa gera uma aventura pelas ruas e coloca sua família em alerta. O especial dá proporções de grande jornada a uma preocupação infantil muito concreta."
+    "summary": "Uma menina irlandesa vê o menino Jesus do presépio e decide que ele precisa se aquecer. A solução que inventa gera uma aventura pelas ruas e coloca sua família em alerta. O especial dá proporções de grande jornada a uma preocupação infantil muito concreta.",
+    "duration": 30
   },
   {
     "title": "O Natal de Angela 2",
     "year": 2020,
     "genre": "família",
     "menu": "ceia",
-    "summary": "Angela quer reunir a família para o Natal e traça planos para trazer o pai, que trabalha longe. Sua imaginação supera tanto a geografia quanto os recursos de que dispõe. O reencontro que ela deseja move uma história curta sobre saudade e cuidado."
+    "summary": "Angela quer reunir a família para o Natal e traça planos para trazer o pai, que trabalha longe. Sua imaginação supera tanto a geografia quanto os recursos de que dispõe. O reencontro que ela deseja move uma história curta sobre saudade e cuidado.",
+    "duration": 47
   },
   {
     "title": "Aquele Natal",
     "year": 2024,
     "genre": "família",
-    "menu": "ceia",
+    "menu": "salpicao",
     "summary": "Uma nevasca muda as comemorações numa cidade costeira inglesa e deixa crianças e adultos em situações que não esperavam enfrentar. As histórias se cruzam entre vizinhos, irmãos e um Papai Noel com trabalho extra. A animação organiza o caos a partir de gestos cotidianos de ajuda.",
     "review": {
       "url": "https://www.rottentomatoes.com/m/that_christmas"
-    }
+    },
+    "duration": 95
   },
   {
     "title": "Robin Robin",
     "year": 2021,
     "genre": "família",
     "menu": "lanche",
-    "summary": "Criada por ratos, uma pequena ave tenta provar que consegue entrar numa casa sem chamar atenção. Ela descobre que seus hábitos nem sempre são os dos irmãos e parte em busca de uma estrela para fazer um pedido. O feltro dá textura às penas, à comida e aos cantos por onde os personagens se escondem."
+    "summary": "Criada por ratos, uma pequena ave tenta provar que consegue entrar numa casa sem chamar atenção. Ela descobre que seus hábitos nem sempre são os dos irmãos e parte em busca de uma estrela para fazer um pedido. O feltro dá textura às penas, à comida e aos cantos por onde os personagens se escondem.",
+    "duration": 32
   },
   {
     "title": "Shaun, o Carneiro: A Aventura de Natal",
     "year": 2021,
     "genre": "família",
     "menu": "lanche",
-    "summary": "Shaun tenta arranjar uma meia maior para receber mais presentes e acaba perdendo Timmy de vista. A busca leva o rebanho para longe da fazenda e exige improvisos em território humano. A comédia física resolve boa parte da ação sem depender de diálogos."
+    "summary": "Shaun tenta arranjar uma meia maior para receber mais presentes e acaba perdendo Timmy de vista. A busca leva o rebanho para longe da fazenda e exige improvisos em território humano. A comédia física resolve boa parte da ação sem depender de diálogos.",
+    "duration": 30
   },
   {
     "title": "Guardiões da Galáxia: Especial de Festas",
     "year": 2022,
     "genre": "aventura",
-    "menu": "lanche",
+    "menu": "nachos",
     "summary": "Mantis e Drax decidem encontrar na Terra um presente que anime Peter Quill. O plano envolve uma celebridade que eles só conhecem pelas histórias do amigo. O especial usa o contraste entre os costumes terrestres e a interpretação literal dos visitantes para sustentar a comédia.",
     "review": {
       "url": "https://www.rottentomatoes.com/m/the_guardians_of_the_galaxy_holiday_special"
-    }
+    },
+    "duration": 42
   },
   {
     "title": "Noite Infeliz",
@@ -407,7 +450,8 @@
     "summary": "Uma família rica é cercada durante a ceia, quando Papai Noel chega para deixar presentes. A conversa por rádio com uma menina o faz intervir, embora ele esteja desencantado com a noite. O filme usa convenções de ação com humor agressivo e adereços típicos das festas.",
     "review": {
       "url": "https://www.rottentomatoes.com/m/violent_night"
-    }
+    },
+    "duration": 112
   },
   {
     "title": "Krampus: O Terror do Natal",
@@ -417,7 +461,8 @@
     "summary": "Uma reunião de parentes vira cerco quando a nevasca isola a casa e figuras do folclore passam a rondar o lado de fora. O ressentimento entre os familiares antecede o terror, que mistura criaturas práticas e imagens natalinas distorcidas.",
     "review": {
       "url": "https://www.rottentomatoes.com/m/krampus"
-    }
+    },
+    "duration": 98
   },
   {
     "title": "Natal Sangrento",
@@ -427,7 +472,8 @@
     "summary": "Moradoras de uma república universitária recebem ligações perturbadoras às vésperas das férias. Uma série de desaparecimentos muda os planos de quem ainda está na casa. A decoração festiva contrasta com o ponto de vista inquietante e com o espaço cada vez mais claustrofóbico.",
     "review": {
       "url": "https://www.rottentomatoes.com/m/black_christmas"
-    }
+    },
+    "duration": 98
   },
   {
     "title": "Feliz Natal",
@@ -437,14 +483,16 @@
     "summary": "Soldados de lados opostos da Primeira Guerra Mundial se aproximam durante uma trégua de Natal. Música e encontros breves revelam as vidas que cada um deixou longe do front. O filme acompanha diferentes grupos para mostrar como uma decisão local atravessa ordens militares e fronteiras linguísticas.",
     "review": {
       "url": "https://www.rottentomatoes.com/m/joyeux_noel"
-    }
+    },
+    "duration": 116
   },
   {
     "title": "O Leão no Inverno",
     "year": 1968,
     "genre": "clássico",
     "menu": "ceia",
-    "summary": "Henrique II reúne a família na corte durante o Natal e discute quem deve sucedê-lo. Eleanor de Aquitânia e os filhos disputam influência enquanto todos pesam os riscos de alianças e promessas. A festa serve de prazo para conversas que parecem mudar o rumo da família a cada nova entrada na sala."
+    "summary": "Henrique II reúne a família na corte durante o Natal e discute quem deve sucedê-lo. Eleanor de Aquitânia e os filhos disputam influência enquanto todos pesam os riscos de alianças e promessas. A festa serve de prazo para conversas que parecem mudar o rumo da família a cada nova entrada na sala.",
+    "duration": 134
   },
   {
     "title": "Tangerine",
@@ -455,7 +503,8 @@
     "review": {
       "url": "https://www.rottentomatoes.com/m/tangerine",
       "note": "96% da crítica e 76% do público no levantamento consultado."
-    }
+    },
+    "duration": 88
   },
   {
     "title": "Um Príncipe de Natal",
@@ -465,7 +514,8 @@
     "summary": "Uma repórter viaja para Aldovia para cobrir o futuro rei e acaba confundida com a tutora da irmã dele. A nova posição lhe permite observar o palácio por dentro, mas também complica a decisão de publicar a história que a levou até lá.",
     "review": {
       "url": "https://www.rottentomatoes.com/m/a_christmas_prince"
-    }
+    },
+    "duration": 92
   },
   {
     "title": "Branco Natal",
@@ -475,7 +525,8 @@
     "summary": "Dois artistas se juntam a uma dupla de irmãs numa viagem a Vermont. Lá encontram um antigo comandante administrando uma pousada com poucos hóspedes. A ideia de montar um espetáculo para ajudá-lo aproxima as quatro figuras e rende números musicais que ganharam vida própria.",
     "review": {
       "url": "https://www.rottentomatoes.com/m/white_christmas"
-    }
+    },
+    "duration": 120
   },
   {
     "title": "Duas Semanas de Prazer",
@@ -485,7 +536,8 @@
     "summary": "Um artista se muda para uma fazenda e decide abrir uma pousada que funcione somente nos feriados. O calendário dá estrutura aos números musicais e à disputa amorosa que se desenrola entre as apresentações. É o filme em que Bing Crosby canta White Christmas pela primeira vez no cinema.",
     "review": {
       "url": "https://www.rottentomatoes.com/m/holiday_in"
-    }
+    },
+    "duration": 100
   },
   {
     "title": "Natal em Connecticut",
@@ -495,7 +547,8 @@
     "summary": "Uma colunista conhecida pelas histórias de sua perfeita vida doméstica precisa receber um convidado na fazenda sobre a qual escreve. O problema é que sua rotina real tem pouco a ver com o que sai na revista. Ela reúne cúmplices para montar a ceia e sustentar a encenação.",
     "review": {
       "url": "https://www.rottentomatoes.com/m/christmas_in_connecticut"
-    }
+    },
+    "duration": 102
   },
   {
     "title": "A Mulher do Bispo",
@@ -505,7 +558,8 @@
     "summary": "Um bispo preocupado em construir uma catedral pede ajuda e recebe a visita de um anjo. O visitante se envolve com a família e com a comunidade, chamando atenção para o que o projeto ambicioso vem deixando de lado. Cary Grant interpreta o recém-chegado com a leveza de quem conhece as regras mas pode contorná-las.",
     "review": {
       "url": "https://www.rottentomatoes.com/m/the_bishops_wife"
-    }
+    },
+    "duration": 109
   },
   {
     "title": "Um Anjo em Minha Vida",
@@ -515,28 +569,32 @@
     "summary": "Um pastor atravessa dificuldades para manter sua igreja e sua família unidas. Um anjo surge em resposta às orações, mas sua maneira de ajudar muda a dinâmica da casa. O gospel cantado por Whitney Houston dá à comunidade um papel decisivo no filme.",
     "review": {
       "url": "https://www.rottentomatoes.com/m/the_preachers_wife"
-    }
+    },
+    "duration": 123
   },
   {
     "title": "Scrooge: Um Conto de Natal",
     "year": 2022,
     "genre": "família",
     "menu": "doce",
-    "summary": "A versão animada acompanha o avarento Ebenezer Scrooge enquanto visitas sobrenaturais o obrigam a rever o que entende por sucesso. As canções levam o personagem de lembranças íntimas a cenas de grande fantasia, com um cão que acompanha parte da jornada."
+    "summary": "A versão animada acompanha o avarento Ebenezer Scrooge enquanto visitas sobrenaturais o obrigam a rever o que entende por sucesso. As canções levam o personagem de lembranças íntimas a cenas de grande fantasia, com um cão que acompanha parte da jornada.",
+    "duration": 96
   },
   {
     "title": "Um Conto de Natal dos Flintstones",
     "year": 1994,
     "genre": "família",
     "menu": "lanche",
-    "summary": "Fred interpreta Scrooge numa apresentação em Bedrock e começa a levar a mesquinhez do personagem para fora do palco. O especial alterna os ensaios com as preocupações dos amigos e da família conforme a estreia se aproxima."
+    "summary": "Fred interpreta Scrooge numa apresentação em Bedrock e começa a levar a mesquinhez do personagem para fora do palco. O especial alterna os ensaios com as preocupações dos amigos e da família conforme a estreia se aproxima.",
+    "duration": 69
   },
   {
     "title": "Um Natal 5 Estrelas",
     "year": 2018,
     "genre": "comédia",
     "menu": "ceia",
-    "summary": "Um político italiano viaja para Budapeste e tenta manter um encontro discreto durante a estadia oficial. Um imprevisto no hotel obriga seu assessor a improvisar explicações cada vez mais complicadas. A comédia depende da circulação pelos quartos e da pressa para esconder a situação dos demais hóspedes."
+    "summary": "Um político italiano viaja para Budapeste e tenta manter um encontro discreto durante a estadia oficial. Um imprevisto no hotel obriga seu assessor a improvisar explicações cada vez mais complicadas. A comédia depende da circulação pelos quartos e da pressa para esconder a situação dos demais hóspedes.",
+    "duration": 95
   },
   {
     "title": "O Expresso Polar",
@@ -547,21 +605,24 @@
     "review": {
       "url": "https://www.rottentomatoes.com/m/the_polar_express",
       "note": "55% da crítica e 64% do público. O consenso editorial elogia o visual geral e aponta ressalvas sobre os rostos animados."
-    }
+    },
+    "duration": 100
   },
   {
     "title": "Noelle",
     "year": 2019,
     "genre": "família",
     "menu": "doce",
-    "summary": "Quando seu irmão desaparece antes de assumir o posto de Papai Noel, Noelle deixa o Polo Norte para encontrá-lo e salvar a festa."
+    "summary": "Quando seu irmão desaparece antes de assumir o posto de Papai Noel, Noelle deixa o Polo Norte para encontrá-lo e salvar a festa.",
+    "duration": 100
   },
   {
     "title": "No Seu Natal ou no Meu?",
     "year": 2022,
     "genre": "romance",
     "menu": "doce",
-    "summary": "Dois namorados decidem se surpreender viajando para a casa um do outro. Uma nevasca os deixa presos, cada um com a família do outro."
+    "summary": "Dois namorados decidem se surpreender viajando para a casa um do outro. Uma nevasca os deixa presos, cada um com a família do outro.",
+    "duration": 95
   },
   {
     "title": "Gospel de Natal",
@@ -579,20 +640,22 @@
     "review": {
       "url": "https://www.rottentomatoes.com/m/the_christmas_chronicles",
       "note": "67% da crítica e 76% do público. O guia editorial destaca Kurt Russell como Papai Noel."
-    }
+    },
+    "duration": 104
   },
   {
     "title": "O Quebra-Nozes e os Quatro Reinos",
     "year": 2018,
     "genre": "família",
     "menu": "doce",
-    "summary": "Na véspera de Natal, Clara procura uma chave deixada por sua mãe e encontra um mundo mágico dividido em quatro reinos."
+    "summary": "Na véspera de Natal, Clara procura uma chave deixada por sua mãe e encontra um mundo mágico dividido em quatro reinos.",
+    "duration": 99
   },
   {
     "title": "31 Minutos: Natal Escaldante",
     "year": 2025,
     "genre": "comédia",
-    "menu": "lanche",
+    "menu": "sanduiche",
     "summary": "Uma onda de calor faz o Papai Noel cancelar a visita a Titirilquén. A turma do 31 Minutos precisa encontrar uma forma de salvar o Natal."
   },
   {
@@ -603,18 +666,20 @@
     "summary": "Criado pelos duendes do Polo Norte, Buddy viaja para Nova York em busca do pai biológico e espalha o espírito natalino pela cidade.",
     "review": {
       "url": "https://www.rottentomatoes.com/m/elf"
-    }
+    },
+    "duration": 97
   },
   {
     "title": "Uma Quedinha de Natal",
     "year": 2022,
     "genre": "romance",
-    "menu": "doce",
+    "menu": "brownie",
     "summary": "Uma herdeira perde a memória após um acidente de esqui e passa as festas aos cuidados de um viúvo e de sua filha.",
     "review": {
       "url": "https://www.rottentomatoes.com/m/falling_for_christmas",
       "note": "62% da crítica e 41% do público no levantamento consultado."
-    }
+    },
+    "duration": 93
   },
   {
     "title": "Milagre na Rua 34",
@@ -625,28 +690,32 @@
     "review": {
       "url": "https://www.rottentomatoes.com/m/miracle_on_34th_street_1994",
       "note": "59% da crítica e 62% do público no levantamento consultado."
-    }
+    },
+    "duration": 114
   },
   {
     "title": "Sobrevivendo ao Natal",
     "year": 2004,
     "genre": "comédia",
-    "menu": "lanche",
-    "summary": "Para evitar passar as festas sozinho, Drew paga aos moradores de sua antiga casa para fingirem ser sua família."
+    "menu": "sanduiche",
+    "summary": "Para evitar passar as festas sozinho, Drew paga aos moradores de sua antiga casa para fingirem ser sua família.",
+    "duration": 91
   },
   {
     "title": "Nosso Segredinho",
     "year": 2024,
     "genre": "romance",
     "menu": "doce",
-    "summary": "Dois ex descobrem que seus novos parceiros são irmãos. Para sobreviver ao Natal sob o mesmo teto, tentam esconder o antigo namoro."
+    "summary": "Dois ex descobrem que seus novos parceiros são irmãos. Para sobreviver ao Natal sob o mesmo teto, tentam esconder o antigo namoro.",
+    "duration": 101
   },
   {
     "title": "Um Menino Chamado Natal",
     "year": 2021,
     "genre": "família",
     "menu": "doce",
-    "summary": "À procura do pai, o jovem Nikolas viaja para o norte e descobre uma terra habitada por duendes."
+    "summary": "À procura do pai, o jovem Nikolas viaja para o norte e descobre uma terra habitada por duendes.",
+    "duration": 106
   },
   {
     "title": "Crônicas de Natal: Parte Dois",
@@ -657,39 +726,44 @@
     "review": {
       "url": "https://www.rottentomatoes.com/m/the_christmas_chronicles_2",
       "note": "66% da crítica e 46% do público no levantamento consultado."
-    }
+    },
+    "duration": 112
   },
   {
     "title": "Sintonia de Natal",
     "year": 2024,
     "genre": "família",
     "menu": "doce",
-    "summary": "Layla cruza Nova York atrás de um ingresso para o show natalino do Pentatonix, onde espera reencontrar o homem dos seus sonhos."
+    "summary": "Layla cruza Nova York atrás de um ingresso para o show natalino do Pentatonix, onde espera reencontrar o homem dos seus sonhos.",
+    "duration": 105
   },
   {
     "title": "Uma Invenção de Natal",
     "year": 2020,
     "genre": "família",
     "menu": "doce",
-    "summary": "A chegada de uma neta criativa devolve a esperança a um inventor de brinquedos e reacende a magia de suas criações."
+    "summary": "A chegada de uma neta criativa devolve a esperança a um inventor de brinquedos e reacende a magia de suas criações.",
+    "duration": 122
   },
   {
     "title": "Duro de Matar",
     "year": 1988,
     "genre": "aventura",
-    "menu": "lanche",
+    "menu": "nachos",
     "summary": "John McClane vai a uma festa de Natal em Los Angeles e acaba enfrentando criminosos quando eles tomam o prédio e fazem reféns.",
     "review": {
       "url": "https://www.rottentomatoes.com/m/die_hard",
       "note": "94% tanto da crítica quanto do público no levantamento consultado."
-    }
+    },
+    "duration": 132
   },
   {
     "title": "Tudo Bem no Natal que Vem",
     "year": 2020,
     "genre": "comédia",
-    "menu": "lanche",
-    "summary": "Jorge detesta o Natal, mas passa a acordar sempre na véspera da festa, um ano de cada vez. Para entender o que aconteceu, ele precisa olhar para a própria vida."
+    "menu": "salpicao",
+    "summary": "Jorge detesta o Natal, mas passa a acordar sempre na véspera da festa, um ano de cada vez. Para entender o que aconteceu, ele precisa olhar para a própria vida.",
+    "duration": 100
   },
   {
     "title": "Klaus",
@@ -700,21 +774,24 @@
     "review": {
       "url": "https://www.rottentomatoes.com/m/klaus",
       "note": "95% de críticas positivas e 96% de aprovação do público no levantamento consultado."
-    }
+    },
+    "duration": 98
   },
   {
     "title": "Um Presente da Tiffany",
     "year": 2022,
     "genre": "romance",
     "menu": "doce",
-    "summary": "Dois presentes trocados fazem um anel de noivado parar nas mãos de Rachel, dando início a um romance natalino em Nova York."
+    "summary": "Dois presentes trocados fazem um anel de noivado parar nas mãos de Rachel, dando início a um romance natalino em Nova York.",
+    "duration": 87
   },
   {
     "title": "Meu Papai é Noel",
     "year": 1994,
     "genre": "comédia",
     "menu": "lanche",
-    "summary": "Depois de um acidente na véspera de Natal, Scott Calvin veste o traje do Papai Noel e descobre que acabou de assumir o cargo."
+    "summary": "Depois de um acidente na véspera de Natal, Scott Calvin veste o traje do Papai Noel e descobre que acabou de assumir o cargo.",
+    "duration": 97
   },
   {
     "title": "O Natal Perfeito de um Cachorro",
@@ -728,7 +805,8 @@
     "year": 2023,
     "genre": "comédia",
     "menu": "lanche",
-    "summary": "Para vencer um concurso de decoração, Chris faz um pacto com uma elfa que dá vida às figuras de uma canção natalina."
+    "summary": "Para vencer um concurso de decoração, Chris faz um pacto com uma elfa que dá vida às figuras de uma canção natalina.",
+    "duration": 117
   },
   {
     "title": "O Estranho Mundo de Jack",
@@ -739,7 +817,8 @@
     "review": {
       "url": "https://www.rottentomatoes.com/m/the_nightmare_before_christmas",
       "note": "95% da crítica e 91% do público. O consenso editorial destaca a originalidade do stop-motion."
-    }
+    },
+    "duration": 76
   },
   {
     "title": "Transformação de Natal",
@@ -752,8 +831,9 @@
     "title": "Operação Natal",
     "year": 2024,
     "genre": "aventura",
-    "menu": "lanche",
-    "summary": "O Papai Noel é sequestrado. O chefe da segurança do Polo Norte recruta um caçador de recompensas para resgatá-lo."
+    "menu": "nachos",
+    "summary": "O Papai Noel é sequestrado. O chefe da segurança do Polo Norte recruta um caçador de recompensas para resgatá-lo.",
+    "duration": 123
   },
   {
     "title": "Um Natal Muito Jonas Brothers",
@@ -784,7 +864,8 @@
     "summary": "Os Muppets recontam o clássico de Charles Dickens, com Michael Caine como o avarento Scrooge e Caco como Bob Cratchit.",
     "review": {
       "url": "https://www.rottentomatoes.com/m/the_muppet_christmas_carol"
-    }
+    },
+    "duration": 85
   },
   {
     "title": "Protegendo Estrelas",
@@ -805,7 +886,8 @@
     "year": 2009,
     "genre": "família",
     "menu": "doce",
-    "summary": "Na véspera de Natal, três espíritos mostram a Scrooge cenas de seu passado, presente e futuro e lhe dão a chance de mudar."
+    "summary": "Na véspera de Natal, três espíritos mostram a Scrooge cenas de seu passado, presente e futuro e lhe dão a chance de mudar.",
+    "duration": 96
   },
   {
     "title": "Um Amor Efervescente",
@@ -825,8 +907,9 @@
     "title": "Bagagem de Mão",
     "year": 2024,
     "genre": "aventura",
-    "menu": "lanche",
-    "summary": "Na véspera de Natal, um agente de segurança de aeroporto é chantageado para deixar uma mala perigosa embarcar."
+    "menu": "nachos",
+    "summary": "Na véspera de Natal, um agente de segurança de aeroporto é chantageado para deixar uma mala perigosa embarcar.",
+    "duration": 119
   },
   {
     "title": "Milagre na Rua 34",
@@ -837,7 +920,8 @@
     "review": {
       "url": "https://www.rottentomatoes.com/m/miracle_on_34th_street",
       "note": "96% da crítica e 87% do público no levantamento consultado."
-    }
+    },
+    "duration": 96
   },
   {
     "title": "Um Sonho de Férias",
@@ -857,19 +941,21 @@
     "title": "O Amor Não Tira Férias",
     "year": 2006,
     "genre": "romance",
-    "menu": "doce",
+    "menu": "brownie",
     "summary": "Iris vive numa pequena vila inglesa e tenta se afastar de um colega por quem tem sentimentos há anos. Amanda trabalha com trailers em Los Angeles e chega ao fim de um relacionamento sem vontade de passar as festas em casa. As duas se conhecem por um site de troca de moradias e decidem mudar de continente por duas semanas. Amanda encontra uma casa de campo e conhece Graham. Iris ganha espaço para respirar na Califórnia, onde faz amizade com um roteirista aposentado e conhece o compositor Miles. Nancy Meyers dá atenção ao prazer de explorar uma casa desconhecida, escolher um filme e conversar sem a pressa da rotina. As duas histórias tratam de aprender a ocupar um lugar diferente, inclusive dentro de relações que pareciam ter papéis já definidos. O romance tem tempo para que as amizades e os encontros cotidianos ganhem importância entre as cenas mais sentimentais. Combina com quem procura uma comédia romântica confortável e aceita ficar um pouco mais na companhia dos personagens.",
     "review": {
       "url": "https://www.rottentomatoes.com/m/the_holiday",
       "note": "51% da crítica e 80% do público. O consenso editorial ressalta o caráter previsível do romance."
-    }
+    },
+    "duration": 136
   },
   {
     "title": "Esqueceram de Mim 2: Perdido em Nova York",
     "year": 1992,
     "genre": "clássico",
     "menu": "lanche",
-    "summary": "Kevin pega o voo errado e passa o Natal em Nova York, onde reencontra os ladrões que tentou despistar no primeiro filme."
+    "summary": "Kevin pega o voo errado e passa o Natal em Nova York, onde reencontra os ladrões que tentou despistar no primeiro filme.",
+    "duration": 120
   },
   {
     "title": "Esqueceram de Mim",
@@ -880,6 +966,7 @@
     "review": {
       "url": "https://www.rottentomatoes.com/m/home_alone",
       "note": "66% da crítica e 81% do público. O consenso editorial destaca Macaulay Culkin e o elenco de apoio."
-    }
+    },
+    "duration": 103
   }
 ]

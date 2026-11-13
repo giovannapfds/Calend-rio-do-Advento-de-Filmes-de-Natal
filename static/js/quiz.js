@@ -19,7 +19,11 @@ function rankQuizMovies(movies, answers) {
     if (genre) genres.set(genre, (genres.get(genre) ?? 0) + 1);
     if (food) foods.set(food, (foods.get(food) ?? 0) + 1);
   }
-  const foodPreference = { pizza: 'lanche', biscoito: 'doce', abobora: 'doce' };
+  const foodPreference = {
+    pizza: 'lanche', nachos: 'lanche', sanduiche: 'lanche',
+    biscoito: 'doce', abobora: 'doce', brownie: 'doce', rabanada: 'doce',
+    massa: 'ceia', salpicao: 'ceia'
+  };
   const foodScore = menu => foods.get(foodPreference[menu] ?? menu) ?? 0;
   const score = movie => 3 * (genres.get(movie.genre) ?? 0) + foodScore(movie.menu);
   // Em caso de empate, mantém a ordem da filmoteca.

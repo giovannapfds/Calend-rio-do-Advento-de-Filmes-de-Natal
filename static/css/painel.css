@@ -12,9 +12,13 @@
 
 .panel-nav {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px 12px;
-  padding-block: 14px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--cinema-natal-red-line) transparent;
+  gap: 8px;
+  padding-block: 12px;
+  border-bottom: 1px solid var(--cinema-natal-line);
 }
 
 .panel-nav a,
@@ -197,13 +201,6 @@
 }
 
 @media (max-width: 480px) {
-  .panel-nav a {
-    display: grid;
-    place-items: center;
-    flex: 1 1 42%;
-    min-height: 44px;
-  }
-
   .quiz-actions .panel-button {
     flex: 1 1 auto;
     text-align: center;
@@ -286,15 +283,13 @@
   transform: none;
 }
 
-.panel-nav {
-  padding-block: 12px;
-  border-bottom: 1px solid var(--cinema-natal-line);
-}
-
 .panel-nav a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  flex: 0 0 auto;
+  white-space: nowrap;
+  padding-inline: 12px;
   min-height: 44px;
 }
 
@@ -403,20 +398,6 @@
     grid-template-columns: 1fr;
     gap: 8px;
   }
-
-  .panel-nav {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 6px;
-  }
-
-  .panel-nav a {
-    padding-inline: 8px;
-  }
-
-  .panel-nav a:last-child {
-    grid-column: 1 / -1;
-  }
 }
 
 .sound-controls {
@@ -464,4 +445,130 @@
   border: 0;
   border-radius: 8px;
   margin-block-end: 8px;
+}
+
+/* Destaque da data atual e espaço para os filtros da Filmoteca. */
+#today-door {
+  margin-bottom: 12px;
+}
+
+.door[aria-current="date"] {
+  outline: 2px solid var(--cinema-natal-gold);
+  outline-offset: 3px;
+}
+
+.door[aria-current="date"] .face small::after {
+  content: " · HOJE";
+}
+
+@media (min-width: 761px) {
+  .filter-bar {
+    grid-template-columns: minmax(0, 2fr) repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 541px) and (max-width: 760px) {
+  .filter-bar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .filter-bar > :first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Tarefas da sessão e dos preparativos de Natal. */
+.checklist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 21rem), 1fr));
+  gap: 16px;
+  align-items: start;
+}
+
+.checklist-items {
+  margin: 0 0 16px;
+  padding: 0;
+  list-style: none;
+}
+
+.checklist-items li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  padding-block: 6px;
+  border-bottom: 1px solid var(--cinema-natal-line);
+}
+
+.checklist-items label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+
+.checklist-items input {
+  accent-color: var(--cinema-natal-red-light);
+}
+
+.checklist-items input:checked + span {
+  text-decoration: line-through;
+}
+
+.checklist-form input {
+  flex: 1 1 10rem;
+  min-width: 0;
+  min-height: 44px;
+  padding: 8px;
+  border: 1px solid var(--cinema-natal-red-line);
+  border-radius: 8px;
+  background: var(--cinema-natal-red-surface);
+  color: inherit;
+  font: inherit;
+}
+
+.session-food > button {
+  display: block;
+  margin-top: 12px;
+}
+
+
+.checklist-meter {
+  display: block;
+  width: 100%;
+  height: 10px;
+  accent-color: var(--cinema-natal-red-light);
+}
+
+.checklist-filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  margin-top: 8px;
+  cursor: pointer;
+}
+
+.checklist-filter input {
+  accent-color: var(--cinema-natal-red-light);
+}
+
+.checklist-items li:focus-within {
+  border-color: var(--cinema-natal-red-light);
+}
+
+.checklist-items button {
+  min-height: 44px;
+  margin: 0;
+}
+
+.checklist-empty {
+  color: var(--cinema-natal-gold);
+}
+
+.panel-nav [aria-current="page"] {
+  box-shadow: inset 0 -2px var(--cinema-natal-red-light);
 }

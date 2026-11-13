@@ -85,3 +85,11 @@ No Windows, use `py ferramentas/gerar_html.py` se esse for o comando do Python. 
 4. Salve um filme e marque-o como assistido. Recarregue para conferir Minha lista.
 5. Confira a navegação em tela estreita e abra a trilha sonora pela versão HTTP.
 6. Regenere e abra o HTML independente. No pull request, descreva o que mudou e como verificou.
+
+## Portinha de hoje, sessão e duração
+
+O destaque usa a data local do navegador e aparece durante o calendário de 2026, entre 13 de novembro e 24 de dezembro. Se atualizar a edição, confira o ano em `highlightToday`, as datas da interface e as entradas do catálogo.
+
+Minha sessão salva os filmes escolhidos, o cardápio e a data e hora do convite em `localStorage`. A sessão volta ao recarregar no mesmo navegador e endereço.
+
+Na Filmoteca, `duration` é opcional e guarda minutos inteiros. Filmes sem duração aparecem na busca geral e ficam fora dos filtros por tempo. A maratona mostra a soma quando todos os filmes têm duração cadastrada.

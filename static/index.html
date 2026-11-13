@@ -27,6 +27,7 @@
   <a href="#quiz">Quiz de Natal</a>
   <a href="#sessao">Minha sessão</a>
   <a href="#minha-lista">Minha lista</a>
+  <a href="#checklist">Checklist de Natal</a>
   <a href="#como-usar">Como usar</a>
 </nav>
 <section id="soundtrack" class="panel-card soundtrack" aria-labelledby="soundtrack-title" hidden>
@@ -48,6 +49,7 @@
     <div class="services" aria-label="Plataformas do calendário"><span>Netflix</span><span>Prime Video</span><span>Disney+</span></div>
   </section>
   <div class="calendar">
+    <button id="today-door" class="panel-button" type="button" hidden>Abrir a portinha de hoje</button>
     <nav class="calendar-nav" aria-label="Meses do calendário">
       <a href="#novembro">Novembro</a><a href="#dezembro">Dezembro</a>
       <span id="progress" role="status"></span>
@@ -69,6 +71,14 @@
     <input id="library-search" type="search" placeholder="Título, gênero ou ano"></div>
     <div><label for="library-genre">Gênero</label>
     <select id="library-genre"><option value="">Todos os gêneros</option></select></div>
+    <div><label for="library-duration">Tempo disponível</label>
+    <select id="library-duration">
+      <option value="">Qualquer duração</option>
+      <option value="30">Até 30 min</option>
+      <option value="60">Até 1 hora</option>
+      <option value="90">Até 1h30</option>
+      <option value="120">Até 2 horas</option>
+    </select></div>
   </div>
   <p id="library-status" role="status">Carregando filmes…</p>
   <div id="library-list" class="panel-grid"></div>
@@ -143,6 +153,42 @@
   <a href="#filmoteca">Explorar a filmoteca</a>
   <div id="watchlist-content" class="panel-grid"></div>
 </section>
+<section id="checklist" class="panel-section" data-panel hidden aria-labelledby="checklist-title">
+  <h1 id="checklist-title">Checklist de Natal</h1>
+  <p>Marque o que já fez e adicione suas tarefas. O progresso fica neste navegador.</p>
+  <div class="checklist-grid">
+    <section class="panel-card" aria-labelledby="checklist-session-title" data-checklist="sessao">
+      <h2 id="checklist-session-title">Minha sessão</h2>
+      <p class="panel-meta checklist-progress" role="status"></p>
+      <progress class="checklist-meter" aria-label="Progresso das tarefas de sessão"></progress>
+      <label class="checklist-filter"><input type="checkbox"> Mostrar só pendentes</label>
+      <p class="checklist-empty" hidden>Todas as tarefas estão concluídas.</p>
+      <ul class="checklist-items"></ul>
+      <form class="checklist-form">
+        <label for="session-task">Nova tarefa da sessão</label>
+        <div class="quiz-actions">
+          <input id="session-task" type="text" maxlength="100" required>
+          <button class="panel-button" type="submit">Adicionar</button>
+        </div>
+      </form>
+    </section>
+    <section class="panel-card" aria-labelledby="checklist-christmas-title" data-checklist="natal">
+      <h2 id="checklist-christmas-title">Meu Natal</h2>
+      <p class="panel-meta checklist-progress" role="status"></p>
+      <progress class="checklist-meter" aria-label="Progresso das tarefas de Natal"></progress>
+      <label class="checklist-filter"><input type="checkbox"> Mostrar só pendentes</label>
+      <p class="checklist-empty" hidden>Todas as tarefas estão concluídas.</p>
+      <ul class="checklist-items"></ul>
+      <form class="checklist-form">
+        <label for="christmas-task">Nova tarefa de Natal</label>
+        <div class="quiz-actions">
+          <input id="christmas-task" type="text" maxlength="100" required>
+          <button class="panel-button" type="submit">Adicionar</button>
+        </div>
+      </form>
+    </section>
+  </div>
+</section>
 <section id="como-usar" class="panel-section" data-panel hidden aria-labelledby="guide-title">
   <h1 id="guide-title">Como usar o Cinema de Natal</h1>
   <p class="guide-intro">Escolha um filme, combine com algo gostoso e prepare sua sessão.</p>
@@ -166,6 +212,11 @@
     <summary>Como ouvir a trilha sonora?</summary>
     <p>Abra <strong>Trilha sonora</strong> no cabeçalho e pressione play no mini player. No Mac, use o atalho iniciar_cinema.command para abrir o painel com o mini player. Para parar, pause o vídeo ou feche o player. O botão Som controla os efeitos das portinhas.</p>
   </details>
+  <aside class="guide-tip">
+    <h2>Organize os preparativos</h2>
+    <p>No Checklist de Natal, marque tarefas prontas ou adicione as suas. Use <strong>Adicionar ao checklist</strong> em Minha sessão para levar os filmes e a receita escolhidos.</p>
+    <a href="#checklist">Abrir o checklist</a>
+  </aside>
   <aside class="guide-tip">
     <h2>Guarde os filmes que quer rever</h2>
     <p>Use <strong>Salvar para depois</strong> na Filmoteca. Em Minha lista, marque o que já assistiu e dê suas notas. A lista fica salva neste navegador.</p>
@@ -213,6 +264,7 @@
 <script defer src="js/calendario.js"></script>
 <script defer src="js/cardapio.js"></script>
 <script defer src="js/quiz.js"></script>
+<script defer src="js/checklist.js"></script>
 <script defer src="js/sessoes.js"></script>
 <script defer src="js/painel.js"></script>
 </body>

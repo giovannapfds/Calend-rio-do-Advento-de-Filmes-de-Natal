@@ -129,7 +129,8 @@ function fillFilm(entry, presentation, dateLabel) {
 function updateDoor(door, dateLabel, wasOpened) {
   door.dataset.opened = String(wasOpened);
   const action = wasOpened ? 'portinha já aberta' : 'abrir portinha';
-  door.setAttribute('aria-label', `${dateLabel}, ${action}`);
+  const today = door.getAttribute('aria-current') === 'date' ? ', hoje' : '';
+  door.setAttribute('aria-label', `${dateLabel}${today}, ${action}`);
 }
 
 function reveal(door, entry, presentation, day, month) {
@@ -160,10 +161,40 @@ function createDoor(entry, presentation, day, month) {
   const door = template.content.firstElementChild.cloneNode(true);
   door.querySelector('strong').textContent = String(day).padStart(2, '0');
   door.querySelector('small').textContent = month.slice(0, 3).toUpperCase();
-  updateDoor(door, `${day} de ${month}`, opened.has(`${month}-${day}`));
+  door.dataset.date = `${month}-${day}`;
+  door.dataset.dateLabel = `${day} de ${month}`;
+  updateDoor(door, door.dataset.dateLabel, opened.has(door.dataset.date));
   door.addEventListener('click', () => reveal(door, entry, presentation, day, month));
   return door;
 }
+
+function highlightToday(now = new Date()) {
+  const shortcut = document.querySelector('#today-door');
+  const previous = document.querySelector('.door[aria-current="date"]');
+  if (previous) {
+    previous.removeAttribute('aria-current');
+    updateDoor(previous, previous.dataset.dateLabel, previous.dataset.opened === 'true');
+  }
+
+  const month = { 10: 'novembro', 11: 'dezembro' }[now.getMonth()];
+  const door = now.getFullYear() === 2026 && month
+    ? document.querySelector(`.door[data-date="${month}-${now.getDate()}"]`)
+    : null;
+  shortcut.hidden = !door;
+  shortcut.onclick = door ? () => {
+    door.focus();
+    door.click();
+  } : null;
+  if (door) {
+    door.setAttribute('aria-current', 'date');
+    updateDoor(door, door.dataset.dateLabel, door.dataset.opened === 'true');
+  }
+}
+
+window.addEventListener('focus', () => highlightToday());
+document.addEventListener('visibilitychange', () => {
+  if (!document.hidden) highlightToday();
+});
 
 function renderCalendar(catalog) {
   const validDates = new Set();
@@ -194,6 +225,7 @@ function renderCalendar(catalog) {
   for (const { month, doors } of months) {
     document.querySelector(`#${month} .doors`).replaceChildren(...doors);
   }
+  highlightToday();
   totalDoors = validDates.size;
   updateProgress();
 }

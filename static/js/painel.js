@@ -2,6 +2,7 @@
   const sections = [...document.querySelectorAll('[data-panel]')];
   const navigation = [...document.querySelectorAll('.panel-nav a')];
   const search = document.querySelector('#library-search');
+  const duration = document.querySelector('#library-duration');
   const genre = document.querySelector('#library-genre');
   const libraryStatus = document.querySelector('#library-status');
   const libraryList = document.querySelector('#library-list');
@@ -63,6 +64,15 @@
       if (anchor.hash === '#' + panel) anchor.setAttribute('aria-current', 'page');
       else anchor.removeAttribute('aria-current');
     }
+    const current = navigation.find(anchor => anchor.getAttribute('aria-current') === 'page');
+    const nav = current?.parentElement;
+    if (nav && nav.scrollWidth > nav.clientWidth) {
+      const item = current.getBoundingClientRect();
+      const bounds = nav.getBoundingClientRect();
+      if (item.left < bounds.left || item.right > bounds.right) {
+        nav.scrollLeft += item.left - bounds.left - (bounds.width - item.width) / 2;
+      }
+    }
     if (panel === 'calendario' && ['novembro', 'dezembro'].includes(hash)) {
       document.getElementById(hash).scrollIntoView();
     } else if (event) {
@@ -86,6 +96,7 @@
   function clearLibraryFilters() {
     search.value = '';
     genre.value = '';
+    duration.value = '';
     renderLibrary();
     search.focus();
   }
@@ -94,6 +105,7 @@
     const terms = normalize(search.value.trim()).split(/\s+/);
     const items = movies.flatMap((movie, index) => {
       const haystack = normalize(`${movie.title} ${movie.year} ${movie.genre}`);
+      if (duration.value && (!movie.duration || movie.duration > Number(duration.value))) return [];
       if (genre.value && movie.genre !== genre.value) return [];
       if (!terms.every(term => haystack.includes(term))) return [];
       const reviewUrl = movie.review?.url ||
@@ -127,7 +139,7 @@
       recipe.addEventListener('click', () => openRecipe(index));
       const actions = node('div', '', 'quiz-actions library-actions');
       actions.append(sessionButton(movie), recipe, sessions.saveButton(movie));
-      card.append(node('h2', movie.title), node('p', `${movie.year} · ${movie.genre}`, 'panel-meta'), details, actions);
+      card.append(node('h2', movie.title), node('p', `${movie.year} · ${movie.genre} · ${formatMovieDuration(movie.duration)}`, 'panel-meta'), details, actions);
       return card;
     });
     libraryList.replaceChildren(...cards);
@@ -258,6 +270,7 @@
       }
       sessions.load(movies, genres);
       calendarSession.disabled = false;
+      duration.addEventListener('change', renderLibrary);
       genre.addEventListener('change', renderLibrary);
       renderLibrary();
       renderRecipe();
