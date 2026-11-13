@@ -93,3 +93,11 @@ O destaque usa a data local do navegador e aparece durante o calendário de 2026
 Minha sessão salva os filmes escolhidos, o cardápio e a data e hora do convite em `localStorage`. A sessão volta ao recarregar no mesmo navegador e endereço.
 
 Na Filmoteca, `duration` é opcional e guarda minutos inteiros. Filmes sem duração aparecem na busca geral e ficam fora dos filtros por tempo. A maratona mostra a soma quando todos os filmes têm duração cadastrada.
+
+## Visita do Papai Noel
+
+`static/js/papai-noel.js` escolhe o transporte e controla os tempos de chegada, parada, visita às portinhas e saída. O CSS em `static/css/painel.css` usa `data-outfit` para manter o figurino depois da chegada. O atlas `static/imagens/papai-noel-figurinos.webp` tem uma linha por figurino e quatro colunas com duas passadas, costas e mão estendida. Para acrescentar movimentos, desenhe as poses no mesmo figurino, alinhe a base dos pés e confira a posição da mão em relação à borda da portinha.
+
+A cena calcula a posição pela portinha visível e cancela a visita em andamento ao redimensionar a janela. A classe `santa-open` só altera a aparência. Para editar a cena e testar a versão independente, rode `python3 ferramentas/gerar_html.py`.
+
+Para animar o desembarque, a escalada e a suspensão com continuidade, ainda são necessários quadros intermediários específicos de cada veículo ou um modelo articulado que preserve a textura e o figurino da referência.

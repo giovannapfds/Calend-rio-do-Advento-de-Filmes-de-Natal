@@ -269,6 +269,7 @@
         genre.append(option);
       }
       sessions.load(movies, genres);
+      discovery.setMovies(movies, movie => sessions.open(movie));
       calendarSession.disabled = false;
       duration.addEventListener('change', renderLibrary);
       genre.addEventListener('change', renderLibrary);
@@ -279,6 +280,7 @@
       quizNext.disabled = false;
     } catch (error) {
       console.error(error);
+      discovery.setMovies([], null);
       libraryStatus.textContent = 'Não foi possível carregar a filmoteca. Recarregue a página.';
       sessions.showError(libraryStatus.textContent);
       quizMessage.textContent = libraryStatus.textContent;

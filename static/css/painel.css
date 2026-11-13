@@ -572,3 +572,520 @@
 .panel-nav [aria-current="page"] {
   box-shadow: inset 0 -2px var(--cinema-natal-red-light);
 }
+
+/* Visita breve pela borda da tela, sem interceptar cliques. */
+.santa-visit {
+  position: fixed;
+  z-index: 5;
+  inset-inline-end: 0;
+  inset-block-end: max(16px, env(safe-area-inset-bottom));
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-inline-end: 8px;
+  pointer-events: none;
+  transform: translateX(calc(50% - 50vw));
+}
+
+/* Três poses de caminhada na primeira linha e três de dança na segunda. */
+.santa-visit-sprite {
+  width: clamp(120px, 21vw, 192px);
+  aspect-ratio: 1;
+  background: url("../imagens/papai-noel.webp") 0 0 / 300% 200% no-repeat;
+  filter: drop-shadow(0 8px 8px #0007);
+  background-position: 50% 100%;
+}
+
+/* As portinhas da cena são visuais e não alteram o progresso salvo. */
+.door.santa-open .face {
+  transform: rotateY(-105deg);
+}
+
+.santa-gift {
+  position: fixed;
+  z-index: 5;
+  inset-inline-end: 12px;
+  inset-block-end: 12px;
+  width: min(calc(100% - 24px), 20rem);
+  box-shadow: 0 12px 36px #0009;
+}
+
+#santa-gift-close {
+  float: inline-end;
+  margin-inline-start: 8px;
+}
+
+.santa-gift h2::before {
+  content: "";
+  display: inline-block;
+  width: 0.9em;
+  height: 0.75em;
+  margin-inline-end: 0.4em;
+  border-radius: 3px;
+  background:
+    linear-gradient(90deg, transparent 43%, var(--cinema-natal-gold) 43% 57%, transparent 57%),
+    linear-gradient(var(--cinema-natal-red-light) 25%, var(--cinema-natal-red) 25%);
+}
+
+/* Na pose de braços abertos, a mão toca a lateral da portinha. */
+.santa-visit[data-phase] {
+  inset: 0 auto auto 0;
+  padding: 0;
+  animation: none;
+  transition: transform 550ms cubic-bezier(.25, .1, .38, 1);
+  transform: translate(var(--santa-x), var(--santa-y));
+}
+
+/* As poses de costas mostram a virada, a pausa e a mão na portinha. */
+.santa-visit[data-phase="pause"] .santa-visit-sprite,
+.santa-visit[data-phase="reach"] .santa-visit-sprite,
+.santa-visit[data-phase="pull"] .santa-visit-sprite {
+  background: url("../imagens/papai-noel-costas.webp") var(--santa-pose, 0) 0 / 300% 100% no-repeat;
+  animation: none;
+}
+
+.santa-visit[data-phase="pause"] .santa-visit-sprite {
+  --santa-pose: 50%;
+}
+
+.santa-visit:is([data-phase="reach"], [data-phase="pull"]) .santa-visit-sprite {
+  --santa-pose: 100%;
+  transform-origin: 50% 92%;
+  animation: santa-reach 580ms both;
+}
+
+.santa-visit[data-door-side="right"]:is([data-phase="pause"], [data-phase="reach"], [data-phase="pull"]) .santa-visit-sprite {
+  rotate: y 180deg;
+}
+
+@keyframes santa-reach {
+  0%, 100% { transform: rotate(0); }
+  12% { transform: translate(1%, 1%) rotate(2deg); }
+  45%, 65% { transform: translate(-3%, 1%) rotate(-5deg); }
+}
+
+.santa-visit[data-phase="approach"] .santa-visit-sprite {
+  animation: santa-walk-away 540ms step-end infinite, santa-step 540ms ease-in-out infinite;
+}
+
+.santa-visit[data-phase="approach"][data-direction="right"] .santa-visit-sprite {
+  scale: -1 1;
+}
+
+@keyframes santa-step {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  23% { transform: translateY(-3px) rotate(0); }
+  50% { transform: translateY(0) rotate(2deg); }
+  75% { transform: translateY(-3px) rotate(0); }
+}
+
+.santa-visit[data-phase="exit"] {
+  transition: transform 1.4s linear;
+  transform: translate(calc(-100% - 24px), var(--santa-y));
+}
+
+.santa-visit[data-phase="exit"] .santa-visit-sprite {
+  animation: santa-walk-away 420ms step-end infinite, santa-step 420ms ease-in-out infinite;
+}
+
+@keyframes santa-walk-away {
+  0% { background-position: 0 0; }
+  33% { background-position: 50% 0; }
+  66% { background-position: 100% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .santa-visit[data-phase],
+  .santa-visit[data-phase] .santa-visit-sprite {
+    transition: none;
+    animation: none;
+  }
+}
+
+/* A chegada termina no centro, onde começa o movimento antes das portinhas. */
+.santa-visit[data-entrance] {
+  animation: santa-arrival 1.7s linear both;
+}
+
+.santa-visit[data-entrance="treno"] {
+  animation-name: santa-flight;
+}
+
+.santa-visit[data-entrance] .santa-visit-sprite {
+  background: url("../imagens/papai-noel-chegadas.webp") var(--arrival-x, 0) var(--arrival-y, 0) / 200% 200% no-repeat;
+  transform-origin: 50% 88%;
+  animation: var(--santa-arrival-motion, santa-sleigh-land) 1.7s both;
+}
+
+.santa-visit[data-entrance="carro"] {
+  --santa-arrival-motion: santa-car-brake;
+}
+
+.santa-visit[data-entrance="moto"] {
+  --santa-arrival-motion: santa-bike-lean;
+}
+
+.santa-visit[data-entrance="patins"] {
+  --santa-arrival-motion: santa-skate-push;
+}
+
+.santa-visit[data-entrance="carro"],
+.santa-visit[data-entrance="patins"] {
+  --arrival-x: 100%;
+}
+
+.santa-visit[data-entrance="moto"],
+.santa-visit[data-entrance="patins"] {
+  --arrival-y: 100%;
+}
+
+@keyframes santa-arrival {
+  0% { transform: translateX(110%); }
+  65% { transform: translateX(calc(50% - 50vw + 35px)); animation-timing-function: ease-out; }
+  100% { transform: translateX(calc(50% - 50vw)); }
+}
+
+@keyframes santa-sleigh-land {
+  0%, 100% { transform: none; }
+  50% { transform: rotate(-4deg); }
+  88% { transform: translateY(3px) scaleY(.97); }
+  94% { transform: translateY(-2px); }
+}
+
+@keyframes santa-car-brake {
+  0%, 100% { transform: none; }
+  22%, 48% { transform: translateY(-2px) rotate(1deg); }
+  76% { transform: translateY(2px) rotate(-4deg); }
+  90% { transform: rotate(1deg); }
+}
+
+@keyframes santa-bike-lean {
+  0%, 100% { transform: none; }
+  20% { transform: rotate(5deg); }
+  49% { transform: rotate(-6deg) translateY(-3px); }
+  77% { transform: rotate(-3deg); }
+}
+
+@keyframes santa-skate-push {
+  0%, 45%, 100% { transform: none; }
+  18% { transform: translate(-4px, 4px) rotate(-7deg) scaleY(.97); }
+  30% { transform: translateY(-5px) rotate(5deg); }
+  62% { transform: translate(-5px, 3px) rotate(-9deg) scaleY(.96); }
+  78% { transform: rotate(3deg); }
+}
+
+@keyframes santa-flight {
+  0% { transform: translate(110%, -52vh) rotate(-9deg); }
+  62% { transform: translate(calc(50% - 42vw), -17vh) rotate(10deg); }
+  86% { transform: translate(calc(50% - 50vw), -18px) rotate(-5deg); }
+  100% { transform: translateX(calc(50% - 50vw)); }
+}
+
+.santa-visit[data-move]:not([data-entrance], [data-phase]) {
+  animation: none;
+  transform: translateX(calc(50% - 50vw));
+}
+
+.santa-visit[data-move]:not([data-entrance], [data-phase]) .santa-visit-sprite {
+  background-position: 50% 100%;
+  animation: var(--santa-move, santa-jump) 1.15s ease-in-out both;
+}
+
+.santa-visit[data-move="caminhada"]:not([data-entrance], [data-phase]) .santa-visit-sprite {
+  animation: santa-walk-away 360ms step-end infinite;
+}
+
+.santa-visit[data-move="estrelinha"]:not([data-entrance], [data-phase]) .santa-visit-sprite {
+  animation: santa-cartwheel 1.15s ease-in-out both, santa-cartwheel-poses 1.15s step-end both;
+}
+
+@keyframes santa-jump {
+  0%, 100% { transform: translateY(0); }
+  19% { transform: translateY(4px) scale(1.04, .93); animation-timing-function: ease-out; }
+  46% { transform: translateY(-37px) rotate(-5deg); animation-timing-function: ease-in; }
+  71% { transform: translateY(0); }
+  79% { transform: translateY(3px) scale(1.03, .95); }
+}
+
+.santa-visit[data-move="caminhada"]:not([data-entrance], [data-phase]) {
+  animation: santa-stroll 1.15s ease-in-out both;
+}
+
+@keyframes santa-stroll {
+  0% { transform: translateX(calc(50% - 50vw)); }
+  30% { transform: translate(calc(50% - 50vw - 12px), -5px); }
+  65% { transform: translate(calc(50% - 50vw - 38px), -5px); }
+  100% { transform: translateX(calc(50% - 50vw - 60px)); }
+}
+
+/* A pirueta troca o ângulo do personagem a cada quadro, com os pés como pivô. */
+.santa-visit[data-move="pirueta"]:not([data-entrance], [data-phase]) .santa-visit-sprite,
+.santa-visit[data-phase="turn"] .santa-visit-sprite {
+  background: url("../imagens/papai-noel-360.webp") 0 0 / 400% 200% no-repeat;
+  transform-origin: 50% 96%;
+}
+
+.santa-visit[data-move="pirueta"]:not([data-entrance], [data-phase]) .santa-visit-sprite {
+  animation: santa-spin-views 1.15s step-end both, santa-pivot 1.15s ease-in-out both;
+}
+
+.santa-visit[data-phase="turn"] .santa-visit-sprite {
+  animation: santa-turn-left 360ms step-end both;
+}
+
+.santa-visit[data-phase="turn"][data-direction="right"] .santa-visit-sprite {
+  animation-name: santa-turn-right;
+}
+
+@keyframes santa-spin-views {
+  0%, 89%, 100% { background-position: 0 0; }
+  17% { background-position: 33.333% 0; }
+  28% { background-position: 66.667% 0; }
+  38% { background-position: 100% 0; }
+  47% { background-position: 0 100%; }
+  56% { background-position: 33.333% 100%; }
+  66% { background-position: 66.667% 100%; }
+  77% { background-position: 100% 100%; }
+}
+
+@keyframes santa-turn-left {
+  0% { background-position: 66.667% 0; }
+  32% { background-position: 100% 0; }
+  70%, 100% { background-position: 0 100%; }
+}
+
+@keyframes santa-turn-right {
+  0% { background-position: 66.667% 100%; }
+  32% { background-position: 33.333% 100%; }
+  70%, 100% { background-position: 0 100%; }
+}
+
+@keyframes santa-pivot {
+  0%, 100% { transform: none; }
+  18% { transform: translateX(3px) rotate(4deg) scaleY(.97); }
+  47% { transform: translate(-3px, -4px) rotate(-3deg); }
+  77% { transform: translateX(-4px) rotate(-5deg); }
+}
+
+@keyframes santa-cartwheel-poses {
+  0%, 100% { background-position: 50% 100%; }
+  22% { background-position: 0 100%; animation-timing-function: step-end; }
+  46% { background-position: 50% 100%; animation-timing-function: step-end; }
+  65% { background-position: 100% 100%; animation-timing-function: step-end; }
+  86% { background-position: 50% 100%; }
+}
+
+@keyframes santa-cartwheel {
+  0% { transform: translateX(24px); }
+  18% { transform: translate(15px, 3px) rotate(-18deg); }
+  48% { transform: translate(-8px, -28px) rotate(-170deg); }
+  76% { transform: translate(-37px, 2px) rotate(-351deg); }
+  88%, 100% { transform: translateX(-40px) rotate(-360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .santa-visit[data-phase="turn"][data-direction] .santa-visit-sprite,
+  .santa-visit[data-move="pirueta"]:not([data-entrance], [data-phase]) .santa-visit-sprite,
+  .santa-visit[data-entrance],
+  .santa-visit[data-entrance] .santa-visit-sprite,
+  .santa-visit[data-move="estrelinha"]:not([data-entrance], [data-phase]) .santa-visit-sprite,
+  .santa-visit[data-move="caminhada"]:not([data-entrance], [data-phase]),
+  .santa-visit[data-move]:not([data-entrance], [data-phase]) .santa-visit-sprite,
+  .santa-visit[data-move="caminhada"]:not([data-entrance], [data-phase]) .santa-visit-sprite {
+    animation: none;
+  }
+}
+
+/* Cada linha do atlas mantém o figurino escolhido na chegada.
+   Colunas: passada, passada alternada, costas, mão estendida. */
+.santa-visit[data-outfit="carro"] { --costume-row: 33.333%; }
+.santa-visit[data-outfit="moto"] { --costume-row: 66.667%; }
+.santa-visit[data-outfit="patins"] { --costume-row: 100%; }
+
+.santa-visit[data-outfit]:not([data-entrance], [data-outfit="treno"]) .santa-visit-sprite {
+  background: url("../imagens/papai-noel-figurinos.webp") var(--costume-pose, 0%) var(--costume-row) / 400% 400% no-repeat;
+}
+
+.santa-visit[data-outfit]:not([data-outfit="treno"]):is([data-phase="turn"], [data-phase="pause"]) .santa-visit-sprite {
+  --costume-pose: 66.667%;
+  animation: none;
+}
+
+.santa-visit[data-outfit]:not([data-outfit="treno"]):is([data-phase="reach"], [data-phase="pull"]) .santa-visit-sprite {
+  --costume-pose: 100%;
+}
+
+.santa-visit[data-outfit]:not([data-outfit="treno"]):is([data-phase="approach"], [data-phase="exit"]) .santa-visit-sprite,
+.santa-visit[data-outfit]:not([data-outfit="treno"])[data-move="caminhada"]:not([data-entrance], [data-phase]) .santa-visit-sprite {
+  animation: santa-costume-steps 500ms step-end infinite, santa-step 500ms ease-in-out infinite;
+}
+
+@keyframes santa-costume-steps {
+  0% { background-position: 0% var(--costume-row); }
+  50% { background-position: 33.333% var(--costume-row); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .santa-visit[data-outfit]:not([data-outfit="treno"]):is([data-phase="approach"], [data-phase="exit"]) .santa-visit-sprite,
+  .santa-visit[data-outfit]:not([data-outfit="treno"])[data-move="caminhada"]:not([data-entrance], [data-phase]) .santa-visit-sprite {
+    animation: none;
+  }
+}
+
+/* A mão acompanha a borda livre enquanto a portinha gira. */
+.door.santa-gripped .face {
+  transition: none;
+  transform: rotateY(var(--santa-door-angle, 0deg));
+}
+
+.santa-visit[data-phase="pull"] {
+  transition: none;
+  transform: translate(calc(var(--santa-x) + var(--santa-pull, 0px)), var(--santa-y));
+}
+
+.santa-visit[data-phase="pull"] .santa-visit-sprite {
+  animation: none;
+  transform-origin: 50% 93%;
+  transform: rotate(-3deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .santa-visit[data-phase="pull"] .santa-visit-sprite {
+    transform: none;
+  }
+}
+
+/* A moto fica parada enquanto a perna passa pelo banco. */
+.santa-visit[data-dismount] .santa-visit-sprite {
+  background: url("../imagens/papai-noel-desembarque.webp") 0 var(--dismount-row, 0%) / 400% 200% no-repeat;
+  animation: santa-dismount 1.6s step-end both;
+}
+
+.santa-visit[data-dismount="moto"] { --dismount-row: 100%; }
+
+@keyframes santa-dismount {
+  0% { background-position: 0% var(--dismount-row, 0%); }
+  22% { background-position: 33.333% var(--dismount-row, 0%); }
+  53% { background-position: 66.667% var(--dismount-row, 0%); }
+  78%, 100% { background-position: 100% var(--dismount-row, 0%); }
+}
+
+/* O ponto de apoio fica no topo do sprite para o corpo balançar abaixo das mãos. */
+.santa-visit[data-outfit="carro"] { --hang-column: 33.333%; }
+.santa-visit[data-outfit="moto"] { --hang-column: 66.667%; }
+.santa-visit[data-outfit="patins"] { --hang-column: 100%; }
+
+.santa-visit[data-phase="hop"] {
+  transition: transform 640ms cubic-bezier(.24, .66, .35, 1);
+}
+
+.santa-visit[data-outfit][data-phase="hop"] .santa-visit-sprite,
+.santa-visit[data-outfit][data-phase="hang"] .santa-visit-sprite {
+  background: url("../imagens/papai-noel-pendurado.webp") var(--hang-column, 0%) 0 / 400% 100% no-repeat;
+  transform-origin: 50% 4%;
+}
+
+.santa-visit[data-outfit][data-phase="hop"] .santa-visit-sprite {
+  animation: santa-hop 640ms ease-in-out both;
+}
+
+.santa-visit[data-outfit][data-phase="hang"] .santa-visit-sprite {
+  animation: santa-hang 780ms ease-out both;
+}
+
+@keyframes santa-hop {
+  0%, 100% { transform: none; }
+  45% { transform: translateY(-28px) rotate(-10deg); }
+  82% { transform: translateY(-5px) rotate(4deg); }
+}
+
+@keyframes santa-hang {
+  0%, 100% { transform: none; }
+  24% { transform: rotate(7deg); }
+  65% { transform: rotate(-4deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .santa-visit[data-phase="hop"] { transition: none; }
+  .santa-visit[data-dismount] .santa-visit-sprite,
+  .santa-visit[data-outfit][data-phase="hop"] .santa-visit-sprite,
+  .santa-visit[data-outfit][data-phase="hang"] .santa-visit-sprite {
+    animation: none;
+  }
+}
+
+/* As visitas rápidas abrem só a face decorativa da portinha. */
+.door.santa-tapped .face {
+  transform: rotateY(-54deg);
+}
+
+.santa-visit[data-phase="land"] {
+  transition: transform 640ms cubic-bezier(.24, .66, .35, 1);
+}
+
+.santa-visit[data-phase="land"] .santa-visit-sprite {
+  animation: santa-hop 640ms ease-in-out both;
+}
+
+.santa-visit[data-outfit]:is([data-phase="hop"], [data-phase="hang"], [data-phase="hang-tap"], [data-phase="crouch"]) .santa-visit-sprite {
+  background: url("../imagens/papai-noel-toque.webp") var(--hang-column, 0%) var(--tap-row, 0%) / 400% 200% no-repeat;
+}
+
+.santa-visit[data-phase="hang-tap"] .santa-visit-sprite {
+  transform-origin: 43% 4%;
+  animation: santa-tap 400ms ease-in-out both;
+}
+
+.santa-visit[data-phase="crouch"] .santa-visit-sprite {
+  --tap-row: 100%;
+  transform-origin: 50% 96%;
+  animation: santa-tap 520ms ease-in-out both;
+}
+
+@keyframes santa-tap {
+  0%, 100% { transform: none; }
+  45% { transform: rotate(7deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .santa-visit[data-phase="land"] { transition: none; }
+  .santa-visit[data-outfit]:is([data-phase="land"], [data-phase="hang-tap"], [data-phase="crouch"]) .santa-visit-sprite {
+    animation: none;
+  }
+}
+
+.christmas-lights {
+  max-width: 1040px;
+  height: 13px;
+  margin: 0 auto;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 12px 4px, #ffb4ba 0 2px, #d64759 3px, transparent 5px),
+    radial-gradient(ellipse at 36px 7px, #fff0af 0 2px, #dfab47 3px, transparent 5px),
+    radial-gradient(ellipse at 60px 4px, #c3f0da 0 2px, #58ba90 3px, transparent 5px);
+  background-size: 72px 13px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body {
+    cursor: url("../imagens/cursor-floco.png") 16 16, auto;
+  }
+
+  a, button, summary, label:has(input[type="checkbox"], input[type="radio"]),
+  input:is([type="checkbox"], [type="radio"]) {
+    cursor: url("../imagens/cursor-floco.png") 16 16, pointer;
+  }
+
+  input:is([type="search"], [type="text"]), textarea {
+    cursor: text;
+  }
+}
+
+.discover-card {
+  max-width: 42rem;
+  margin-block: 16px;
+}
+
+.discover-card [role="status"] {
+  margin-block-end: 0;
+}

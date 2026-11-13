@@ -1,0 +1,502 @@
+[
+  {
+    "title": "All I Want for Christmas Is You",
+    "artist": "Mariah Carey",
+    "mood": "animado"
+  },
+  {
+    "title": "Last Christmas",
+    "artist": "Wham!",
+    "mood": "animado"
+  },
+  {
+    "title": "Rockin’ Around the Christmas Tree",
+    "artist": "Brenda Lee",
+    "mood": "animado"
+  },
+  {
+    "title": "Jingle Bell Rock",
+    "artist": "Bobby Helms",
+    "mood": "animado"
+  },
+  {
+    "title": "Feliz Navidad",
+    "artist": "José Feliciano",
+    "mood": "animado"
+  },
+  {
+    "title": "Sleigh Ride",
+    "artist": "The Ronettes",
+    "mood": "animado"
+  },
+  {
+    "title": "Santa Tell Me",
+    "artist": "Ariana Grande",
+    "mood": "animado"
+  },
+  {
+    "title": "Underneath the Tree",
+    "artist": "Kelly Clarkson",
+    "mood": "animado"
+  },
+  {
+    "title": "Step Into Christmas",
+    "artist": "Elton John",
+    "mood": "animado"
+  },
+  {
+    "title": "Wonderful Christmastime",
+    "artist": "Paul McCartney",
+    "mood": "animado"
+  },
+  {
+    "title": "Merry Christmas Everyone",
+    "artist": "Shakin’ Stevens",
+    "mood": "animado"
+  },
+  {
+    "title": "Run Rudolph Run",
+    "artist": "Chuck Berry",
+    "mood": "animado"
+  },
+  {
+    "title": "Christmas Wrapping",
+    "artist": "The Waitresses",
+    "mood": "animado"
+  },
+  {
+    "title": "I Wish It Could Be Christmas Everyday",
+    "artist": "Wizzard",
+    "mood": "animado"
+  },
+  {
+    "title": "Merry Xmas Everybody",
+    "artist": "Slade",
+    "mood": "animado"
+  },
+  {
+    "title": "Little Saint Nick",
+    "artist": "The Beach Boys",
+    "mood": "animado"
+  },
+  {
+    "title": "Christmas (Baby Please Come Home)",
+    "artist": "Darlene Love",
+    "mood": "animado"
+  },
+  {
+    "title": "What Christmas Means to Me",
+    "artist": "Stevie Wonder",
+    "mood": "animado"
+  },
+  {
+    "title": "One More Sleep",
+    "artist": "Leona Lewis",
+    "mood": "animado"
+  },
+  {
+    "title": "Christmas Tree Farm",
+    "artist": "Taylor Swift",
+    "mood": "animado"
+  },
+  {
+    "title": "White Christmas",
+    "artist": "Bing Crosby",
+    "mood": "aconchegante"
+  },
+  {
+    "title": "The Christmas Song",
+    "artist": "Nat King Cole",
+    "mood": "aconchegante"
+  },
+  {
+    "title": "Have Yourself a Merry Little Christmas",
+    "artist": "Judy Garland",
+    "mood": "aconchegante"
+  },
+  {
+    "title": "Let It Snow! Let It Snow! Let It Snow!",
+    "artist": "Dean Martin",
+    "mood": "aconchegante"
+  },
+  {
+    "title": "Winter Wonderland",
+    "artist": "Ella Fitzgerald",
+    "mood": "aconchegante"
+  },
+  {
+    "title": "It’s Beginning to Look a Lot Like Christmas",
+    "artist": "Michael Bublé",
+    "mood": "aconchegante"
+  },
+  {
+    "title": "I’ll Be Home for Christmas",
+    "artist": "Bing Crosby",
+    "mood": "aconchegante"
+  },
+  {
+    "title": "Silver Bells",
+    "artist": "Bing Crosby e Carol Richards",
+    "mood": "aconchegante"
+  },
+  {
+    "title": "Christmas Time Is Here",
+    "artist": "Vince Guaraldi Trio",
+    "mood": "aconchegante"
+  },
+  {
+    "title": "Peace on Earth / Little Drummer Boy",
+    "artist": "Bing Crosby e David Bowie",
+    "mood": "aconchegante"
+  },
+  {
+    "title": "A Holly Jolly Christmas",
+    "artist": "Burl Ives",
+    "mood": "aconchegante"
+  },
+  {
+    "title": "Home for the Holidays",
+    "artist": "Perry Como",
+    "mood": "aconchegante"
+  },
+  {
+    "title": "Happy Holiday",
+    "artist": "Peggy Lee",
+    "mood": "aconchegante"
+  },
+  {
+    "title": "What Are You Doing New Year’s Eve?",
+    "artist": "Ella Fitzgerald",
+    "mood": "aconchegante"
+  },
+  {
+    "title": "The Man with the Bag",
+    "artist": "Kay Starr",
+    "mood": "aconchegante"
+  },
+  {
+    "title": "You’re All I Want for Christmas",
+    "artist": "Bing Crosby",
+    "mood": "aconchegante"
+  },
+  {
+    "title": "The Christmas Waltz",
+    "artist": "Frank Sinatra",
+    "mood": "aconchegante"
+  },
+  {
+    "title": "This Christmas",
+    "artist": "Donny Hathaway",
+    "mood": "aconchegante"
+  },
+  {
+    "title": "Someday at Christmas",
+    "artist": "Stevie Wonder",
+    "mood": "aconchegante"
+  },
+  {
+    "title": "River",
+    "artist": "Joni Mitchell",
+    "mood": "aconchegante"
+  },
+  {
+    "title": "Silent Night",
+    "artist": "Bing Crosby",
+    "mood": "tradicional"
+  },
+  {
+    "title": "O Holy Night",
+    "artist": "Céline Dion",
+    "mood": "tradicional"
+  },
+  {
+    "title": "Joy to the World",
+    "artist": "Whitney Houston",
+    "mood": "tradicional"
+  },
+  {
+    "title": "O Come All Ye Faithful",
+    "artist": "Nat King Cole",
+    "mood": "tradicional"
+  },
+  {
+    "title": "Hark! The Herald Angels Sing",
+    "artist": "Nat King Cole",
+    "mood": "tradicional"
+  },
+  {
+    "title": "The First Noel",
+    "artist": "Nat King Cole",
+    "mood": "tradicional"
+  },
+  {
+    "title": "God Rest Ye Merry, Gentlemen",
+    "artist": "Barenaked Ladies e Sarah McLachlan",
+    "mood": "tradicional"
+  },
+  {
+    "title": "Deck the Halls",
+    "artist": "Nat King Cole",
+    "mood": "tradicional"
+  },
+  {
+    "title": "Ding Dong Merrily on High",
+    "artist": "Choir of King’s College, Cambridge",
+    "mood": "tradicional"
+  },
+  {
+    "title": "O Little Town of Bethlehem",
+    "artist": "Nat King Cole",
+    "mood": "tradicional"
+  },
+  {
+    "title": "We Three Kings",
+    "artist": "The Beach Boys",
+    "mood": "tradicional"
+  },
+  {
+    "title": "Away in a Manger",
+    "artist": "Nat King Cole",
+    "mood": "tradicional"
+  },
+  {
+    "title": "Good King Wenceslas",
+    "artist": "Choir of King’s College, Cambridge",
+    "mood": "tradicional"
+  },
+  {
+    "title": "In the Bleak Midwinter",
+    "artist": "Choir of King’s College, Cambridge",
+    "mood": "tradicional"
+  },
+  {
+    "title": "Angels We Have Heard on High",
+    "artist": "Pentatonix",
+    "mood": "tradicional"
+  },
+  {
+    "title": "Mary, Did You Know?",
+    "artist": "Pentatonix",
+    "mood": "tradicional"
+  },
+  {
+    "title": "Go Tell It on the Mountain",
+    "artist": "Mahalia Jackson",
+    "mood": "tradicional"
+  },
+  {
+    "title": "Do You Hear What I Hear?",
+    "artist": "Whitney Houston",
+    "mood": "tradicional"
+  },
+  {
+    "title": "Coventry Carol",
+    "artist": "Pentatonix",
+    "mood": "tradicional"
+  },
+  {
+    "title": "O Come, O Come, Emmanuel",
+    "artist": "Enya",
+    "mood": "tradicional"
+  },
+  {
+    "title": "Então é Natal",
+    "artist": "Simone",
+    "mood": "brasileiro"
+  },
+  {
+    "title": "Natal das Crianças",
+    "artist": "Simone",
+    "mood": "brasileiro"
+  },
+  {
+    "title": "Boas Festas",
+    "artist": "Assis Valente",
+    "mood": "brasileiro"
+  },
+  {
+    "title": "Bate o Sino",
+    "artist": "Tradicional",
+    "mood": "brasileiro"
+  },
+  {
+    "title": "Noite Feliz",
+    "artist": "Tradicional",
+    "mood": "brasileiro"
+  },
+  {
+    "title": "Papai Noel Velhinho",
+    "artist": "Tradicional",
+    "mood": "brasileiro"
+  },
+  {
+    "title": "O Velhinho",
+    "artist": "Tradicional",
+    "mood": "brasileiro"
+  },
+  {
+    "title": "Sapatinho de Natal",
+    "artist": "Tradicional",
+    "mood": "brasileiro"
+  },
+  {
+    "title": "Vem Chegando o Natal",
+    "artist": "Aline Barros",
+    "mood": "brasileiro"
+  },
+  {
+    "title": "Depende de Nós",
+    "artist": "Ivan Lins",
+    "mood": "brasileiro"
+  },
+  {
+    "title": "Linda Noite de Natal",
+    "artist": "Simone",
+    "mood": "brasileiro"
+  },
+  {
+    "title": "Um Feliz Natal",
+    "artist": "Roupa Nova",
+    "mood": "brasileiro"
+  },
+  {
+    "title": "Natal Todo Dia",
+    "artist": "Roupa Nova",
+    "mood": "brasileiro"
+  },
+  {
+    "title": "Papai Noel Existe",
+    "artist": "Chitãozinho & Xororó",
+    "mood": "brasileiro"
+  },
+  {
+    "title": "Meu Menino Jesus",
+    "artist": "Simone",
+    "mood": "brasileiro"
+  },
+  {
+    "title": "Natal Branco",
+    "artist": "Simone",
+    "mood": "brasileiro"
+  },
+  {
+    "title": "Jesus, Alegria dos Homens",
+    "artist": "Coral",
+    "mood": "brasileiro"
+  },
+  {
+    "title": "Glória in Excelsis Deo",
+    "artist": "Coral",
+    "mood": "brasileiro"
+  },
+  {
+    "title": "A Todos um Bom Natal",
+    "artist": "Tradicional",
+    "mood": "brasileiro"
+  },
+  {
+    "title": "É Natal",
+    "artist": "Diante do Trono",
+    "mood": "brasileiro"
+  },
+  {
+    "title": "Rudolph the Red-Nosed Reindeer",
+    "artist": "Gene Autry",
+    "mood": "familia"
+  },
+  {
+    "title": "Frosty the Snowman",
+    "artist": "Gene Autry",
+    "mood": "familia"
+  },
+  {
+    "title": "Here Comes Santa Claus",
+    "artist": "Gene Autry",
+    "mood": "familia"
+  },
+  {
+    "title": "Santa Claus Is Coming to Town",
+    "artist": "The Jackson 5",
+    "mood": "familia"
+  },
+  {
+    "title": "I Saw Mommy Kissing Santa Claus",
+    "artist": "The Jackson 5",
+    "mood": "familia"
+  },
+  {
+    "title": "You’re a Mean One, Mr. Grinch",
+    "artist": "Thurl Ravenscroft",
+    "mood": "familia"
+  },
+  {
+    "title": "Where Are You Christmas?",
+    "artist": "Faith Hill",
+    "mood": "familia"
+  },
+  {
+    "title": "Believe",
+    "artist": "Josh Groban",
+    "mood": "familia"
+  },
+  {
+    "title": "When Christmas Comes to Town",
+    "artist": "Matthew Hall e Meagan Moore",
+    "mood": "familia"
+  },
+  {
+    "title": "Hot Chocolate",
+    "artist": "Tom Hanks",
+    "mood": "familia"
+  },
+  {
+    "title": "What’s This?",
+    "artist": "Danny Elfman",
+    "mood": "familia"
+  },
+  {
+    "title": "Making Christmas",
+    "artist": "Danny Elfman",
+    "mood": "familia"
+  },
+  {
+    "title": "Kidnap the Sandy Claws",
+    "artist": "Danny Elfman, Catherine O’Hara e Paul Reubens",
+    "mood": "familia"
+  },
+  {
+    "title": "One More Sleep ’Til Christmas",
+    "artist": "Kermit the Frog",
+    "mood": "familia"
+  },
+  {
+    "title": "It Feels Like Christmas",
+    "artist": "The Muppets",
+    "mood": "familia"
+  },
+  {
+    "title": "Thankful Heart",
+    "artist": "Michael Caine",
+    "mood": "familia"
+  },
+  {
+    "title": "Walking in the Air",
+    "artist": "Peter Auty",
+    "mood": "familia"
+  },
+  {
+    "title": "Somewhere in My Memory",
+    "artist": "John Williams",
+    "mood": "familia"
+  },
+  {
+    "title": "Carol of the Bells",
+    "artist": "John Williams",
+    "mood": "familia"
+  },
+  {
+    "title": "The Twelve Days of Christmas",
+    "artist": "John Denver & The Muppets",
+    "mood": "familia"
+  }
+]

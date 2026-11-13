@@ -156,11 +156,14 @@ function reveal(door, entry, presentation, day, month) {
   }, reducedMotion.matches ? 0 : 360);
 }
 
+const doorOrnaments = ['presente', 'bengala', 'arvore', 'bola', 'estrela', 'gorro'];
+
 function createDoor(entry, presentation, day, month) {
   const template = document.querySelector('#door-template');
   const door = template.content.firstElementChild.cloneNode(true);
   door.querySelector('strong').textContent = String(day).padStart(2, '0');
   door.querySelector('small').textContent = month.slice(0, 3).toUpperCase();
+  door.dataset.ornament = doorOrnaments[(day - 1 + (month === 'dezembro' ? 3 : 0)) % doorOrnaments.length];
   door.dataset.date = `${month}-${day}`;
   door.dataset.dateLabel = `${day} de ${month}`;
   updateDoor(door, door.dataset.dateLabel, opened.has(door.dataset.date));

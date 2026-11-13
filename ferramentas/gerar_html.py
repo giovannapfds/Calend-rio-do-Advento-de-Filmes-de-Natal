@@ -1,5 +1,6 @@
 """Gera a versão independente a partir dos arquivos usados pelo servidor."""
 
+import base64
 import json
 import re
 from pathlib import Path
@@ -14,6 +15,7 @@ def build_html():
     data_tags = [
         inline_json(PROJECT_DIR / "dados" / "filmes.json", "film-catalog"),
         inline_json(STATIC_DIR / "dados" / "filmoteca.json", "library-catalog"),
+        inline_json(STATIC_DIR / "dados" / "musicas.json", "discover-songs"),
     ]
 
     page = re.sub(
@@ -42,7 +44,21 @@ def inline_json(path, element_id):
 
 def inline_asset(filename, tag):
     content = (STATIC_DIR / filename).read_text(encoding="utf-8").rstrip()
+    if tag == "style":
+        # Incorpora a arte local para manter o HTML independente.
+        content = re.sub(
+            r'url\("(\.\./imagens/[^"]+\.(?:webp|png))"\)',
+            lambda match: inline_image(STATIC_DIR / filename, match[1]),
+            content,
+        )
     return f"<{tag}>\n{content}\n</{tag}>"
+
+
+def inline_image(stylesheet, relative_path):
+    image = (stylesheet.parent / relative_path).read_bytes()
+    encoded = base64.b64encode(image).decode("ascii")
+    image_format = Path(relative_path).suffix[1:]
+    return f'url("data:image/{image_format};base64,{encoded}")'
 
 
 if __name__ == "__main__":

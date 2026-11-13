@@ -624,3 +624,163 @@ dialog h2 {
   color: #fff6e5;
   font-size: 13px;
 }
+
+/* Ilustrações presas à face da portinha, acima do número. */
+.door-ornament {
+  position: absolute;
+  top: 6%;
+  left: 50%;
+  width: 20%;
+  height: 17%;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 1px 2px #0009);
+}
+
+.door-ornament::before,
+.door-ornament::after {
+  position: absolute;
+}
+
+[data-ornament="presente"] .door-ornament {
+  top: 8%;
+  height: 14%;
+  border-radius: 2px;
+  background:
+    linear-gradient(90deg, transparent 40%, #ffe39b 40% 59%, transparent 59%),
+    linear-gradient(#fa8291 28%, #c43d58 28%);
+}
+
+[data-ornament="presente"] .door-ornament::before {
+  content: "";
+  width: 34%;
+  height: 32%;
+  top: -32%;
+  left: 16%;
+  border: 1px solid #ffe39b;
+  border-radius: 50% 55% 0 55%;
+  box-shadow: 4px 0 0 -1px #ffe39b;
+}
+
+[data-ornament="bengala"] .door-ornament {
+  width: 12%;
+  background: repeating-linear-gradient(-35deg, #fff4df 0 3px, #d83b55 3px 6px);
+  mask: radial-gradient(ellipse at 51% 38%, transparent 24%, #000 27% 67%, transparent 70%) top / 100% 83% no-repeat,
+    linear-gradient(#000 0 0) right 10% bottom / 28% 64% no-repeat;
+  transform: translateX(-50%) rotate(18deg);
+}
+
+[data-ornament="arvore"] .door-ornament {
+  background: linear-gradient(#bbf5cb, #4baa78);
+  clip-path: polygon(50% 0, 73% 37%, 63% 37%, 87% 66%, 73% 66%, 100% 90%, 59% 90%, 59% 100%, 41% 100%, 41% 90%, 0 90%, 27% 66%, 13% 66%, 37% 37%, 27% 37%);
+}
+
+[data-ornament="bola"] .door-ornament {
+  width: 13%;
+  height: 14%;
+  top: 9%;
+  border-radius: 50%;
+  background: linear-gradient(150deg, #ff9dba 26%, #ffe49e 27% 40%, #d34f75 41%);
+}
+
+[data-ornament="bola"] .door-ornament::before {
+  content: "";
+  inset: -15% 32% 86%;
+  border-radius: 2px;
+  background: #ffe49e;
+}
+
+[data-ornament="estrela"] .door-ornament {
+  background: linear-gradient(#fff4c6, #e6ac48);
+  clip-path: polygon(50% 0, 61% 34%, 98% 36%, 69% 59%, 79% 95%, 50% 74%, 21% 95%, 31% 59%, 2% 36%, 39% 34%);
+}
+
+[data-ornament="gorro"] .door-ornament::before {
+  content: "";
+  inset: 0 6% 14%;
+  background: #f66e7c;
+  clip-path: polygon(11% 100%, 46% 3%, 77% 12%, 100% 53%, 71% 45%, 87% 100%);
+}
+
+[data-ornament="gorro"] .door-ornament::after {
+  content: "";
+  inset: 74% 8% 0;
+  border-radius: 6px;
+  background: #fff4df;
+}
+
+/* Barra vertical em estilo bengala doce. */
+@media (hover: hover) and (pointer: fine) and (forced-colors: none) {
+  html {
+    scrollbar-color: #168238 #c72639;
+  }
+
+  @supports selector(::-webkit-scrollbar) {
+    html {
+      scrollbar-color: auto;
+    }
+
+    html::-webkit-scrollbar {
+      width: 14px;
+    }
+
+    html::-webkit-scrollbar-track {
+      border-radius: 8px;
+      background: repeating-linear-gradient(60deg, #e51e35 0 42px, #fff6ed 42px 84px);
+    }
+
+    html::-webkit-scrollbar-thumb {
+      min-height: 38px;
+      border-radius: 8px;
+      background: repeating-linear-gradient(120deg, #087c25 0 13px, #fffdf5 13px 24px);
+    }
+
+    html::-webkit-scrollbar-thumb:hover {
+      background: repeating-linear-gradient(120deg, #096a25 0 13px, #fffdf5 13px 24px);
+    }
+  }
+}
+
+/* Ramos sobre o fio de luzes e laços ao lado dos meses. */
+.christmas-garland {
+  display: flex;
+  justify-content: center;
+  height: 21px;
+  max-width: 1040px;
+  margin-inline: auto;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.christmas-garland span {
+  flex: 1 1 0;
+  border-radius: 0 0 50% 50%;
+  border-bottom: 4px solid #467955;
+  background:
+    radial-gradient(circle at 48% 77%, #f58d8c 0 2px, transparent 3px),
+    radial-gradient(circle at 52% 79%, #bc2847 0 3px, transparent 4px),
+    repeating-linear-gradient(132deg, transparent 0 7px, #3d6d46 8px 10px, transparent 11px 16px),
+    repeating-linear-gradient(48deg, #244632 0 7px, #54815c 8px 10px, #244632 11px 16px);
+}
+
+.month h2::before {
+  content: "";
+  display: inline-block;
+  width: .8em;
+  height: .65em;
+  margin-inline-end: .25em;
+  vertical-align: .06em;
+  background: linear-gradient(135deg, #ffabb6, #d6445e 50%, #a52842);
+  clip-path: polygon(0 5%, 46% 27%, 54% 27%, 100% 5%, 96% 66%, 63% 56%, 82% 100%, 59% 89%, 50% 64%, 41% 89%, 18% 100%, 37% 56%, 4% 66%);
+}
+
+.hero-decoration::before,
+.hero-decoration::after {
+  content: "";
+  width: clamp(20px, 6vw, 80px);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #f1c875);
+}
+
+.hero-decoration::after {
+  transform: scaleX(-1);
+}

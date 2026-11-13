@@ -16,6 +16,7 @@
 <header class="top">
   <a class="brand" href="#calendario">✦ <span>Cinema de Natal</span></a>
   <div class="sound-controls">
+  <button id="santa-call" class="sound" type="button" hidden>Chamar Papai Noel</button>
   <button id="soundtrack-toggle" class="sound" type="button" aria-controls="soundtrack" aria-expanded="false" hidden>♫ Trilha sonora</button>
   <button id="sound" class="sound" type="button" aria-pressed="true">♫ Som ligado</button>
   </div>
@@ -28,8 +29,13 @@
   <a href="#sessao">Minha sessão</a>
   <a href="#minha-lista">Minha lista</a>
   <a href="#checklist">Checklist de Natal</a>
+  <a href="#descobrir">Descubra seu Natal</a>
   <a href="#como-usar">Como usar</a>
 </nav>
+<div class="christmas-garland" aria-hidden="true">
+  <span></span><span></span><span></span>
+</div>
+<div class="christmas-lights" aria-hidden="true"></div>
 <section id="soundtrack" class="panel-card soundtrack" aria-labelledby="soundtrack-title" hidden>
   <div class="soundtrack-header">
     <h2 id="soundtrack-title">Jazz de Natal</h2>
@@ -42,7 +48,7 @@
 <main id="conteudo" tabindex="-1">
 <div id="calendario" data-panel>
   <section class="hero" aria-labelledby="title">
-    <div class="hero-decoration" aria-hidden="true">✦ <span>❋</span> ✦</div>
+    <div class="hero-decoration" aria-hidden="true">✧ <span>❄</span> ✧</div>
     <p class="eyebrow">13 de novembro a 24 de dezembro · 2026</p>
     <h1 id="title">Calendário do Advento<br><em>de Filmes de Natal</em></h1>
     <p class="intro">Abra uma portinha para descobrir o filme, o resumo e onde assistir.</p>
@@ -189,6 +195,22 @@
     </section>
   </div>
 </section>
+<section id="descobrir" class="panel-section" data-panel hidden aria-labelledby="discover-title">
+  <h1 id="discover-title">Descubra seu Natal</h1>
+  <p>Encontre uma música ou um filme entre 100 opções de cada.</p>
+  <form id="discover-form" class="panel-card discover-card">
+    <label for="discover-kind">O que você quer descobrir?</label>
+    <select id="discover-kind">
+      <option value="song">Minha música de Natal</option>
+      <option value="movie">Meu filme de Natal</option>
+    </select>
+    <label for="discover-mood">Qual clima combina com você hoje?</label>
+    <select id="discover-mood"></select>
+    <button class="panel-button" type="submit">Descobrir</button>
+    <p id="discover-status" role="status" hidden></p>
+  </form>
+  <article id="discover-result" class="panel-card discover-card" tabindex="-1" hidden></article>
+</section>
 <section id="como-usar" class="panel-section" data-panel hidden aria-labelledby="guide-title">
   <h1 id="guide-title">Como usar o Cinema de Natal</h1>
   <p class="guide-intro">Escolha um filme, combine com algo gostoso e prepare sua sessão.</p>
@@ -227,7 +249,7 @@
 <template id="door-template">
   <button class="door" type="button" aria-haspopup="dialog">
     <span class="inside" aria-hidden="true">✦</span>
-    <span class="face" aria-hidden="true"><strong></strong><small></small></span>
+    <span class="face" aria-hidden="true"><span class="door-ornament"></span><strong></strong><small></small></span>
   </button>
 </template>
 <footer>Catálogo brasileiro consultado em 12/11/2026. A disponibilidade pode mudar.</footer>
@@ -266,6 +288,17 @@
 <script defer src="js/quiz.js"></script>
 <script defer src="js/checklist.js"></script>
 <script defer src="js/sessoes.js"></script>
+<div id="santa-visit" class="santa-visit" aria-hidden="true" hidden>
+  <span class="santa-visit-sprite"></span>
+</div>
+<aside id="santa-gift" class="panel-card santa-gift" aria-labelledby="santa-gift-title" hidden>
+  <button id="santa-gift-close" class="sound" type="button" aria-label="Fechar presente">×</button>
+  <h2 id="santa-gift-title">Um presente de Natal</h2>
+  <p role="status">Que o seu Natal tenha tempo para um bom filme e para quem faz você sorrir.</p>
+  <button id="santa-gift-today" class="panel-button" type="button" hidden>Ver o filme de hoje</button>
+</aside>
+<script defer src="js/descobrir.js"></script>
 <script defer src="js/painel.js"></script>
+<script defer src="js/papai-noel.js"></script>
 </body>
 </html>
